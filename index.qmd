@@ -37,10 +37,10 @@ When I'm not forcing matrix operations down my GPU, I try to partake in a load o
 
 ## Education
 
-University of California, Riverside | USA\
+#### University of California, Riverside\
 **MSCS** | Sept 2023 - Present\
 
-PES University | India\
+#### PES University\
 **B.Tech CS** | Aug 2019 - June 2023
 
 :::

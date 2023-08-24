@@ -15,13 +15,12 @@ website:
       <span text-align="center" class="faux-block">&#169; 2023 Harshith Mohan Kumar CC BY-SA 4.0</span>
     right: |
       <span text-align="center" class="faux-block"><a href="mailto:mail.hiharshith18@gmail.com">Contact Me!</a></span>
+      
 
 format:
   html:
     from: markdown+emoji
-    theme: 
-      light: sandstone
-      dark: [sandstone, theme-dark.scss]
+    theme: sandstone
     css: _sandstone.scss
     toc: true
 
