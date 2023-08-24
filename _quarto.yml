@@ -5,8 +5,9 @@ project:
 website:
   page-navigation: true
   title: "HMK"
+  favicon: images/profile.jpg
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - publications.qmd
@@ -19,8 +20,11 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    from: markdown+emoji
+    theme: 
+      light: sandstone
+      dark: [sandstone, theme-dark.scss]
+    css: _sandstone.scss
+    toc: false
 
 

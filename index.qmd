@@ -1,8 +1,10 @@
 ---
 title: "Harshith Mohan Kumar"
+page-layout: full
+toc: false
 about:
   template: trestles
-  id: about-block
+  id: hero-heading
   image: "images/profile.jpg"
   image-shape: rounded
   image-width: 25em
@@ -20,28 +22,18 @@ about:
       text: Email
       href: "mailto:mail.hiharshith18@gmail.com"
 ---
-
-<!-- ::: {#about-block}
-:::
-
-
- I am Harshith Mohan Kumar.
-
-I'm currently a graduate student at University of California, Riverside. I finished my undergrad in Computer Science and Engineering from PES University.
-
-
-
-# News
-- Presented at the [MLG workshop](https://www.mlgworkshop.ml/) part of ECML-PKDD'22 where we recieved best student paper award for our work!
- -->
-
-<!-- ### This content appears above the formatted about page content. -->
 :::{#hero-heading}
 
 ## Hi there 👋
-I'm Harshith, an aspiring Machine Learning/Computer Vision Engineer. I love to read, workout, play video games and partake in competitive activities.\
+I'm Harshith, welcome to my personal site! 
 
-[Click here](fun.qmd) to learn more fun facts about me :)
+I'm currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.
+
+With the privilege of interning at Intel, contributing to Google Summer of Code, and being part of the esteemed environment at the Indian Institute of Science, I bring a rich tapestry of experiences.
+
+My journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications [here](publications.qmd).
+
+
 
 ## Education
 
@@ -51,14 +43,19 @@ University of California, Riverside | USA\
 PES University | India\
 **B.Tech CS** | Aug 2019 - June 2023
 
+:::
+
+:::{#news}
+
 ## Recent News
 
+### 2023
 - *[08/07/23]* - Extended abstract accepted at [ICCV'23 BRAVO Workshop](https://valeoai.github.io/bravo/)!
 - *[07/20/23]* - [OCTraN](https://arxiv.org/abs/2307.10934) now on ArXiv.
 - *[05/29/23]* - OCTraN paper accepted at [CVPR'23 T4V Workshop](https://sites.google.com/view/t4v-cvpr23/papers)!
 - *[01/02/23]* - Working as ML Intern at Intel!
+
+### 2022
 - *[09/23/22]* - Won **Best Student Paper Award** at [ECML-PKDD'22 MLG workshop](https://www.mlgworkshop.ml/)
 
 :::
-
-<!-- ### This content appears below the formatted about page content. -->
