@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Harshith Mohan Kumar",
     "section": "",
-    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Twitter\n  \n  \n    \n     Email\n  \n\n\n\nHi there 👋 I am Harshith Mohan Kumar.\nI’m currently a graduate student at University of California, Riverside. I finished my undergrad in Computer Science and Engineering from PES University.\n\nNews\n\nPresented at the MLG workshop part of ECML-PKDD’22 where we recieved best student paper award for our work!"
+    "text": "I’m Harshith, an aspiring Machine Learning/Computer Vision Engineer. I love to read, workout, play video games and partake in competitive activities.\n\nClick here to learn more fun facts about me :)\n\n\n\nUniversity of California, Riverside | USA\nMSCS | Sept 2023 - Present\n\nPES University | India\nB.Tech CS | Aug 2019 - June 2023\n\n\n\n\n[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop!\n[07/20/23] - OCTraN now on ArXiv.\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop!\n[01/02/23] - Working as ML Intern at Intel!\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
   },
   {
     "objectID": "publications.html",
@@ -19,5 +19,40 @@
     "title": "Publications",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "University of California, Riverside | USA\nMSCS | Sept 2023 - Present\n\nPES University | India\nB.Tech CS | Aug 2019 - June 2023"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "Intel\nMachine Learning Intern | June 2023 - July 2023\nGoogle Summer of Code | Red Hen Labs\nContributor | June 2022 - Sept 2022\nPES University\nTeaching Assistant | Jun\nIndian Institute of Science\nSummer Research Fellowship | May 2021 - July 2021"
+  },
+  {
+    "objectID": "index.html#hi-there",
+    "href": "index.html#hi-there",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "I’m Harshith, an aspiring Machine Learning/Computer Vision Engineer. I love to read, workout, play video games and partake in competitive activities.\n\nClick here to learn more fun facts about me :)"
+  },
+  {
+    "objectID": "index.html#news",
+    "href": "index.html#news",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "Presented at the MLG workshop part of ECML-PKDD’22 where we recieved best student paper award for our work!"
+  },
+  {
+    "objectID": "index.html#recent-news",
+    "href": "index.html#recent-news",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop!\n[07/20/23] - OCTraN now on ArXiv.\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop!\n[01/02/23] - Working as ML Intern at Intel!\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
   }
 ]

@@ -1,9 +1,11 @@
 ---
 title: "Harshith Mohan Kumar"
 about:
-  template: jolla
+  template: trestles
   id: about-block
-  image: "images/my_image.jpg"
+  image: "images/profile.jpg"
+  image-shape: rounded
+  image-width: 25em
   links:
     - icon: github
       text: GitHub
@@ -19,11 +21,11 @@ about:
       href: "mailto:mail.hiharshith18@gmail.com"
 ---
 
-::: {#about-block}
+<!-- ::: {#about-block}
 :::
 
 
-Hi there 👋 I am Harshith Mohan Kumar.
+ I am Harshith Mohan Kumar.
 
 I'm currently a graduate student at University of California, Riverside. I finished my undergrad in Computer Science and Engineering from PES University.
 
@@ -31,4 +33,32 @@ I'm currently a graduate student at University of California, Riverside. I finis
 
 # News
 - Presented at the [MLG workshop](https://www.mlgworkshop.ml/) part of ECML-PKDD'22 where we recieved best student paper award for our work!
+ -->
 
+<!-- ### This content appears above the formatted about page content. -->
+:::{#hero-heading}
+
+## Hi there 👋
+I'm Harshith, an aspiring Machine Learning/Computer Vision Engineer. I love to read, workout, play video games and partake in competitive activities.\
+
+[Click here](fun.qmd) to learn more fun facts about me :)
+
+## Education
+
+University of California, Riverside | USA\
+**MSCS** | Sept 2023 - Present\
+
+PES University | India\
+**B.Tech CS** | Aug 2019 - June 2023
+
+## Recent News
+
+- *[08/07/23]* - Extended abstract accepted at [ICCV'23 BRAVO Workshop](https://valeoai.github.io/bravo/)!
+- *[07/20/23]* - [OCTraN](https://arxiv.org/abs/2307.10934) now on ArXiv.
+- *[05/29/23]* - OCTraN paper accepted at [CVPR'23 T4V Workshop](https://sites.google.com/view/t4v-cvpr23/papers)!
+- *[01/02/23]* - Working as ML Intern at Intel!
+- *[09/23/22]* - Won **Best Student Paper Award** at [ECML-PKDD'22 MLG workshop](https://www.mlgworkshop.ml/)
+
+:::
+
+<!-- ### This content appears below the formatted about page content. -->
