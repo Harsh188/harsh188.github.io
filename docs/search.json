@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Harshith Mohan Kumar",
     "section": "",
-    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Twitter\n  \n  \n    \n     Email\n  \n\n  \n  \n\n\nI’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being part of the esteemed environment at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here.\n\n\n\nUniversity of California, Riverside | USA\nMSCS | Sept 2023 - Present\n\nPES University | India\nB.Tech CS | Aug 2019 - June 2023"
+    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Twitter\n  \n  \n    \n     Email\n  \n\n  \n  \n\n\nI’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being part of the esteemed environment at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here.\nWhen I’m not forcing matrix operations down my GPU, I try to partake in a load of activites. Explore the fun page to see what I’m up to these days!\n\n\n\nUniversity of California, Riverside | USA\nMSCS | Sept 2023 - Present\n\nPES University | India\nB.Tech CS | Aug 2019 - June 2023"
   },
   {
     "objectID": "publications.html",
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "About this site"
+    "text": "If you can’t find it here then you can find it on my Google Scholar!"
   },
   {
     "objectID": "index.html#education",
@@ -39,7 +39,7 @@
     "href": "index.html#hi-there",
     "title": "Harshith Mohan Kumar",
     "section": "",
-    "text": "I’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being part of the esteemed environment at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here."
+    "text": "I’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being part of the esteemed environment at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here.\nWhen I’m not forcing matrix operations down my GPU, I try to partake in a load of activites. Explore the fun page to see what I’m up to these days!"
   },
   {
     "objectID": "index.html#news",
@@ -54,5 +54,33 @@
     "title": "Harshith Mohan Kumar",
     "section": "Recent News",
     "text": "Recent News\n\n2023\n\n[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop!\n[07/20/23] - OCTraN now on ArXiv.\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop!\n[01/02/23] - Working as ML Intern at Intel!\n\n\n\n2022\n\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "publications.html#section-1",
+    "href": "publications.html#section-1",
+    "title": "Publications",
+    "section": "2022",
+    "text": "2022\n\nGraphCoReg: Co-Training for Regression on Temporal Graphs\n[Paper]\n\nHarshith Mohan Kumar, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das\nECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | Submissions\nBest Student Paper Award\n\nMultivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA\n[Paper]\n\nVibha Masti, Vishruth Veerendranath, Harshith Mohan Kumar\nICML 2022 1st Workshop on Healthcare AI and COVID-19\nIEEE Region 10 Symposium (TENSYMP) 2022\n\nSemi-supervised Learning with In-domain Pre-training and Deep Co-training\n[Paper]\n\nBhaskarjyoti Das, Harshith Mohan Kumar, Divya Shekar, Mohammed Zayd Jamadar\nSpringer Nature ICICCT 2022"
+  },
+  {
+    "objectID": "publications.html#section-2",
+    "href": "publications.html#section-2",
+    "title": "Publications",
+    "section": "2021",
+    "text": "2021\n\nClassification of Recyclable Waste Generated in Indian Households\n[Paper]\n\nHarshith MohanKumar, Mohammed Zayd Jamadar, S Natarajan, H Nithin\nSpringer WorldS4 2021"
+  },
+  {
+    "objectID": "publications.html#section",
+    "href": "publications.html#section",
+    "title": "Publications",
+    "section": "2023",
+    "text": "2023\n\nFusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios \n\nHarshith Mohan Kumar, Sean Lawrence\nICCV 2023 BRAVO Workshop | Website\n\nOCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios\n[Paper] [Additional]\n\nAditya N Ganesh, Dhruval Pobbathi Badrinath, Harshith Mohan Kumar, Priya S S, Surabhi Narayan\nCVPR 2023 T4V Workshop | Website"
   }
 ]

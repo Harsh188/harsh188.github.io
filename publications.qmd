@@ -1,5 +1,43 @@
 ---
 title: "Publications"
+toc: true
 ---
 
-About this site
+:::{#peer-review}
+If you can't find it here then you can find it on my [Google Scholar](https://scholar.google.com/citations?user=7hBzcg0AAAAJ&hl=en)!
+:::
+
+## 2023
+- ### Fusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios </span>
+    - ***Harshith Mohan Kumar****, Sean Lawrence*
+    - ICCV 2023 BRAVO Workshop | [Website](https://valeoai.github.io/bravo/)
+
+- ### OCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios 
+[[Paper]](https://arxiv.org/abs/2307.10934) [[Additional]](https://sites.google.com/view/t4v-cvpr23/papers?authuser=0)
+    - *Aditya N Ganesh, Dhruval Pobbathi Badrinath, **Harshith Mohan Kumar**, Priya S S, Surabhi Narayan*
+    - CVPR 2023 T4V Workshop | [Website](https://sites.google.com/view/t4v-cvpr23/papers?authuser=0)
+
+## 2022
+- ### GraphCoReg: Co-Training for Regression on Temporal Graphs 
+[[Paper]](https://openreview.net/pdf?id=JExuzizhS-p)
+    - ***Harshith Mohan Kumar****, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das*
+    - ECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | [Submissions](https://openreview.net/submissions?venue=ecmlpkdd.org/ECMLPKDD/2022/Workshop/MLG)
+    - **Best Student Paper Award**
+
+- ### Multivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA 
+[[Paper]](https://ieeexplore.ieee.org/document/9864476)
+    - *Vibha Masti, Vishruth Veerendranath, **Harshith Mohan Kumar***
+    - ICML 2022 1st Workshop on Healthcare AI and COVID-19
+    - IEEE Region 10 Symposium (TENSYMP) 2022
+
+- ### Semi-supervised Learning with In-domain Pre-training and Deep Co-training
+[[Paper]](https://link.springer.com/chapter/10.1007/978-981-19-4960-9_49)
+    - *Bhaskarjyoti Das, **Harshith Mohan Kumar**, Divya Shekar, Mohammed Zayd Jamadar*
+    - Springer Nature ICICCT 2022 
+
+## 2021
+
+- ### Classification of Recyclable Waste Generated in Indian Households
+[[Paper]](https://link.springer.com/chapter/10.1007/978-981-16-6309-3_48)
+    - ***Harshith MohanKumar****, Mohammed Zayd Jamadar, S Natarajan, H Nithin*
+    - Springer WorldS4 2021

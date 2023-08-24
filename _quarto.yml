@@ -5,11 +5,9 @@ project:
 website:
   page-navigation: true
   title: "HMK"
-  favicon: images/profile.jpg
+  favicon: images/favicon-32x32.png
   navbar:
     right:
-      - href: index.qmd
-        text: Home
       - publications.qmd
       - fun.qmd
   page-footer:
@@ -25,6 +23,6 @@ format:
       light: sandstone
       dark: [sandstone, theme-dark.scss]
     css: _sandstone.scss
-    toc: false
+    toc: true
 
 
