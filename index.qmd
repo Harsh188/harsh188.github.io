@@ -1,0 +1,34 @@
+---
+title: "Harshith Mohan Kumar"
+about:
+  template: jolla
+  id: about-block
+  image: "images/my_image.jpg"
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/Harsh188
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/harsh188/
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/MarvinSchmittML
+    - icon: envelope
+      text: Email
+      href: "mailto:mail.hiharshith18@gmail.com"
+---
+
+::: {#about-block}
+:::
+
+
+Hi there 👋 I am Harshith Mohan Kumar.
+
+I'm currently a graduate student at University of California, Riverside. I finished my undergrad in Computer Science and Engineering from PES University.
+
+
+
+# News
+- Presented at the [MLG workshop](https://www.mlgworkshop.ml/) part of ECML-PKDD'22 where we recieved best student paper award for our work!
+

@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  page-navigation: true
+  title: "HMK"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - publications.qmd
+      - fun.qmd
+  page-footer:
+    left: |
+      <span text-align="center" class="faux-block">&#169; 2023 Harshith Mohan Kumar CC BY-SA 4.0</span>
+    right: |
+      <span text-align="center" class="faux-block"><a href="mailto:mail.hiharshith18@gmail.com">Contact Me!</a></span>
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
