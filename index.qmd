@@ -17,10 +17,10 @@ about:
       href: https://www.linkedin.com/in/harsh188/
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/MarvinSchmittML
+      href: https://twitter.com/Call_Me_Harsh18
     - icon: envelope
       text: Email
-      href: "mailto:mail.hiharshith18@gmail.com"
+      href: "mailto:hiharshith18@gmail.com"
 ---
 :::{#hero-heading}
 
