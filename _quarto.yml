@@ -9,7 +9,9 @@ website:
   navbar:
     right:
       - publications.qmd
-      - fun.qmd
+      # - fun.qmd
+      - text: Resume
+        href: resumes/HMK_Resume.pdf
   page-footer:
     left: |
       <span text-align="center" class="faux-block">&#169; 2023 Harshith Mohan Kumar CC BY-SA 4.0</span>
