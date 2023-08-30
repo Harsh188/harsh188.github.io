@@ -1,124 +1,5 @@
 [
   {
-    "objectID": "fun.html",
-    "href": "fun.html",
-    "title": "Fun",
-    "section": "",
-    "text": "Looks like I’m not having too much fun right now!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Twitter\n  \n  \n    \n     Email\n  \n\n  \n  \n\n\nI’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here.\n\n\n\n\n\n\nMSCS | Sept 2023 - Present\n\n\n\n\nB.Tech CS | Aug 2019 - June 2023"
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "If you can’t find it here then you can find it on my Google Scholar!"
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "MSCS | Sept 2023 - Present\n\n\n\n\nB.Tech CS | Aug 2019 - June 2023"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "Intel\nMachine Learning Intern | June 2023 - July 2023\nGoogle Summer of Code | Red Hen Labs\nContributor | June 2022 - Sept 2022\nPES University\nTeaching Assistant | Jun\nIndian Institute of Science\nSummer Research Fellowship | May 2021 - July 2021"
-  },
-  {
-    "objectID": "index.html#hi-there",
-    "href": "index.html#hi-there",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "I’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here."
-  },
-  {
-    "objectID": "index.html#news",
-    "href": "index.html#news",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "Presented at the MLG workshop part of ECML-PKDD’22 where we recieved best student paper award for our work!"
-  },
-  {
-    "objectID": "index.html#recent-news",
-    "href": "index.html#recent-news",
-    "title": "Harshith Mohan Kumar",
-    "section": "Recent News",
-    "text": "Recent News\n\n2023\n\n[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop!\n[07/20/23] - OCTraN now on ArXiv.\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop!\n[01/02/23] - Working as ML Intern at Intel!\n\n\n\n2022\n\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "publications.html#section-1",
-    "href": "publications.html#section-1",
-    "title": "Publications",
-    "section": "2022",
-    "text": "2022\n\nGraphCoReg: Co-Training for Regression on Temporal Graphs\n[Paper]\n\nHarshith Mohan Kumar, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das\nECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | Submissions\nBest Student Paper Award\n\nMultivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA\n[Paper]\n\nVibha Masti, Vishruth Veerendranath, Harshith Mohan Kumar\nICML 2022 1st Workshop on Healthcare AI and COVID-19\nIEEE Region 10 Symposium (TENSYMP) 2022\n\nSemi-supervised Learning with In-domain Pre-training and Deep Co-training\n[Paper]\n\nBhaskarjyoti Das, Harshith Mohan Kumar, Divya Shekar, Mohammed Zayd Jamadar\nSpringer Nature ICICCT 2022"
-  },
-  {
-    "objectID": "publications.html#section-2",
-    "href": "publications.html#section-2",
-    "title": "Publications",
-    "section": "2021",
-    "text": "2021\n\nClassification of Recyclable Waste Generated in Indian Households\n[Paper]\n\nHarshith MohanKumar, Mohammed Zayd Jamadar, S Natarajan, H Nithin\nSpringer WorldS4 2021"
-  },
-  {
-    "objectID": "publications.html#section",
-    "href": "publications.html#section",
-    "title": "Publications",
-    "section": "2023",
-    "text": "2023\n\nFusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios \n\nHarshith Mohan Kumar, Sean Lawrence\nICCV 2023 BRAVO Workshop | Website\n\nOCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios\n[Paper] [Additional]\n\nAditya N Ganesh, Dhruval Pobbathi Badrinath, Harshith Mohan Kumar, Priya S S, Surabhi Narayan\nCVPR 2023 T4V Workshop | Website"
-  },
-  {
-    "objectID": "experience.html#volunteering",
-    "href": "experience.html#volunteering",
-    "title": "Experience",
-    "section": "Volunteering",
-    "text": "Volunteering\n\n\n\n\n  \n\n\n\n\nSubject Matter Expert\n\n\nPES University\n\n\n\n\nDeep Learning\n\n\nMachine Learning\n\n\nNeural Networks\n\n\n\n\nDeveloped and taught four-week curriculum for the course ‘Introduction to Machine Learning’ and held a two-day workshop on ‘Neural Networks from Scratch’ for 100…\n\n\n\n\n\n\nMay, 2021\n\n\n\n\n\n\n  \n\n\n\n\nOrganizer\n\n\nTensorFlow User Group Bangalore\n\n\n\n\nManagement\n\n\n\n\nManaged event communication and sponsorship, facilitating valuable industry connections.\n\n\n\n\n\n\nJun, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "experience.html#projects",
-    "href": "experience.html#projects",
-    "title": "Experience",
-    "section": "Projects",
-    "text": "Projects\n\n\n\n\n  \n\n\n\n\nAbstractive Text Summarized using PEGASUS\n\n\n\n\n\n\n\nMachine Learning\n\n\nArtificial Intelligence\n\n\nGCP\n\n\n\n\nThis project is a fully scalable end-to-end abstractive summarizer built on the state of the art PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive…\n\n\n\n\n\n\nJan, 2021\n\n\n\n\n\n\n  \n\n\n\n\nSentiment Analysis\n\n\n\n\n\n\n\nNLP\n\n\nMachine Learning\n\n\nArtificial Intelligence\n\n\n\n\nThis is a small NLP project which uses sentiment analysis and machine learning to classify words into positive or negative connotations. This project is a part of the final…\n\n\n\n\n\n\nMay, 2020\n\n\n\n\n\n\n  \n\n\n\n\nChatBot using DialogFlow\n\n\n\n\n\n\n\nNLP\n\n\nMachine Learning\n\n\nGCP\n\n\n\n\nBy utilizing google’s DialogFlow, I built a simple chatbot system that can detect intents and reply based on the category identified. I integrated this chatbot to Facebook…\n\n\n\n\n\n\nJan, 2020\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "experience.html",
-    "href": "experience.html",
-    "title": "Experience",
-    "section": "",
-    "text": "Google Summer of Code | Red Hen Labs\n\n\n\n\nDeep Learning\n\n\nComputer Vision\n\n\nHPC\n\n\n\n\nAutomated segmentation of old TV Broadcast recordings using multi-modal deep learning. Enabled 15x efficiency through multi-threading and array jobs on a largescale HPC GPU…\n\n\n\n\n\n\nJun, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\nIntel\n\n\n\n\nComputer Vision\n\n\nAutonomous Driving\n\n\nDeep Learning\n\n\nResearch\n\n\n\n\nDesigned novel semi-supervised learning framework for advanced driver-assistance systems (ADAS) to automate object detection labeling. Resulted in 20% improvement in…\n\n\n\n\n\n\nJan, 2023\n\n\n\n\n\n\n  \n\n\n\n\n\nEnrole Inc.\n\n\n\n\nData Analysis\n\n\nFlutter\n\n\nAPI\n\n\n\n\nDesigned novel semi-supervised learning framework for advanced driver-assistance systems (ADAS) to automate object detection labeling. Resulted in 20% improvement in…\n\n\n\n\n\n\nJun, 2020\n\n\n\n\n\n\n  \n\n\n\n\n\nIndian Institute of Science\n\n\n\n\nWiFi Networks\n\n\nResearch\n\n\nStatistical Modeling\n\n\n\n\nResearched Markov Chain-based stochastic models to reduce 802.11 WiFi router packet collisions, enhancing throughput. Verified results through NetSim and QualNet simulations.\n\n\n\n\n\n\nMay, 2021\n\n\n\n\n\n\n  \n\n\n\n\n\nPES University\n\n\n\n\nComputer Vision\n\n\nData Analysis\n\n\n\n\nCreated course slides, practical python workbooks and automated labs for the Data Analytics and Image Processing and Computer Vision courses. Improved understanding of…\n\n\n\n\n\n\nJun, 2022\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "experience.html#work",
-    "href": "experience.html#work",
-    "title": "Experience",
-    "section": "",
-    "text": "Google Summer of Code | Red Hen Labs\n\n\n\n\nDeep Learning\n\n\nComputer Vision\n\n\nHPC\n\n\n\n\nAutomated segmentation of old TV Broadcast recordings using multi-modal deep learning. Enabled 15x efficiency through multi-threading and array jobs on a largescale HPC GPU…\n\n\n\n\n\n\nJun, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\nIntel\n\n\n\n\nComputer Vision\n\n\nAutonomous Driving\n\n\nDeep Learning\n\n\nResearch\n\n\n\n\nDesigned novel semi-supervised learning framework for advanced driver-assistance systems (ADAS) to automate object detection labeling. Resulted in 20% improvement in…\n\n\n\n\n\n\nJan, 2023\n\n\n\n\n\n\n  \n\n\n\n\n\nEnrole Inc.\n\n\n\n\nData Analysis\n\n\nFlutter\n\n\nAPI\n\n\n\n\nDesigned novel semi-supervised learning framework for advanced driver-assistance systems (ADAS) to automate object detection labeling. Resulted in 20% improvement in…\n\n\n\n\n\n\nJun, 2020\n\n\n\n\n\n\n  \n\n\n\n\n\nIndian Institute of Science\n\n\n\n\nWiFi Networks\n\n\nResearch\n\n\nStatistical Modeling\n\n\n\n\nResearched Markov Chain-based stochastic models to reduce 802.11 WiFi router packet collisions, enhancing throughput. Verified results through NetSim and QualNet simulations.\n\n\n\n\n\n\nMay, 2021\n\n\n\n\n\n\n  \n\n\n\n\n\nPES University\n\n\n\n\nComputer Vision\n\n\nData Analysis\n\n\n\n\nCreated course slides, practical python workbooks and automated labs for the Data Analytics and Image Processing and Computer Vision courses. Improved understanding of…\n\n\n\n\n\n\nJun, 2022\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "experience/volunteering/pes.html",
-    "href": "experience/volunteering/pes.html",
-    "title": "Subject Matter Expert",
-    "section": "",
-    "text": "hello"
-  },
-  {
     "objectID": "experience/experience.html",
     "href": "experience/experience.html",
     "title": "Experience",
@@ -145,5 +26,75 @@
     "title": "Experience",
     "section": "Projects",
     "text": "Projects\n\n\n\n\n  \n\n\n\n\nAbstractive Text Summarized using PEGASUS\n\n\n\n\n\n\n\nMachine Learning\n\n\nArtificial Intelligence\n\n\nGCP\n\n\n\n\nThis project is a fully scalable end-to-end abstractive summarizer built on the state of the art PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive…\n\n\n\n\n\n\nJan, 2021\n\n\n\n\n\n\n  \n\n\n\n\nSentiment Analysis\n\n\n\n\n\n\n\nNLP\n\n\nMachine Learning\n\n\nArtificial Intelligence\n\n\n\n\nThis is a small NLP project which uses sentiment analysis and machine learning to classify words into positive or negative connotations. This project is a part of the final…\n\n\n\n\n\n\nMay, 2020\n\n\n\n\n\n\n  \n\n\n\n\nChatBot using DialogFlow\n\n\n\n\n\n\n\nNLP\n\n\nMachine Learning\n\n\nGCP\n\n\n\n\nBy utilizing google’s DialogFlow, I built a simple chatbot system that can detect intents and reply based on the category identified. I integrated this chatbot to Facebook…\n\n\n\n\n\n\nJan, 2020\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "If you can’t find it here then you can find it on my Google Scholar!"
+  },
+  {
+    "objectID": "publications.html#section",
+    "href": "publications.html#section",
+    "title": "Publications",
+    "section": "2023",
+    "text": "2023\n\nFusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios \n\nHarshith Mohan Kumar, Sean Lawrence\nICCV 2023 BRAVO Workshop | Website\n\nOCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios\n[Paper] [Additional]\n\nAditya N Ganesh, Dhruval Pobbathi Badrinath, Harshith Mohan Kumar, Priya S S, Surabhi Narayan\nCVPR 2023 T4V Workshop | Website"
+  },
+  {
+    "objectID": "publications.html#section-1",
+    "href": "publications.html#section-1",
+    "title": "Publications",
+    "section": "2022",
+    "text": "2022\n\nGraphCoReg: Co-Training for Regression on Temporal Graphs\n[Paper]\n\nHarshith Mohan Kumar, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das\nECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | Submissions\nBest Student Paper Award\n\nMultivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA\n[Paper]\n\nVibha Masti, Vishruth Veerendranath, Harshith Mohan Kumar\nICML 2022 1st Workshop on Healthcare AI and COVID-19\nIEEE Region 10 Symposium (TENSYMP) 2022\n\nSemi-supervised Learning with In-domain Pre-training and Deep Co-training\n[Paper]\n\nBhaskarjyoti Das, Harshith Mohan Kumar, Divya Shekar, Mohammed Zayd Jamadar\nSpringer Nature ICICCT 2022"
+  },
+  {
+    "objectID": "publications.html#section-2",
+    "href": "publications.html#section-2",
+    "title": "Publications",
+    "section": "2021",
+    "text": "2021\n\nClassification of Recyclable Waste Generated in Indian Households\n[Paper]\n\nHarshith MohanKumar, Mohammed Zayd Jamadar, S Natarajan, H Nithin\nSpringer WorldS4 2021"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Twitter\n  \n  \n    \n     Email\n  \n\n  \n  \n\n\nI’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here.\n\n\n\n\n\n\nMSCS | Sept 2023 - Present\n\n\n\n\nB.Tech CS | Aug 2019 - June 2023"
+  },
+  {
+    "objectID": "index.html#hi-there",
+    "href": "index.html#hi-there",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "I’m Harshith, welcome to my personal site!\nI’m currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Harshith Mohan Kumar",
+    "section": "",
+    "text": "MSCS | Sept 2023 - Present\n\n\n\n\nB.Tech CS | Aug 2019 - June 2023"
+  },
+  {
+    "objectID": "index.html#recent-news",
+    "href": "index.html#recent-news",
+    "title": "Harshith Mohan Kumar",
+    "section": "Recent News",
+    "text": "Recent News\n\n2023\n\n[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop!\n[07/20/23] - OCTraN now on ArXiv.\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop!\n[01/02/23] - Working as ML Intern at Intel!\n\n\n\n2022\n\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "fun.html",
+    "href": "fun.html",
+    "title": "Fun",
+    "section": "",
+    "text": "Looks like I’m not having too much fun right now!"
   }
 ]

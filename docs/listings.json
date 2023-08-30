@@ -1,20 +1,5 @@
 [
   {
-    "listing": "/experience.html",
-    "items": [
-      "/experience/work/gsoc.html",
-      "/experience/work/intel.html",
-      "/experience/work/enrole.html",
-      "/experience/work/iisc.html",
-      "/experience/work/pes.html",
-      "/experience/volunteering/pes.html",
-      "/experience/volunteering/tfug.html",
-      "/experience/projects/textSum.html",
-      "/experience/projects/sent.html",
-      "/experience/projects/dialog.html"
-    ]
-  },
-  {
     "listing": "/experience/experience.html",
     "items": [
       "/experience/work/intel.html",
