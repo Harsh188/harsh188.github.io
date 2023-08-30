@@ -1,0 +1,12 @@
+---
+title: "Software Engineering Intern"
+subtitle: "Enrole Inc."
+categories: 
+  - Data Analysis
+  - Flutter
+  - API
+description: "Designed novel semi-supervised learning framework for advanced driver-assistance systems (ADAS) to automate object
+detection labeling. Resulted in 20% improvement in accuracy and research paper acceptance at ICCV 2023 workshop. Developed proof of concept to grade severity of ADAS collision avoidance alerts enhancing fleet manager decision-making"
+image: /images/enrole.jpeg
+date: 06/02/2020
+---

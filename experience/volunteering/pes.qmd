@@ -1,0 +1,11 @@
+---
+title: "Subject Matter Expert"
+date: 05/01/2021
+subtitle: "PES University"
+categories: 
+  - Deep Learning
+  - Machine Learning
+  - Neural Networks
+description: "Developed and taught four-week curriculum for the course ‘Introduction to Machine Learning’ and held a two-day workshop on ‘Neural Networks from Scratch’ for 100 undergraduate students to encourage practical learning."
+image: /images/pesuio.png
+---

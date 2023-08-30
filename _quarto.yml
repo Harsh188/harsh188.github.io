@@ -9,6 +9,7 @@ website:
   navbar:
     right:
       - publications.qmd
+      - experience/experience.qmd
       # - fun.qmd
       - text: Resume
         href: resumes/HMK_Resume.pdf

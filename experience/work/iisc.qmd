@@ -1,0 +1,11 @@
+---
+title: "Summer Research Fellowship"
+subtitle: "Indian Institute of Science"
+categories: 
+  - WiFi Networks
+  - Research
+  - Statistical Modeling
+description: "Researched Markov Chain-based stochastic models to reduce 802.11 WiFi router packet collisions, enhancing throughput. Verified results through NetSim and QualNet simulations."
+image: /images/iisc.jpg
+date: 05/01/2021
+---

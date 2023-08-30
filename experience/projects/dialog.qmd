@@ -1,0 +1,10 @@
+---
+title: "ChatBot using DialogFlow"
+date: 01/01/2020
+categories: 
+  - NLP
+  - Machine Learning
+  - GCP
+description: "By utilizing google's DialogFlow, I built a simple chatbot system that can detect intents and reply based on the category identified. I integrated this chatbot to Facebook messenger as an independent system that can function in realtime."
+image: /images/dialogflow.png
+---

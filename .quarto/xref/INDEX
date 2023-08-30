@@ -10,5 +10,44 @@
   },
   "fun.qmd": {
     "fun.html": "98427052"
+  },
+  "experience.qmd": {
+    "experience.html": "ac719e9c"
+  },
+  "experience/work.qmd": {
+    "work.html": "a3e71666"
+  },
+  "experience/work/intel.qmd": {
+    "intel.html": "d8d90792"
+  },
+  "experience/work/gsoc.qmd": {
+    "gsoc.html": "9f91530e"
+  },
+  "experience/work/enrole.qmd": {
+    "enrole.html": "0a456a39"
+  },
+  "experience/work/iisc.qmd": {
+    "iisc.html": "9b7304ef"
+  },
+  "experience/work/pes.qmd": {
+    "pes.html": "340a647f"
+  },
+  "experience/volunteering/pes.qmd": {
+    "pes.html": "d0840e2c"
+  },
+  "experience/volunteering/tfug.qmd": {
+    "tfug.html": "589a176b"
+  },
+  "experience/projects/sent.qmd": {
+    "sent.html": "d2b18016"
+  },
+  "experience/projects/textSum.qmd": {
+    "textSum.html": "d3a06452"
+  },
+  "experience/projects/dialog.qmd": {
+    "dialog.html": "ead4735b"
+  },
+  "experience/experience.qmd": {
+    "experience.html": "442ef8e5"
   }
 }

@@ -1,0 +1,50 @@
+---
+title: "Experience"
+toc: false
+listing: 
+  - id: work
+    contents: "work/*.qmd"
+    sort: 
+    - "date desc"
+    type: default
+    image-align: left
+    max-description-length: 175
+    categories: cloud
+    date-format: "MMM, YYYY"
+    max-items: 6
+    image-height: "50%"
+  - id: volunteering
+    contents: "volunteering/*.qmd"
+    type: default
+    image-align: left
+    max-description-length: 175
+    categories: cloud
+    date-format: "MMM, YYYY"
+    max-items: 2
+    image-height: "50%"
+    sort: 
+    - "date desc"
+  - id: projects
+    contents: "projects/*.qmd"
+    type: default
+    image-align: left
+    max-description-length: 175
+    categories: cloud
+    date-format: "MMM, YYYY"
+    max-items: 3
+    image-height: "50%"
+    sort: 
+    - "date desc"
+---
+
+## Work
+:::{#work}
+:::
+
+## Volunteering
+:::{#volunteering}
+:::
+
+## Projects
+:::{#projects}
+:::

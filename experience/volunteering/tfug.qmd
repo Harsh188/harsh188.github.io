@@ -1,0 +1,9 @@
+---
+title: "Organizer"
+date: 06/01/2023
+subtitle: "TensorFlow User Group Bangalore"
+categories: 
+  - Management
+description: "Managed event communication and sponsorship, facilitating valuable industry connections."
+image: /images/tfug.jpeg
+---

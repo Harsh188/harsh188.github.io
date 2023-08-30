@@ -1,0 +1,10 @@
+---
+title: "Abstractive Text Summarized using PEGASUS"
+date: 01/01/2021
+categories: 
+  - Machine Learning
+  - Artificial Intelligence
+  - GCP
+description: "This project is a fully scalable end-to-end abstractive summarizer built on the state of the art PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization (ICML 2020) model. This deep learning transformer-based model was built last year [2020] by incredible people at Google. Our product takes this state-of-the-art model and puts it into a production environment for any user on the internet to utilize."
+image: /images/pegasus.png
+---

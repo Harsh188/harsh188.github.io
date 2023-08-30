@@ -1,0 +1,10 @@
+---
+title: "Sentiment Analysis"
+date: 05/01/2020
+categories: 
+  - NLP
+  - Machine Learning
+  - Artificial Intelligence
+description: "This is a small NLP project which uses sentiment analysis and machine learning to classify words into positive or negative connotations. This project is a part of the final project for the Getting started with NLP PES IO course. To learn more about this project feel free to check it out on GitHub."
+image: /images/sent.png
+---

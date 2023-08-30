@@ -1,0 +1,10 @@
+---
+title: "Teaching Assistant"
+subtitle: "PES University"
+categories: 
+  - Computer Vision
+  - Data Analysis
+description: "Created course slides, practical python workbooks and automated labs for the Data Analytics and Image Processing and Computer Vision courses. Improved understanding of recommender systems and morphological processing for students."
+image: /images/pes.jpg
+date: 06/01/2022
+---
