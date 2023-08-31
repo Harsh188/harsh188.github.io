@@ -6,6 +6,7 @@ website:
   page-navigation: true
   title: "HMK"
   favicon: images/favicon-32x32.png
+  google-analytics: G-0G53KW5MDP
   navbar:
     right:
       - publications.qmd

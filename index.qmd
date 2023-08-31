@@ -29,7 +29,7 @@ I'm Harshith, welcome to my personal site!
 
 I'm currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.
 
-With the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.
+With the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of [experiences](experience/experience.qmd).
 
 My journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications [here](publications.qmd).
 
