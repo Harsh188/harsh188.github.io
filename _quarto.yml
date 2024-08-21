@@ -14,7 +14,7 @@ website:
         href: experience/experience.qmd
       # - fun.qmd
       - text: Resume
-        href: resumes/HMK_Resume-CV.pdf
+        href: resumes/HMK_Resume_CV.pdf
   page-footer:
     left: |
       <span text-align="center" class="faux-block">&#169; 2023 Harshith Mohan Kumar CC BY-SA 4.0</span>
