@@ -27,7 +27,7 @@ about:
 ## Hi there 👋
 I'm Harshith, welcome to my personal site! 
 
-I'm currently an aspiring ML/CV Engineer, passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision and deep learning.
+I'm currently a Graduate Student Researcher at UC Riverside, where I'm passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision, computational photography and deep learning.
 
 With the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of [experiences](experience/experience.qmd).
 
@@ -49,7 +49,12 @@ My journey has been punctuated by multiple acceptances at top conferences, showc
 
 ## Recent News
 
+### 2024
+- **[02/06/24]** - Featured on [podcast](https://www.youtube.com/watch?v=a-npgrnXzjc&t=5s) episode!
+- **[01/01/24]** - Joined the Computational Optics and Display Engineering Lab! Being advised by [Prof. Vishwanath Saragadam](https://vishwa91.github.io/)
+
 ### 2023
+- **[09/26/23]** - Started Masters in CS at UCR!
 - **[08/07/23]** - Extended abstract accepted at [ICCV'23 BRAVO Workshop](https://valeoai.github.io/bravo/)!
 - **[07/20/23]** - [OCTraN](https://arxiv.org/abs/2307.10934) now on ArXiv.
 - **[05/29/23]** - OCTraN paper accepted at [CVPR'23 T4V Workshop](https://sites.google.com/view/t4v-cvpr23/papers)!
