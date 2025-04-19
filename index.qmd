@@ -15,52 +15,55 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/harsh188/
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/Call_Me_Harsh18
     - icon: envelope
       text: Email
       href: "mailto:hiharshith18@gmail.com"
 ---
+
+<style>
+.special-links a {
+  text-decoration: none;
+  color: #325d88;
+}
+.special-links a:hover {
+  color: #1a3b5a;
+}
+</style>
+
 :::{#hero-heading}
+<div class="special-links">
 
-## Hi there 👋
-I'm Harshith, welcome to my personal site! 
+## Hi, I'm Harsh 👋
 
-I'm currently a Graduate Student Researcher at UC Riverside, where I'm passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision, computational photography and deep learning.
+I'm a Machine Learning Engineer specializing in computer vision and computational imaging. As a Research Assistant at UC Riverside, I develop physics-inspired deep models, pushing boundaries in perception systems.
 
-With the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of [experiences](experience/experience.qmd).
+I hold an MS from UC Riverside, where I researched thermal optical flow under the guidance of Dr. [Vishwanath Saragadam](https://vishwa91.github.io/) and Dr. [Amit Roy-Chowdhury](https://vcg.ece.ucr.edu/amit), and a BS from PES University.
 
-My journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications [here](publications.qmd).
-
-<!-- When I'm not forcing matrix operations down my GPU, I try to partake in a load of activites. Explore the [fun](fun.qmd) page to see what I'm up to these days! -->
-
-## Education
-
-#### University of California, Riverside\
-**MSCS** | Sept 2023 - Present\
-
-#### PES University\
-**B.Tech CS** | Aug 2019 - June 2023
-
+Previously at Intel, I developed a severity ranking system for ADAS alerts through scene understanding. I engineered a large-scale video analysis pipeline during Google Summer of Code and worked as a research fellow at IISc under Dr. [Anurag Kumar](https://en.wikipedia.org/wiki/Anurag_Kumar).
+</div>
 :::
 
 :::{#news}
+<div class="special-links">
 
 ## Recent News
 
+### 2025
+- **[04/19/25]** - Defended my MS Thesis on Thermal Optical Flow
+
 ### 2024
-- **[02/06/24]** - Featured on [podcast](https://www.youtube.com/watch?v=a-npgrnXzjc&t=5s) episode!
-- **[01/01/24]** - Joined the Computational Optics and Display Engineering Lab! Being advised by [Prof. Vishwanath Saragadam](https://vishwa91.github.io/)
+- **[06/01/24]** - Working as Graduate Student Researcher
+- **[02/06/24]** - Featured on [podcast](https://www.youtube.com/watch?v=a-npgrnXzjc&t=5s) episode
+- **[01/01/24]** - Joined the Computational Optics Lab, advised by Prof. Vishwanath Saragadam
 
 ### 2023
-- **[09/26/23]** - Started Masters in CS at UCR!
-- **[08/07/23]** - Extended abstract accepted at [ICCV'23 BRAVO Workshop](https://valeoai.github.io/bravo/)!
-- **[07/20/23]** - [OCTraN](https://arxiv.org/abs/2307.10934) now on ArXiv.
-- **[05/29/23]** - OCTraN paper accepted at [CVPR'23 T4V Workshop](https://sites.google.com/view/t4v-cvpr23/papers)!
-- **[01/02/23]** - Working as ML Intern at Intel!
+- **[08/07/23]** - Extended abstract accepted at [ICCV'23 BRAVO Workshop](https://valeoai.github.io/bravo/)
+- **[07/20/23]** - [OCTraN](https://arxiv.org/abs/2307.10934) now on ArXiv
+- **[05/29/23]** - OCTraN paper accepted at [CVPR'23 T4V Workshop](https://sites.google.com/view/t4v-cvpr23/papers)
+- **[01/02/23]** - Working at at Intel
 
 ### 2022
 - **[09/23/22]** - Won **Best Student Paper Award** at [ECML-PKDD'22 MLG workshop](https://www.mlgworkshop.ml/)
 
+</div>
 :::

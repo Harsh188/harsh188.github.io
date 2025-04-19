@@ -38,10 +38,10 @@ $dark:      $black !default;
 
 
 // Links
-$link-color: $primary !default;
+$link-color: #325d88 !default;
 $link-decoration: none !default;
-$link-hover-color: $red !default;
-$link-hover-decoration: underline !default;
+$link-hover-color: #1a3b5a !default;
+$link-hover-decoration: none !default;
 
 // Footer
 $footer-bg: $gray-900 !default;
