@@ -1,0 +1,10 @@
+---
+title: "Blog"
+listing:
+  id: blog
+  contents: blog
+  sort: "date desc"
+  type: grid
+---
+
+Welcome to my blog! Here I write about computer vision, machine learning, and life lessons.

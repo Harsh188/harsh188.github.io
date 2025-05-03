@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Publications – HMK</title>
+<title>Publications – Harshith</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cf2ac73dd184e3a4ee39fc76db78fbd1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cf2ac73dd184e3a4ee39fc76db78fbd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7486e124123cf286ce4024ab19ec74ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,7 +84,165 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
 <link rel="stylesheet" href="_sandstone.scss">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    window.setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      window.setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    window.hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(darkModeDefault) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const darkModeDefault = true;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !window.hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (window.hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,7 +250,7 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">HMK</span>
+    <span class="navbar-title">Harshith</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -100,12 +260,12 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page"> 
-<span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./experience/experience.html"> 
-<span class="menu-text">Experience</span></a>
+    <a class="nav-link active" href="./publications.html" aria-current="page"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./resumes/HarshithMohanKumar_Resume.pdf"> 
@@ -114,6 +274,7 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -122,19 +283,10 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">2023</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2022</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2021</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -155,67 +307,51 @@ gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
 </header>
 
 
-<div id="peer-review">
-<p>If you can’t find it here then you can find it on my <a href="https://scholar.google.com/citations?user=7hBzcg0AAAAJ&amp;hl=en">Google Scholar</a>!</p>
-</div>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">2023</h2>
-<ul>
-<li><h3 id="fusing-pseudo-labels-with-weak-supervision-for-dynamic-traffic-scenarios" class="anchored">Fusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios </h3>
-<ul>
-<li><strong><em>Harshith Mohan Kumar</em></strong><em>, Sean Lawrence</em></li>
-<li>ICCV 2023 BRAVO Workshop | <a href="https://valeoai.github.io/bravo/">Website</a></li>
-</ul></li>
-<li><h3 id="octran-3d-occupancy-convolutional-transformer-network-in-unstructured-traffic-scenarios" class="anchored">OCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios</h3>
-<a href="https://arxiv.org/abs/2307.10934">[Paper]</a> <a href="https://sites.google.com/view/t4v-cvpr23/papers?authuser=0">[Additional]</a>
-<ul>
-<li><em>Aditya N Ganesh, Dhruval Pobbathi Badrinath, <strong>Harshith Mohan Kumar</strong>, Priya S S, Surabhi Narayan</em></li>
-<li>CVPR 2023 T4V Workshop | <a href="https://sites.google.com/view/t4v-cvpr23/papers?authuser=0">Website</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">2022</h2>
-<ul>
-<li><h3 id="graphcoreg-co-training-for-regression-on-temporal-graphs" class="anchored">GraphCoReg: Co-Training for Regression on Temporal Graphs</h3>
-<a href="https://openreview.net/pdf?id=JExuzizhS-p">[Paper]</a>
-<ul>
-<li><strong><em>Harshith Mohan Kumar</em></strong><em>, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das</em></li>
-<li>ECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | <a href="https://openreview.net/submissions?venue=ecmlpkdd.org/ECMLPKDD/2022/Workshop/MLG">Submissions</a></li>
-<li><strong>Best Student Paper Award</strong></li>
-</ul></li>
-<li><h3 id="multivariate-covid-19-forecasting-with-vaccinations-as-a-factor-the-case-of-india-and-usa" class="anchored">Multivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA</h3>
-<a href="https://ieeexplore.ieee.org/document/9864476">[Paper]</a>
-<ul>
-<li><em>Vibha Masti, Vishruth Veerendranath, <strong>Harshith Mohan Kumar</strong></em></li>
-<li>ICML 2022 1st Workshop on Healthcare AI and COVID-19</li>
-<li>IEEE Region 10 Symposium (TENSYMP) 2022</li>
-</ul></li>
-<li><h3 id="semi-supervised-learning-with-in-domain-pre-training-and-deep-co-training" class="anchored">Semi-supervised Learning with In-domain Pre-training and Deep Co-training</h3>
-<a href="https://link.springer.com/chapter/10.1007/978-981-19-4960-9_49">[Paper]</a>
-<ul>
-<li><em>Bhaskarjyoti Das, <strong>Harshith Mohan Kumar</strong>, Divya Shekar, Mohammed Zayd Jamadar</em></li>
-<li>Springer Nature ICICCT 2022</li>
-</ul></li>
-</ul>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">2021</h2>
-<ul>
-<li><h3 id="classification-of-recyclable-waste-generated-in-indian-households" class="anchored">Classification of Recyclable Waste Generated in Indian Households</h3>
-<a href="https://link.springer.com/chapter/10.1007/978-981-16-6309-3_48">[Paper]</a>
-<ul>
-<li><strong><em>Harshith MohanKumar</em></strong><em>, Mohammed Zayd Jamadar, S Natarajan, H Nithin</em></li>
-<li>Springer WorldS4 2021</li>
-</ul></li>
-</ul>
+<p>For an updated list of publications and citations, check out my <a href="https://scholar.google.com/citations?user=7hBzcg0AAAAJ&amp;hl=en">Google Scholar</a>.</p>
+<p><strong>Fusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios</strong><br>
+<strong>Harshith Mohan Kumar</strong>, Sean Lawrence<br>
+<em>ICCV 2023 BRAVO Workshop</em><br>
+<a href="https://valeoai.github.io/bravo/submissions/bravo_abstract_fusing_pseudo_labels.pdf" class="btn btn-outline-primary btn-sm">paper</a> <a href="https://valeoai.github.io/bravo/" class="btn btn-outline-primary btn-sm">website</a></p>
+<p><strong>OCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios</strong><br>
+Aditya N Ganesh, Dhruval Pobbathi Badrinath, <strong>Harshith Mohan Kumar</strong>, Priya S S, Surabhi Narayan<br>
+<em>CVPR 2023 T4V Workshop</em><br>
+<a href="https://arxiv.org/abs/2307.10934" class="btn btn-outline-primary btn-sm">paper</a> <a href="https://sites.google.com/view/t4v-cvpr23/papers?authuser=0" class="btn btn-outline-primary btn-sm">website</a></p>
+<p><strong>GraphCoReg: Co-Training for Regression on Temporal Graphs</strong><br>
+<strong>Harshith Mohan Kumar</strong>, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das<br>
+<em>ECML-PKDD 2022 MLG Workshop</em><br>
+<span class="emoji" data-emoji="trophy">🏆</span> <strong>Best Student Paper Award</strong><br>
+<a href="https://openreview.net/pdf?id=JExuzizhS-p" class="btn btn-outline-primary btn-sm">paper</a></p>
+<p><strong>Multivariate Covid-19 Forecasting with Vaccinations as a Factor</strong><br>
+Vibha Masti, Vishruth Veerendranath, <strong>Harshith Mohan Kumar</strong><br>
+<em>IEEE TENSYMP 2022</em>, also presented at <em>ICML 2022 Healthcare-AI Workshop</em><br>
+<a href="https://ieeexplore.ieee.org/document/9864476" class="btn btn-outline-primary btn-sm">paper</a></p>
+<p><strong>Semi-supervised Learning with In-domain Pre-training and Deep Co-training</strong><br>
+Bhaskarjyoti Das, <strong>Harshith Mohan Kumar</strong>, Divya Shekar, Mohammed Zayd Jamadar<br>
+<em>Springer ICICCT 2022</em><br>
+<a href="https://link.springer.com/chapter/10.1007/978-981-19-4960-9_49" class="btn btn-outline-primary btn-sm">paper</a></p>
+<p><strong>Classification of Recyclable Waste Generated in Indian Households</strong><br>
+<strong>Harshith MohanKumar</strong>, Mohammed Zayd Jamadar, S Natarajan, H Nithin<br>
+<em>Springer WorldS4 2021</em><br>
+<a href="https://link.springer.com/chapter/10.1007/978-981-16-6309-3_48" class="btn btn-outline-primary btn-sm">paper</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

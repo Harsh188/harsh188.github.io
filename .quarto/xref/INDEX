@@ -52,5 +52,12 @@
   },
   "anki.qmd": {
     "anki.html": "b415811d"
+  },
+  "blog/2025-04-19/index.qmd": {
+    "index.html": "c317e75e",
+    "index.tex": "84a17816"
+  },
+  "blog.qmd": {
+    "blog.html": "0b870748"
   }
 }

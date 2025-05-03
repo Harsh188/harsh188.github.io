@@ -40,6 +40,10 @@ I'm a Machine Learning Engineer specializing in computer vision and computationa
 I hold an MS from UC Riverside, where I researched thermal optical flow under the guidance of Dr. [Vishwanath Saragadam](https://vishwa91.github.io/) and Dr. [Amit Roy-Chowdhury](https://vcg.ece.ucr.edu/amit), and a BS from PES University.
 
 Previously at Intel, I developed a severity ranking system for ADAS alerts through scene understanding. I engineered a large-scale video analysis pipeline during Google Summer of Code and worked as a research fellow at IISc under Dr. [Anurag Kumar](https://en.wikipedia.org/wiki/Anurag_Kumar).
+
+### 💼 Hire Me
+Seeking full-time ML/CV roles to build production-ready models for real-world applications—let’s discuss how I can contribute to your team. [Lets Connect!](mailto:hiharshith18@gmail.com)
+
 </div>
 :::
 

@@ -1,43 +1,39 @@
 ---
 title: "Publications"
-toc: true
+from: markdown+emoji
 ---
 
-:::{#peer-review}
-If you can't find it here then you can find it on my [Google Scholar](https://scholar.google.com/citations?user=7hBzcg0AAAAJ&hl=en)!
-:::
+For an updated list of publications and citations, check out my [Google Scholar](https://scholar.google.com/citations?user=7hBzcg0AAAAJ&hl=en).
 
-## 2023
-- ### Fusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios </span>
-    - ***Harshith Mohan Kumar****, Sean Lawrence*
-    - ICCV 2023 BRAVO Workshop | [Website](https://valeoai.github.io/bravo/)
+**Fusing Pseudo Labels with Weak Supervision for Dynamic Traffic Scenarios**  
+**Harshith Mohan Kumar**, Sean Lawrence  
+*ICCV 2023 BRAVO Workshop*  
+<a href="https://valeoai.github.io/bravo/submissions/bravo_abstract_fusing_pseudo_labels.pdf" class="btn btn-outline-primary btn-sm">paper</a>
+<a href="https://valeoai.github.io/bravo/" class="btn btn-outline-primary btn-sm">website</a>
 
-- ### OCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios 
-[[Paper]](https://arxiv.org/abs/2307.10934) [[Additional]](https://sites.google.com/view/t4v-cvpr23/papers?authuser=0)
-    - *Aditya N Ganesh, Dhruval Pobbathi Badrinath, **Harshith Mohan Kumar**, Priya S S, Surabhi Narayan*
-    - CVPR 2023 T4V Workshop | [Website](https://sites.google.com/view/t4v-cvpr23/papers?authuser=0)
+**OCTraN: 3D Occupancy Convolutional Transformer Network in Unstructured Traffic Scenarios**  
+Aditya N Ganesh, Dhruval Pobbathi Badrinath, **Harshith Mohan Kumar**, Priya S S, Surabhi Narayan  
+*CVPR 2023 T4V Workshop*  
+<a href="https://arxiv.org/abs/2307.10934" class="btn btn-outline-primary btn-sm">paper</a>
+<a href="https://sites.google.com/view/t4v-cvpr23/papers?authuser=0" class="btn btn-outline-primary btn-sm">website</a>
 
-## 2022
-- ### GraphCoReg: Co-Training for Regression on Temporal Graphs 
-[[Paper]](https://openreview.net/pdf?id=JExuzizhS-p)
-    - ***Harshith Mohan Kumar****, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das*
-    - ECML-PKDD 2022 International Workshop on Mining and Learning with Graphs | [Submissions](https://openreview.net/submissions?venue=ecmlpkdd.org/ECMLPKDD/2022/Workshop/MLG)
-    - **Best Student Paper Award**
+**GraphCoReg: Co-Training for Regression on Temporal Graphs**  
+**Harshith Mohan Kumar**, Vishruth Veerendranath, Vibha Masti, Divya Shekar, Bhaskarjyoti Das  
+*ECML-PKDD 2022 MLG Workshop*  
+:trophy: **Best Student Paper Award**  
+<a href="https://openreview.net/pdf?id=JExuzizhS-p" class="btn btn-outline-primary btn-sm">paper</a>
 
-- ### Multivariate Covid-19 Forecasting with Vaccinations as a factor: the case of India and USA 
-[[Paper]](https://ieeexplore.ieee.org/document/9864476)
-    - *Vibha Masti, Vishruth Veerendranath, **Harshith Mohan Kumar***
-    - ICML 2022 1st Workshop on Healthcare AI and COVID-19
-    - IEEE Region 10 Symposium (TENSYMP) 2022
+**Multivariate Covid-19 Forecasting with Vaccinations as a Factor**  
+Vibha Masti, Vishruth Veerendranath, **Harshith Mohan Kumar**  
+*IEEE TENSYMP 2022*, also presented at *ICML 2022 Healthcare-AI Workshop*  
+<a href="https://ieeexplore.ieee.org/document/9864476" class="btn btn-outline-primary btn-sm">paper</a>
 
-- ### Semi-supervised Learning with In-domain Pre-training and Deep Co-training
-[[Paper]](https://link.springer.com/chapter/10.1007/978-981-19-4960-9_49)
-    - *Bhaskarjyoti Das, **Harshith Mohan Kumar**, Divya Shekar, Mohammed Zayd Jamadar*
-    - Springer Nature ICICCT 2022 
+**Semi-supervised Learning with In-domain Pre-training and Deep Co-training**  
+Bhaskarjyoti Das, **Harshith Mohan Kumar**, Divya Shekar, Mohammed Zayd Jamadar  
+*Springer ICICCT 2022*  
+<a href="https://link.springer.com/chapter/10.1007/978-981-19-4960-9_49" class="btn btn-outline-primary btn-sm">paper</a>
 
-## 2021
-
-- ### Classification of Recyclable Waste Generated in Indian Households
-[[Paper]](https://link.springer.com/chapter/10.1007/978-981-16-6309-3_48)
-    - ***Harshith MohanKumar****, Mohammed Zayd Jamadar, S Natarajan, H Nithin*
-    - Springer WorldS4 2021
+**Classification of Recyclable Waste Generated in Indian Households**  
+**Harshith MohanKumar**, Mohammed Zayd Jamadar, S Natarajan, H Nithin  
+*Springer WorldS4 2021*  
+<a href="https://link.springer.com/chapter/10.1007/978-981-16-6309-3_48" class="btn btn-outline-primary btn-sm">paper</a>

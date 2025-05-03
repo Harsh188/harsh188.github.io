@@ -13,5 +13,15 @@
       "/experience/projects/sent.html",
       "/experience/projects/dialog.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": []
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/2025-04-19/index.html"
+    ]
   }
 ]

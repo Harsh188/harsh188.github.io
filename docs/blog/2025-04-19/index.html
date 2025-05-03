@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harshith Mohan Kumar">
+<meta name="dcterms.date" content="2025-04-19">
+<meta name="description" content="Probably everything you need to know about optical flow 😊">
+
+<title>Visual guide to Optical Flow 🌊 – Harshith</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cf2ac73dd184e3a4ee39fc76db78fbd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7486e124123cf286ce4024ab19ec74ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0G53KW5MDP"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0G53KW5MDP', { 'anonymize_ip': true});
+</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../_sandstone.scss">
+</head>
+
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    window.setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      window.setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    window.hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(darkModeDefault) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const darkModeDefault = true;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !window.hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (window.hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Harshith</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resumes/HarshithMohanKumar_Resume.pdf"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#main-components" id="toc-main-components" class="nav-link" data-scroll-target="#main-components">Main Components</a>
+  <ul>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#warping" id="toc-warping" class="nav-link" data-scroll-target="#warping">Warping</a></li>
+  <li><a href="#handling-occlusions" id="toc-handling-occlusions" class="nav-link" data-scroll-target="#handling-occlusions">Handling Occlusions</a>
+  <ul class="collapse">
+  <li><a href="#why-occlusion-matters" id="toc-why-occlusion-matters" class="nav-link" data-scroll-target="#why-occlusion-matters">Why Occlusion Matters</a></li>
+  <li><a href="#implementation-approaches" id="toc-implementation-approaches" class="nav-link" data-scroll-target="#implementation-approaches">Implementation Approaches</a></li>
+  <li><a href="#bidirectional" id="toc-bidirectional" class="nav-link" data-scroll-target="#bidirectional">1. Bidirectional</a></li>
+  <li><a href="#backward" id="toc-backward" class="nav-link" data-scroll-target="#backward">2. Backward</a></li>
+  </ul></li>
+  <li><a href="#metrics" id="toc-metrics" class="nav-link" data-scroll-target="#metrics">Metrics</a>
+  <ul class="collapse">
+  <li><a href="#l1" id="toc-l1" class="nav-link" data-scroll-target="#l1">L1</a></li>
+  <li><a href="#charbonnier" id="toc-charbonnier" class="nav-link" data-scroll-target="#charbonnier">Charbonnier</a></li>
+  <li><a href="#ssim" id="toc-ssim" class="nav-link" data-scroll-target="#ssim">SSIM</a></li>
+  <li><a href="#census" id="toc-census" class="nav-link" data-scroll-target="#census">Census</a></li>
+  <li><a href="#comparison-of-photometric-loss-metrics" id="toc-comparison-of-photometric-loss-metrics" class="nav-link" data-scroll-target="#comparison-of-photometric-loss-metrics">Comparison of Photometric Loss Metrics</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#mathematical-intuition" id="toc-mathematical-intuition" class="nav-link" data-scroll-target="#mathematical-intuition">Mathematical Intuition</a>
+  <ul>
+  <li><a href="#horn-and-schuncks-optical-flow-model" id="toc-horn-and-schuncks-optical-flow-model" class="nav-link" data-scroll-target="#horn-and-schuncks-optical-flow-model">Horn and Schunck’s Optical Flow Model</a></li>
+  </ul></li>
+  <li><a href="#classical-approach" id="toc-classical-approach" class="nav-link" data-scroll-target="#classical-approach">Classical Approach</a>
+  <ul>
+  <li><a href="#lucas-kanade-sparse" id="toc-lucas-kanade-sparse" class="nav-link" data-scroll-target="#lucas-kanade-sparse">Lucas-Kanade (Sparse)</a>
+  <ul class="collapse">
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  <li><a href="#characteristics" id="toc-characteristics" class="nav-link" data-scroll-target="#characteristics">Characteristics</a></li>
+  </ul></li>
+  <li><a href="#farnebäck-dense" id="toc-farnebäck-dense" class="nav-link" data-scroll-target="#farnebäck-dense">Farnebäck (Dense)</a>
+  <ul class="collapse">
+  <li><a href="#implementation-1" id="toc-implementation-1" class="nav-link" data-scroll-target="#implementation-1">Implementation</a></li>
+  <li><a href="#characteristics-1" id="toc-characteristics-1" class="nav-link" data-scroll-target="#characteristics-1">Characteristics</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sota-2024" id="toc-sota-2024" class="nav-link" data-scroll-target="#sota-2024">SOTA (2024)</a>
+  <ul>
+  <li><a href="#raft-recurrent-all-pairs-field-transforms" id="toc-raft-recurrent-all-pairs-field-transforms" class="nav-link" data-scroll-target="#raft-recurrent-all-pairs-field-transforms">RAFT Recurrent All-Pairs Field Transforms</a></li>
+  <li><a href="#flowformer" id="toc-flowformer" class="nav-link" data-scroll-target="#flowformer">FlowFormer++</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Visual guide to Optical Flow 🌊</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">computer vision</div>
+    <div class="quarto-category">deep learning</div>
+    <div class="quarto-category">pytorch</div>
+    <div class="quarto-category">opencv</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Probably everything you need to know about optical flow 😊
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harshith Mohan Kumar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 19, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Have you wondered how your optical 🖱️ mouse tracks movement? It uses a tiny 📷 camera to capture surface images at high speed, then computes optical flow—the motion of pixels between frames—to detect direction and speed. But optical flow isn’t just for mice; it powers everything from stabilization, self-driving cars 🚗 and even tracking your favorite sports player ⚽ in real time.</p>
+<p><strong>What is optical flow?</strong></p>
+<blockquote class="blockquote">
+<p>Optical flow is a 2D vector field of apparent velocities which describes the movement of brightness patterns in an image</p>
+</blockquote>
+<p>Berthold K.P. Horn and his Ph.D.&nbsp;student Brian G. Schunck laid the mathematical foundation for motion estimation in their 1981 paper, “Determining Optical Flow” <span class="citation" data-cites="hornschunck1981">(<a href="#ref-hornschunck1981" role="doc-biblioref">Horn and Schunck 1981</a>)</span> which became one of the most influential works in the field of computer vision.</p>
+<p>Optical flow continues to remain a core problem in computer vision. In this post, I’ll break it down: what it is, how it works mathematically, and the latest advances like RAFT and FlowFormer++. Finally, I’ll wrap it up by demonstrating real-world applications and discuss unsolved challenges.</p>
+<p><em>Use the <strong>Table of Contents</strong> (top-right) or the <a href="#quick-navigation">Quick Navigation</a> below to jump to sections.</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Quick Navigation</strong> (Click to Expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="#main-components">Main Components of Optical Flow</a><br>
+</li>
+<li><a href="#mathematical-intuition">The Math Behind It</a></li>
+<li><a href="#classical-approach">Classical Solutions</a></li>
+<li><a href="#sota">Modern Advances</a><br>
+</li>
+<li><a href="#applications">Applications</a><br>
+</li>
+<li><a href="#challenges">Challenges</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="main-components" class="level2">
+<h2 class="anchored" data-anchor-id="main-components">Main Components</h2>
+<p>I’m going to walk through the main components of computing optical flow by taking a two frame example. Hover over the image below to visualize the movement from frame1 to frame2.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interactive Demonstration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hover over the image visualization below to see:</p>
+<ul>
+<li>Top: Frame1</li>
+<li>Revealed: Frame2</li>
+</ul>
+<p>Notice how:</p>
+<ul>
+<li>UFO moves to the right</li>
+<li>Chewbaka rotates</li>
+<li>Totoro moves down</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="image-hover-container" style="position: relative; width: 100%;">
+<p><img src="image1.jpg" style="width: 100%; transition: opacity 0.5s;"> <img src="image2.jpg" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 0.5s;"></p>
+</div>
+<script>
+  document.querySelector('.image-hover-container').addEventListener('mouseover', function() {
+    this.querySelector('img:first-child').style.opacity = 0;
+    this.querySelector('img:last-child').style.opacity = 1;
+  });
+  document.querySelector('.image-hover-container').addEventListener('mouseout', function() {
+    this.querySelector('img:first-child').style.opacity = 1;
+    this.querySelector('img:last-child').style.opacity = 0;
+  });
+</script>
+<hr>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<p>The most widely used optical flow visual representation, standardized by <span class="citation" data-cites="baker2007middlebury">Baker et al. (<a href="#ref-baker2007middlebury" role="doc-biblioref">2007</a>)</span>, employs a <strong>color-encoded flow field</strong> where:</p>
+<ul>
+<li><strong>Hue (color)</strong> represents the <em>direction</em> of motion (0-360 degrees mapped to the color wheel)</li>
+<li><strong>Saturation/Brightness</strong> represents the magnitude of displacement (brighter = faster motion)</li>
+</ul>
+<p>Magnitude scales from white (no motion) to maximum saturation at the flow normalization limit. A reference implementation is available in <a href="https://github.com/princeton-vl/RAFT/blob/master/core/utils/flow_viz.py">flow_viz.py</a>.</p>
+<section id="interactive-flow-explorer" class="level5">
+<h5 class="anchored" data-anchor-id="interactive-flow-explorer">Interactive Flow Explorer</h5>
+<p>Explore the flow field below - hover to see how pixel displacements map to actual motion vectors:</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="flowfield" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="flowfield.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 1: Flow field color coding</em></figcaption>
+</figure>
+</div>
+<canvas id="arrowCanvas" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+</canvas>
+<p id="flowInfo">
+Hover over the flow field to see displacements (dx, dy).
+</p>
+</div>
+<script>
+  const img = document.querySelector('#flowfield');
+  const canvas = document.getElementById('arrowCanvas');
+  const ctx = canvas.getContext('2d');
+  const infoText = document.getElementById('flowInfo');
+
+  // Set canvas size to match image
+  function resizeCanvas() {
+    const imgRect = img.getBoundingClientRect();
+    canvas.width = imgRect.width;
+    canvas.height = imgRect.height;
+    canvas.style.width = imgRect.width + 'px';
+    canvas.style.height = imgRect.height + 'px';
+    clearCanvas();
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function drawArrow(fromX, fromY, toX, toY) {
+    const headLength = 10;
+    const dx = toX - fromX;
+    const dy = toY - fromY;
+    const angle = Math.atan2(dy, dx);
+    
+    // Draw arrow line
+    ctx.beginPath();
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX, toY);
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Draw arrow head
+    ctx.beginPath();
+    ctx.moveTo(toX, toY);
+    ctx.lineTo(toX - headLength * Math.cos(angle - Math.PI/6), 
+               toY - headLength * Math.sin(angle - Math.PI/6));
+    ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI/6), 
+               toY - headLength * Math.sin(angle + Math.PI/6));
+    ctx.closePath();
+    ctx.fillStyle = 'red';
+    ctx.fill();
+  }
+
+  // Handle mouse movement
+  img.addEventListener('mousemove', (e) => {
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate center of image
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2 - 15;
+    
+    // Calculate displacement from center
+    const dx = x - centerX;
+    const dy = y - centerY;
+    
+    // Update info text
+    infoText.textContent = `Flow at (${x.toFixed(0)}, ${y.toFixed(0)}): dx=${(dx).toFixed(2)}, dy=${(dy).toFixed(2)}`;
+    
+    // Draw arrow
+    clearCanvas();
+    drawArrow(centerX, centerY, x, y);
+  });
+
+  // Initialize
+  window.addEventListener('load', () => {
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+  });
+</script>
+<p>What you’re seeing:</p>
+<ul>
+<li>The arrow shows the displacement from the image center to your cursor position</li>
+<li>Longer arrows = greater motion magnitude</li>
+<li>Arrow direction matches the color wheel convention</li>
+</ul>
+<p>Below is the color-coded optical flow estimated between the two example frames shown earlier—capturing how each pixel moved from frame1 to frame2.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="flowviz" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="image1_RAFT_000_to_100_flow.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 2: Visualization of flow from frame1 to frame2</em></figcaption>
+</figure>
+</div>
+</div>
+<p>For precise analysis, we often use <a href="https://medium.com/@ml6vq/understanding-optical-flow-visualization-293471c97456"><strong>quiver plots</strong></a> that explicitly show motion vectors:</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="arrowviz" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="arrow_viz.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 3: Arrow field projected on frame1</em></figcaption>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="warping" class="level3">
+<h3 class="anchored" data-anchor-id="warping">Warping</h3>
+<p>Using the forward optical flow F₁₂, we can “reverse-project” or <strong>warp</strong> the second frame (I₂) back in time to approximate the first frame (I₁). This operation effectively maps pixels from their new positions back to their original locations, using the displacement vectors in the flow field.</p>
+<p>The diagram below illustrates this concept: given two images and the forward optical flow between them, we can use backward warping to reconstruct the earlier frame.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Image 1] --&gt; C(Forward Optical Flow)
+  B[Image 2] --&gt; C(Forward Optical Flow)
+  C(Forward Optical Flow) --&gt; D(Backward Warp)
+  B[Image 2] --&gt; D(Backward Warp)
+  D(Backward Warp) --&gt; E[Warped Image 1] 
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>To understand this intuitively, let’s walk through a simplified 2×2 example where you can easily trace pixel displacements and their impact on the warped image.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="flowarp" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="flowwarp.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 4: A toy example showing how forward optical flow is computed in the x and y direction</em></figcaption>
+</figure>
+</div>
+</div>
+<p>In practice, warping is implemented using a resampling operation—specifically <code>grid_sample</code> in PyTorch—which shifts pixels according to the flow and interpolates the values at non-integer locations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Image Warping Code (Click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="72c1725f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> image_warp(image, flow):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Warps an image using optical flow with bilinear interpolation.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">        image (torch.Tensor): Input image tensor of shape [B, C, H, W]</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">        flow (torch.Tensor): Optical flow tensor of shape [B, 2, H, W] </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">                    where:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">                        flow[:,0,...] is horizontal (x) displacement in pixels</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">                        flow[:,1,...] is vertical (y) displacement in pixels</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">        torch.Tensor: Warped image [B, C, H, W]</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    B, C, H, W <span class="op">=</span> image.size()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create base grid coordinates</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    xx <span class="op">=</span> torch.arange(<span class="dv">0</span>, W).view(<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>).repeat(H, <span class="dv">1</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    yy <span class="op">=</span> torch.arange(<span class="dv">0</span>, H).view(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>).repeat(<span class="dv">1</span>, W)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reshape to [B, 1, H, W] for batch processing</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    xx <span class="op">=</span> xx.view(<span class="dv">1</span>, <span class="dv">1</span>, H, W).repeat(B, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    yy <span class="op">=</span> yy.view(<span class="dv">1</span>, <span class="dv">1</span>, H, W).repeat(B, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combine x and y coordinates into a single grid [B, 2, H, W]</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> torch.cat((xx, yy), <span class="dv">1</span>).<span class="bu">float</span>().to(device)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply optical flow displacement (in pixel coordinates)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    vgrid <span class="op">=</span> grid <span class="op">+</span> flow</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize grid coordinates to [-1, 1] range (required by grid_sample)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    vgrid[:, <span class="dv">0</span>, :, :] <span class="op">=</span> <span class="fl">2.0</span> <span class="op">*</span> vgrid[:, <span class="dv">0</span>, :, :].clone() <span class="op">/</span> <span class="bu">max</span>(W <span class="op">-</span> <span class="dv">1</span>, <span class="dv">1</span>) <span class="op">-</span> <span class="fl">1.0</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    vgrid[:, <span class="dv">1</span>, :, :] <span class="op">=</span> <span class="fl">2.0</span> <span class="op">*</span> vgrid[:, <span class="dv">1</span>, :, :].clone() <span class="op">/</span> <span class="bu">max</span>(H <span class="op">-</span> <span class="dv">1</span>, <span class="dv">1</span>) <span class="op">-</span> <span class="fl">1.0</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">#[B, H, W, 2]</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    vgrid <span class="op">=</span> vgrid.permute(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample image using the flow-warped grid with bilinear interpolation</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> F.grid_sample(image, vgrid, mode<span class="op">=</span><span class="st">'bilinear'</span>, padding_mode<span class="op">=</span><span class="st">'zeros'</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Using the flow from our earlier example, we warp frame2 back in time to approximate frame1.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="warped" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="image1_RAFT_000_to_100_warped.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 5: Backward warped frame2</em></figcaption>
+</figure>
+</div>
+</div>
+<p>If you look closely at the warped image, you’ll notice artifacts—especially around object boundaries where motion occurred. For example, observe the region around the UFO. Why does this happen, even when the flow is accurate? I’ll explain this phenomenon in the next section.</p>
+<hr>
+</section>
+<section id="handling-occlusions" class="level3">
+<h3 class="anchored" data-anchor-id="handling-occlusions">Handling Occlusions</h3>
+<p>When computing photometric loss, the brightness constancy assumption breaks down in occluded regions or when objects move out of view. To avoid penalizing these areas incorrectly, we need to estimate occlusions and mask them out.</p>
+<section id="why-occlusion-matters" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="why-occlusion-matters">Why Occlusion Matters</h4>
+<p>Occlusions create two fundamental challenges for optical flow:</p>
+<ol type="1">
+<li><strong>Disappearing pixels</strong>: When objects leave the frame or become hidden</li>
+<li><strong>Newly visible areas</strong>: When background becomes exposed</li>
+</ol>
+<p>These violate the brightness constancy assumption, leading to:</p>
+<ul>
+<li><strong>False matches</strong> in occluded regions</li>
+<li><strong>Inflated errors</strong> from unmatchable pixels</li>
+<li><strong>Artifacts</strong> in warped images</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interactive Demonstration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hover over the error visualization below to see:</p>
+<ul>
+<li>Top: Raw photometric error</li>
+<li>Revealed: Error after occlusion masking</li>
+</ul>
+<p>Notice how masking:</p>
+<ul>
+<li>Removes noise in disoccluded regions (bright areas)</li>
+<li>Preserves sharp boundaries</li>
+<li>Focuses error on reliable pixels</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="occlusion-demo" style="position:relative; max-width:800px; margin:0 auto;">
+<p><img src="l1_error.png" style="width:100%; transition:opacity 0.4s;"> <img src="l1_error_occluded.png" style="position:absolute; top:0; left:0; width:100%; opacity:0; transition:opacity 0.4s;"></p>
+</div>
+<script>
+document.querySelector('.occlusion-demo').addEventListener('mouseenter', function() {
+  this.querySelector('img:first-child').style.opacity = 0;
+  this.querySelector('img:last-child').style.opacity = 1;
+});
+document.querySelector('.occlusion-demo').addEventListener('mouseleave', function() {
+  this.querySelector('img:first-child').style.opacity = 1;
+  this.querySelector('img:last-child').style.opacity = 0;
+});
+</script>
+<p><strong>Key Benefits of Occlusion Masking:</strong></p>
+<ul>
+<li>✂️ Removes “ghosting” effects at motion boundaries</li>
+<li>🎯 Focuses optimization on reliable pixels</li>
+<li>📉 Reduces error propagation in iterative refinement</li>
+</ul>
+</section>
+<section id="implementation-approaches" class="level4">
+<h4 class="anchored" data-anchor-id="implementation-approaches">Implementation Approaches</h4>
+<p>Here are two common approaches:</p>
+</section>
+<section id="bidirectional" class="level4">
+<h4 class="anchored" data-anchor-id="bidirectional">1. Bidirectional</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bidirectional Occlusion Mask Code (Click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_occu_mask_bidirection(flow12, flow21, scale<span class="op">=</span><span class="fl">0.01</span>, bias<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    flow21_warped <span class="op">=</span> flow_warp(flow21, flow12, pad<span class="op">=</span><span class="st">'zeros'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    flow12_diff <span class="op">=</span> flow12 <span class="op">+</span> flow21_warped</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    mag <span class="op">=</span> (flow12 <span class="op">*</span> flow12).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>          (flow21_warped <span class="op">*</span> flow21_warped).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    occ_thresh <span class="op">=</span> scale <span class="op">*</span> mag <span class="op">+</span> bias</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    occ <span class="op">=</span> (flow12_diff <span class="op">*</span> flow12_diff).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>) <span class="op">&gt;</span> occ_thresh</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> occ.<span class="bu">float</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="bidirectional" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="occ_mask_bidirectional.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 6: Occlusion mask generated using bidirectional consistency check on the original example.</em></figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Key Idea:</strong></p>
+<ul>
+<li>Warps the backward flow to forward flow coordinates</li>
+<li>Checks consistency between forward flow and warped backward flow<br>
+</li>
+<li>Areas with large inconsistencies are marked as occluded</li>
+<li>Adaptive threshold combines absolute and flow-magnitude-dependent terms</li>
+</ul>
+<p><strong>When to Use:</strong></p>
+<ul>
+<li>When you have computed both forward and backward flows</li>
+<li>For more accurate occlusion detection in textured regions</li>
+</ul>
+<hr>
+</section>
+<section id="backward" class="level4">
+<h4 class="anchored" data-anchor-id="backward">2. Backward</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Backward Occlusion Mask Code (Click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_occu_mask_bidirection(flow12, flow21, scale<span class="op">=</span><span class="fl">0.01</span>, bias<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    flow21_warped <span class="op">=</span> flow_warp(flow21, flow12, pad<span class="op">=</span><span class="st">'zeros'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    flow12_diff <span class="op">=</span> flow12 <span class="op">+</span> flow21_warped</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    mag <span class="op">=</span> (flow12 <span class="op">*</span> flow12).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>          (flow21_warped <span class="op">*</span> flow21_warped).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    occ_thresh <span class="op">=</span> scale <span class="op">*</span> mag <span class="op">+</span> bias</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    occ <span class="op">=</span> (flow12_diff <span class="op">*</span> flow12_diff).<span class="bu">sum</span>(<span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>) <span class="op">&gt;</span> occ_thresh</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> occ.<span class="bu">float</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="backward" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="occ_mask_backward.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 7: Occlusion mask generated using only the backward flow.</em></figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Key Idea:</strong></p>
+<ul>
+<li>Uses only backward flow (t+1→t)</li>
+<li>Combines photometric error and flow magnitude</li>
+<li>Marks pixels as occluded if</li>
+<li>High warping error</li>
+<li>Significant motion magnitude</li>
+</ul>
+<p><strong>When to Use:</strong></p>
+<ul>
+<li>When only backward flow is available
+<ul>
+<li>For faster computation with slightly less accuracy</li>
+<li>In low-texture regions where bidirectional checks may fail</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="metrics" class="level3">
+<h3 class="anchored" data-anchor-id="metrics">Metrics</h3>
+<section id="l1" class="level4">
+<h4 class="anchored" data-anchor-id="l1">L1</h4>
+<p>The L1 loss metric, also known as Mean Absolute Error (MAE), computes the absolute difference between the predicted and actual values. It is often used for its simplicity and robustness against outliers.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="l1_error" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="l1_error_occluded.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 8: L1 error visualization with occluded regions highlighted.</em></figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Mathematical Definition:</strong></p>
+<p><span class="math display">\[
+L1 = \frac{1}{N} \sum_{i=1}^{N} |I_1(x_i) - I_2(x_i)|
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>I_1(x_i) and I_2(x_i) are the pixel values at position x_i in images I_1 and I_2, respectively.</li>
+<li>N is the number of pixels.</li>
+</ul>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>The L1 loss is linear and easy to compute, but it does not account for the structure of the image, leading to a loss in visual similarity.</li>
+</ul>
+<hr>
+</section>
+<section id="charbonnier" class="level4">
+<h4 class="anchored" data-anchor-id="charbonnier">Charbonnier</h4>
+<p>Charbonnier loss is a smooth approximation to L1 loss that helps in preventing gradients from vanishing when dealing with small differences. It is often used for optimization tasks where the learning needs to be more stable.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="charbonnier_error" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="charbonnier_error_occluded.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>Figure 9: Charbonnier error visualization with occluded regions highlighted. (alpha=0.45)</em></figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Mathematical Definition:</strong></p>
+<p><span class="math display">\[
+L_{\text{Charbonnier}} = \frac{1}{N} \sum_{i=1}^{N} \sqrt{(I_1(x_i) - I_2(x_i))^2 + \epsilon^2}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\epsilon\)</span> is a small constant (e.g., <span class="math inline">\(10^{-3}\)</span>) to prevent division by zero.</li>
+<li><span class="math inline">\(I_1(x_i)\)</span> and <span class="math inline">\(I_2(x_i)\)</span> are the pixel values at position <span class="math inline">\(x_i\)</span> in images <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>, respectively.</li>
+<li><span class="math inline">\(N\)</span> is the number of pixels.</li>
+</ul>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>It reduces the impact of outliers by smoothing the loss function, making it more stable than L1 loss during training.</li>
+</ul>
+<hr>
+</section>
+<section id="ssim" class="level4">
+<h4 class="anchored" data-anchor-id="ssim">SSIM</h4>
+<p>The SSIM metric is designed to measure the perceptual similarity between two images by considering luminance, contrast, and structure. Unlike pixel-wise metrics (like L1), SSIM incorporates the local patterns of pixel intensities, capturing more perceptual information.</p>
+<p><strong>Mathematical Definition:</strong></p>
+<p><span class="math display">\[
+\text{SSIM}(I_1, I_2) = \frac{(2\mu_1\mu_2 + C_1)(2\sigma_{12} + C_2)}{(\mu_1^2 + \mu_2^2 + C_1)(\sigma_1^2 + \sigma_2^2 + C_2)}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\mu_1, \mu_2\)</span> are the mean pixel values of images <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</li>
+<li><span class="math inline">\(\sigma_1^2, \sigma_2^2\)</span> are the variances of the pixel values in <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>, respectively.</li>
+<li><span class="math inline">\(\sigma_{12}\)</span> is the covariance of the pixel values between <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span>.</li>
+<li><span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> are small constants to stabilize the division with weak denominator values (typically, <span class="math inline">\(C_1 = (K_1L)^2 and C_2 = (K_2L)^2\)</span>, where <span class="math inline">\(L\)</span> is the dynamic range of the pixel values).</li>
+</ul>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>SSIM is highly sensitive to structural information and human visual perception, which makes it more reliable than L1 loss for tasks like image quality assessment.</li>
+</ul>
+<hr>
+</section>
+<section id="census" class="level4">
+<h4 class="anchored" data-anchor-id="census">Census</h4>
+<p>Census transform is a non-parametric metric that compares local binary patterns rather than absolute pixel values. It is robust to lighting changes and small intensity variations and is especially useful in scenarios with significant noise or occlusion.</p>
+<p><strong>Mathematical Definition:</strong></p>
+<p>Let the neighborhood of a pixel in image <span class="math inline">\(I\)</span> be defined by <span class="math inline">\(N(x_i)\)</span>, which is a square window around the pixel <span class="math inline">\(x_i\)</span>. The census transform <span class="math inline">\(C(I, x_i)\)</span> for a pixel <span class="math inline">\(x_i\)</span> in image <span class="math inline">\(I\)</span> is defined as:</p>
+<p><span class="math display">\[
+C(I, x_i) = \prod_{x_j \in N(x_i)} \mathbb{I}(I(x_i) &gt; I(x_j))
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{I}\)</span> is the indicator function, which is 1 if the condition is true, and 0 otherwise.</li>
+<li><span class="math inline">\(I(x_i)\)</span> is the intensity at pixel <span class="math inline">\(x_i\)</span> in image <span class="math inline">\(I\)</span>.</li>
+<li><span class="math inline">\(I(x_j)\)</span> is the intensity at a neighboring pixel <span class="math inline">\(x_j\)</span> in the neighborhood <span class="math inline">\(N(x_i)\)</span>.</li>
+</ul>
+<p>The census transform compares the intensity values within a local window around a pixel and encodes the result as a binary string. The census loss is then computed as the Hamming distance between the census transforms of the corresponding pixels in two images.</p>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>Robust to illumination changes and small intensity variations.</li>
+<li>Not differentiable, making it challenging for optimization via gradient-based methods, but it is very effective in low-texture or noisy regions.</li>
+</ul>
+</section>
+<section id="comparison-of-photometric-loss-metrics" class="level4">
+<h4 class="anchored" data-anchor-id="comparison-of-photometric-loss-metrics">Comparison of Photometric Loss Metrics</h4>
+<div class="table-striped table-hover">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 39%">
+<col style="width: 26%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Description</th>
+<th>✅ Pros</th>
+<th>❌ Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>L1</strong></td>
+<td>Absolute difference between pixel intensities.</td>
+<td>Simple, robust to outliers.</td>
+<td>Ignores structure and texture shifts.</td>
+</tr>
+<tr class="even">
+<td><strong>Charbonnier</strong></td>
+<td>Smooth, differentiable variant of L1: √(x² + ε²).</td>
+<td>Stable optimization; handles small errors better.</td>
+<td>Slightly slower than plain L1.</td>
+</tr>
+<tr class="odd">
+<td><strong>SSIM</strong></td>
+<td>Measures structural similarity (luminance, contrast, structure).</td>
+<td>Captures perceptual/structural differences.</td>
+<td>Sensitive to illumination; more complex to compute.</td>
+</tr>
+<tr class="even">
+<td><strong>Census</strong></td>
+<td>Compares binary patterns of local neighborhoods, not raw intensity.</td>
+<td>Very robust to lighting and noise.</td>
+<td>Harder to optimize (non-differentiable).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="mathematical-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-intuition">Mathematical Intuition</h2>
+<p>The foundational equation of optical flow is based on the <strong>brightness constancy assumption</strong>, which states that the intensity of a pixel does not change between consecutive frames. This assumption leads to the well-known <strong>optical flow constraint equation</strong>:</p>
+<p><span class="math display">\[
+I_x u + I_y v + I_t = 0
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(I_x\)</span> and <span class="math inline">\(I_y\)</span> are the partial derivatives</li>
+<li><span class="math inline">\(I_t\)</span> is the partial derivative of the image intensity with respect to time (<span class="math inline">\(t\)</span>).</li>
+<li><span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are the components of the optical flow vector (horizontal, vertical).</li>
+</ul>
+<p>The equation above implies that for each pixel, the rate of change of intensity over time can be attributed to the motion of the pixel in the image plane. This is the <strong>optical flow constraint</strong>.</p>
+<hr>
+<section id="horn-and-schuncks-optical-flow-model" class="level4">
+<h4 class="anchored" data-anchor-id="horn-and-schuncks-optical-flow-model">Horn and Schunck’s Optical Flow Model</h4>
+<p><span class="citation" data-cites="hornschunck1981">(<a href="#ref-hornschunck1981" role="doc-biblioref">Horn and Schunck 1981</a>)</span> introduced a regularized version of the optical flow problem to address the ill-posed optical flow equation. Their model adds a <strong>smoothness</strong> assumption, which assumes that neighboring pixels have similar motion.</p>
+<p>The formulation they proposed can be written as:</p>
+<p><span class="math display">\[
+\min_{u,v} \int \left[ (I_x u + I_y v + I_t)^2 + \alpha^2 (I_x^2 + I_y^2)(u_x^2 + u_y^2 + v_x^2 + v_y^2) \right] dx dy
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>The first term is the <strong>data term</strong>, which enforces the optical flow constraint.</li>
+<li>The second term is the <strong>smoothness term</strong>, which enforces spatial smoothness of the flow field. It penalizes large variations in the flow between neighboring pixels.</li>
+<li><span class="math inline">\(\alpha\)</span> is a <strong>regularization parameter</strong> that controls the trade-off between the data term and the smoothness term.</li>
+</ul>
+<p>Here, <span class="math inline">\(u_x\)</span> and <span class="math inline">\(u_y\)</span> represent the spatial derivatives of <span class="math inline">\(u\)</span> (horizontal), and <span class="math inline">\(v_x\)</span> and <span class="math inline">\(v_y\)</span> represent the spatial derivatives of <span class="math inline">\(v\)</span> (vertical). The smoothness term ensures that the flow field does not have sharp discontinuities, which helps in obtaining a physically plausible solution.</p>
+<section id="key-assumptions-of-the-horn-schunck-method" class="level5">
+<h5 class="anchored" data-anchor-id="key-assumptions-of-the-horn-schunck-method">Key Assumptions of the Horn-Schunck Method:</h5>
+<ol type="1">
+<li><strong>Brightness Constancy</strong>: The pixel intensity does not change over time for any given object in the scene.</li>
+<li><strong>Smoothness</strong>: The flow is smooth across the image, meaning that neighboring pixels move in similar ways.</li>
+<li><strong>Global Regularization</strong>: The optical flow is computed globally across the entire image, meaning that all pixels are influenced by the flow of neighboring pixels through the regularization term.</li>
+</ol>
+<p>This model led to a well-known <strong>global method</strong> for optical flow computation, which involves solving the system of equations derived from the above functional using iterative techniques, such as gradient descent or other optimization algorithms.</p>
+</section>
+</section>
+</section>
+<section id="classical-approach" class="level2">
+<h2 class="anchored" data-anchor-id="classical-approach">Classical Approach</h2>
+<p>There are two implementations of classical optical flow with <em>OpenCV</em>:</p>
+<section id="lucas-kanade-sparse" class="level3 panel-tabset">
+<h3 class="panel-tabset anchored" data-anchor-id="lucas-kanade-sparse">Lucas-Kanade (Sparse)</h3>
+<p><strong>Key Idea</strong>:</p>
+<ul>
+<li>Tracks feature points (corners/edges) by assuming <em>constant flow in local neighborhoods</em> (typically 3×3 or 5×5 windows)</li>
+<li>Solves the optical flow equation <span class="math inline">\(I_x u + I_y v + I_t = 0\)</span> using least squares</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="optical_flow_result_lucas_kanade.jpg" class="img-fluid figure-img"></p>
+<figcaption>Lucas-Kanade optical flow visualization showing tracked feature points and their motion vectors</figcaption>
+</figure>
+</div>
+<section id="implementation" class="level4">
+<h4 class="anchored" data-anchor-id="implementation">Implementation</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flow <span class="op">=</span> cv2.calcOpticalFlowPyrLK(prev_frame, next_frame, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    prev_pts, <span class="va">None</span>, winSize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="characteristics" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics">Characteristics</h4>
+<div class="grid">
+<div class="g-col-6">
+<p>Pros:</p>
+<p>✅ Fast (only computes for keypoints)</p>
+<p>✅ Works well for small displacements</p>
+</div>
+<div class="g-col-6">
+<p>Cons:</p>
+<p>❌ Fails in textureless regions</p>
+<p>❌ Struggles with large motions</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="farnebäck-dense" class="level3 panel-tabset">
+<h3 class="panel-tabset anchored" data-anchor-id="farnebäck-dense">Farnebäck (Dense)</h3>
+<p><strong>Key Idea</strong>:</p>
+<ul>
+<li>Models image patches as quadratic polynomials to estimate flow at every pixel</li>
+<li>Uses polynomial expansion to approximate motion</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="optical_flow_result_farneback_hsv.jpg" class="img-fluid figure-img"></p>
+<figcaption>Farnebäck optical flow visualization using HSV color coding (hue represents direction, saturation represents magnitude)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="optical_flow_result_farneback_arrows_on_img1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Farnebäck optical flow visualization with motion vectors overlaid on the original frame</figcaption>
+</figure>
+</div>
+<section id="implementation-1" class="level4">
+<h4 class="anchored" data-anchor-id="implementation-1">Implementation</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flow <span class="op">=</span> cv2.calcOpticalFlowFarneback(prev_frame, next_frame, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">None</span>, pyr_scale<span class="op">=</span><span class="fl">0.5</span>, levels<span class="op">=</span><span class="dv">3</span>, winsize<span class="op">=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="characteristics-1" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics-1">Characteristics</h4>
+<div class="grid">
+<div class="g-col-6">
+<p>Pros:</p>
+<p>✅ Full motion field</p>
+<p>✅ Handles moderate occlusion</p>
+</div>
+<div class="g-col-6">
+<p>Cons:</p>
+<p>❌ Computationally heavy</p>
+<p>❌ Blurry motion boundaries</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="sota-2024" class="level2">
+<h2 class="anchored" data-anchor-id="sota-2024">SOTA (2024)</h2>
+<section id="raft-recurrent-all-pairs-field-transforms" class="level4 panel-tabset">
+<h4 class="panel-tabset anchored" data-anchor-id="raft-recurrent-all-pairs-field-transforms">RAFT Recurrent All-Pairs Field Transforms</h4>
+<p>Builds dense 4D all-pairs correlation volumes by matching every pixel with every other and employs a lightweight recurrent GRU-style updater to iteratively refine the flow field <span class="citation" data-cites="Zachary2020RAFT">(<a href="#ref-Zachary2020RAFT" role="doc-biblioref">Teed and Deng 2020</a>)</span>.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="raft" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="raft.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>RAFT architecture showing the correlation volume computation and iterative updates</em></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="flowformer" class="level4">
+<h4 class="anchored" data-anchor-id="flowformer">FlowFormer++</h4>
+<p>Improves optical flow estimation by introducing a hierarchical Transformer-based architecture with cost-volume encoding and decoupled update modules, enabling long-range and fine-grained motion modeling <span class="citation" data-cites="shi2023flowformerplusplus">(<a href="#ref-shi2023flowformerplusplus" role="doc-biblioref">Shi et al. 2023</a>)</span>.</p>
+<div style="text-align: center; margin: 0 auto; position: relative;">
+<div id="flowformerpp" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="flowformerplusplus.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><em>FlowFormer++ architecture showing the transformer-based matching and cost volume encoding</em></figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Application</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Video Synthesis</strong></td>
+<td>Generates intermediate frames by estimating motion between video frames, enabling smooth transitions like slow-motion.</td>
+</tr>
+<tr class="even">
+<td><strong>Video Inpainting</strong></td>
+<td>Fills in missing or damaged video regions by tracking the motion of surrounding pixels, ensuring temporal consistency.</td>
+</tr>
+<tr class="odd">
+<td><strong>Video Stabilization</strong></td>
+<td>Compensates for camera shake by estimating motion and stabilizing consecutive frames, creating smoother video output.</td>
+</tr>
+<tr class="even">
+<td><strong>Low Level Vision</strong></td>
+<td>Provides motion information for tasks like object tracking, motion detection, and scene reconstruction.</td>
+</tr>
+<tr class="odd">
+<td><strong>Stereo and SLAM</strong></td>
+<td>Used in depth estimation and 3D reconstruction by combining with stereo images, crucial for robotics and self-driving.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="challenges" class="level2">
+<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<section id="handling-occlusions-1" class="level5">
+<h5 class="anchored" data-anchor-id="handling-occlusions-1">Handling Occlusions</h5>
+<p>Occlusions occur when objects move out of view or are blocked by other objects, creating areas where flow cannot be reliably estimated. These regions lead to inaccuracies in the flow field, which can complicate tasks like video synthesis or scene reconstruction.</p>
+</section>
+<section id="large-motion-estimation" class="level5">
+<h5 class="anchored" data-anchor-id="large-motion-estimation">Large Motion Estimation</h5>
+<p>Estimating optical flow for large displacements is a challenge because large motions may result in pixel mismatches or erroneous vectors. When objects move quickly across the scene, the flow field becomes more difficult to compute accurately, often leading to significant errors.</p>
+</section>
+<section id="illumination-changes" class="level5">
+<h5 class="anchored" data-anchor-id="illumination-changes">Illumination Changes</h5>
+<p>The brightness constancy assumption, a core principle of many optical flow algorithms, can be violated when there are changes in lighting conditions, shadows, or reflections between consecutive frames. This makes it challenging to maintain accurate flow estimation under varying illumination.</p>
+</section>
+<section id="non-rigid-motion" class="level5">
+<h5 class="anchored" data-anchor-id="non-rigid-motion">Non-Rigid Motion</h5>
+<p>Non-rigid motion refers to the deformation of objects, such as a person walking or a flag flapping in the wind. Unlike rigid motion, non-rigid motion does not follow predictable patterns, which makes optical flow estimation much more complex.</p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-baker2007middlebury" class="csl-entry" role="listitem">
+Baker, Simon, Stefan Roth, Daniel Scharstein, Michael J. Black, J. P. Lewis, and Richard Szeliski. 2007. <span>“A Database and Evaluation Methodology for Optical Flow.”</span> <em>2007 IEEE 11th International Conference on Computer Vision</em>, 1–8. <a href="https://doi.org/10.1109/ICCV.2007.4408903">https://doi.org/10.1109/ICCV.2007.4408903</a>.
+</div>
+<div id="ref-hornschunck1981" class="csl-entry" role="listitem">
+Horn, Berthold K. P., and Brian G. Schunck. 1981. <span>“Determining Optical Flow.”</span> <em>Artificial Intelligence</em> 17 (1): 185–203. https://doi.org/<a href="https://doi.org/10.1016/0004-3702(81)90024-2">https://doi.org/10.1016/0004-3702(81)90024-2</a>.
+</div>
+<div id="ref-shi2023flowformerplusplus" class="csl-entry" role="listitem">
+Shi, Xiaoyu, Zhaoyang Huang, Dasong Li, Manyuan Zhang, Ka Chun Cheung, Simon See, Hongwei Qin, Jifeng Dai, and Hongsheng Li. 2023. <span>“Flowformer++: Masked Cost Volume Autoencoding for Pretraining Optical Flow Estimation.”</span> In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, 1599–1610.
+</div>
+<div id="ref-Zachary2020RAFT" class="csl-entry" role="listitem">
+Teed, Zachary, and Jia Deng. 2020. <span>“RAFT: Recurrent All-Pairs Field Transforms for Optical Flow.”</span> In <em>Computer Vision – ECCV 2020: 16th European Conference, Glasgow, UK, August 23–28, 2020, Proceedings, Part II</em>, 402–19. Berlin, Heidelberg: Springer-Verlag. <a href="https://doi.org/10.1007/978-3-030-58536-5_24">https://doi.org/10.1007/978-3-030-58536-5_24</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="faux-block" data-text-align="center">© 2023 Harshith Mohan Kumar CC BY-SA 4.0</span></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><span class="faux-block" data-text-align="center"><a href="mailto:hiharshith18@gmail.com">Contact Me!</a></span></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -384,3 +384,43 @@ a[href^="http"]::after {
   font-size: 0.75em;
   margin-left: 0.25em;
 }
+
+/*-- scss:defaults --*/
+// Light mode colors
+$body-bg: #ffffff !default;
+$body-color: #333333 !default;
+$link-color: #0066cc !default;
+
+// Dark mode colors
+[data-theme="dark"] {
+  $body-bg: #222222 !default;
+  $body-color: #e0e0e0 !default;
+  $link-color: #4da6ff !default;
+}
+
+/*-- scss:rules --*/
+// Theme toggle button styling
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
+/* Light mode tab styling */
+.panel-tabset .nav-link {
+  color: #325d88;
+  background-color: #f8f5f0;
+  border-color: #dfd7ca;
+}

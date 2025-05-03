@@ -4,26 +4,31 @@ project:
 
 website:
   page-navigation: true
-  title: "HMK"
+  title: "Harshith"
   favicon: images/favicon-32x32.png
   google-analytics: G-0G53KW5MDP
   navbar:
     right:
+      - text: "Blog"
+        href: blog.qmd
       - publications.qmd
-      - text: Experience
-        href: experience/experience.qmd
+      # - text: "Experience"
+      #   href: experience/experience.qmd
       # - fun.qmd
-      - text: Resume
+      - text: "Resume"
         href: resumes/HarshithMohanKumar_Resume.pdf
   page-footer:
     left: |
       <span text-align="center" class="faux-block">&#169; 2023 Harshith Mohan Kumar CC BY-SA 4.0</span>
     right: |
       <span text-align="center" class="faux-block"><a href="mailto:hiharshith18@gmail.com">Contact Me!</a></span>
+  sidebar: false
       
 format:
   html:
     from: markdown+emoji
-    theme: sandstone
+    theme:
+      dark: darkly
+      light: sandstone
     css: _sandstone.scss
-    toc: true
+    toc: false
