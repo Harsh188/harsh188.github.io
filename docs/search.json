@@ -156,9 +156,9 @@
   {
     "objectID": "blog/2025-04-19/index.html#sota",
     "href": "blog/2025-04-19/index.html#sota",
-    "title": "Guide to Optical Flow 🌊",
+    "title": "Visual guide to Optical Flow 🌊",
     "section": "SOTA",
-    "text": "SOTA\n\nRAFT\n\n\nFlowFormer++"
+    "text": "SOTA\n\nRAFT Recurrent All-Pairs Field Transforms\nBuilds dense 4D all-pairs correlation volumes by matching every pixel with every other and employs a lightweight recurrent GRU-style updater to iteratively refine the flow field (Teed and Deng 2020).\n\n\n\n\nRAFT architecture showing the correlation volume computation and iterative updates\n\n\n\n\n\nFlowFormer++\nImproves optical flow estimation by introducing a hierarchical Transformer-based architecture with cost-volume encoding and decoupled update modules, enabling long-range and fine-grained motion modeling (Shi et al. 2023).\n\n\n\n\nFlowFormer++ architecture showing the transformer-based matching and cost volume encoding"
   },
   {
     "objectID": "blog/2025-04-19/index.html#metrics-1",

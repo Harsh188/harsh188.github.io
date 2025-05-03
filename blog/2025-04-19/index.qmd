@@ -639,7 +639,7 @@ Cons:
 :::
 :::
 
-## SOTA (2024)
+## SOTA
 
 #### RAFT Recurrent All-Pairs Field Transforms {.panel-tabset}
 
