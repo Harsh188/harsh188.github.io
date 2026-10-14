@@ -7,7 +7,7 @@ project:
 website:
   page-navigation: true
   title: "Harshith"
-  favicon: images/favicon-32x32.png
+  favicon: images/favicon-h-v1.png
   google-analytics: G-0G53KW5MDP
   navbar:
     right:
