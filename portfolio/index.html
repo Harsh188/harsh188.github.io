@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A curious person known for good pictures, questions and computer vision.">
+  <meta name="theme-color" content="#e7dfd2">
+  <title>Welcome wandering eye. — Harshith Mohan Kumar</title>
+  <link rel="stylesheet" href="folio.css">
+  <link rel="stylesheet" href="earth-theme.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Harshith, home">Harshith<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Me</a>
+      <a href="work.html">My work</a>
+      <a href="pictures.html">Pictures</a>
+      <a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="open-gallery" aria-labelledby="greeting">
+      <div class="introduction">
+        <h1 id="greeting"><span>Welcome</span> <span>wandering</span> <span>eye<span class="period">.</span></span></h1>
+        <p class="intro-copy">A curious person known for good pictures, questions and computer vision.</p>
+        <div class="page-links">
+          <a href="pictures.html">See my pictures <span aria-hidden="true">↗</span></a>
+          <a href="work.html">Explore my work <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <figure class="portrait-print">
+        <img src="assets/portrait-folio-stone.png" alt="Harshith smiling in a navy shirt against a soft stone gray background" width="1122" height="1402" fetchpriority="high">
+        <figcaption>Harshith Mohan Kumar</figcaption>
+      </figure>
+      <div class="photo-stack" aria-label="A few of my favorite photographs">
+        <figure class="photo-print reflections">
+          <button type="button" data-photo="assets/sony-reflections.jpeg" data-caption="Reflections · From my Sony album" aria-label="Enlarge Reflections photograph">
+            <img src="assets/sony-reflections.jpeg" alt="Blue sky and brick buildings reflected in a glass facade" width="3072" height="3072">
+            <span class="enlarge" aria-hidden="true">↗</span>
+          </button>
+          <figcaption><span class="frame-number">01 /</span> Reflections</figcaption>
+        </figure>
+        <figure class="photo-print last-light">
+          <button type="button" data-photo="assets/sony-last-light.jpeg" data-caption="Last light · From my Sony album" aria-label="Enlarge Last light photograph">
+            <img src="assets/sony-last-light.jpeg" alt="A tree silhouetted against red and orange clouds at sunset" width="2121" height="2333">
+            <span class="enlarge" aria-hidden="true">↗</span>
+          </button>
+          <figcaption><span class="frame-number">02 /</span> Last light</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="collected-frames" aria-labelledby="frames-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">A FEW MORE FRAMES</p>
+          <h2 id="frames-title">Things worth<br>a closer look.</h2>
+        </div>
+        <div class="section-summary">
+          <p>From glass reflections to small flowers. A few photographs from my Sony album, and the details that make me look twice.</p>
+          <a href="pictures.html">See all pictures <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="frames-grid">
+        <figure class="photo-print water-print">
+          <button type="button" data-photo="assets/sony-by-the-water.jpeg" data-caption="By the water · From my Sony album" aria-label="Enlarge By the water photograph">
+            <img src="assets/sony-by-the-water.jpeg" alt="A wave breaking over pebbles, with blue water and mountains beyond" width="1440" height="1080" loading="lazy">
+            <span class="enlarge" aria-hidden="true">↗</span>
+          </button>
+          <figcaption><span><span class="frame-number">03 /</span> By the water</span><span class="frame-note">Water, stones, and a split second.</span></figcaption>
+        </figure>
+        <figure class="photo-print flower-print">
+          <button type="button" data-photo="assets/sony-small-details.jpeg" data-caption="Small details · From my Sony album" aria-label="Enlarge Small details photograph">
+            <img src="assets/sony-small-details.jpeg" alt="Tiny blue flowers among softly blurred green leaves" width="3072" height="3072" loading="lazy">
+            <span class="enlarge" aria-hidden="true">↗</span>
+          </button>
+          <figcaption><span><span class="frame-number">04 /</span> Small details</span><span class="frame-note">A little blue in all that green.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="personal-note" aria-labelledby="personal-note-title">
+      <div>
+        <p class="section-label">A LITTLE ABOUT ME</p>
+        <h2 id="personal-note-title">More than one way<br>to see the world.</h2>
+      </div>
+      <div class="note-copy">
+        <p>I’m Harshith Mohan Kumar. My work is in computer vision and computational imaging; my photographs are another way of exploring the visual world.</p>
+        <p>This is a home for both—the pictures I want to keep, the ideas I’m exploring, and a little of the person behind them.</p>
+        <a href="work.html">The things I make <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="hello-section" aria-labelledby="hello-title">
+      <div><p class="section-label">KEEP THE CONVERSATION GOING</p><h2 id="hello-title">Say hello<span class="period">.</span></h2></div>
+      <div><p>A favorite frame, a shared idea, or just a hello.</p><a href="mailto:hiharshith18@gmail.com">hiharshith18@gmail.com <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <dialog class="lightbox" aria-label="Photograph enlarged" aria-describedby="photo-caption">
+      <button type="button" class="close-photo" aria-label="Close photograph" autofocus>×</button>
+      <img src="assets/sony-reflections.jpeg" alt="">
+      <p id="photo-caption"></p>
+    </dialog>
+  </main>
+  <footer class="site-footer">
+    <p>A little corner of the internet.</p>
+    <div><a href="https://github.com/Harsh188">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/harsh188/">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a></div>
+  </footer>
+  <script src="gallery.js"></script>
+</body>
+</html>

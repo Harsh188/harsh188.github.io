@@ -1,0 +1,52 @@
+/* Shared earth palette, loaded after each page's layout styles. */
+:root {
+  --paper: #e7dfd2;
+  --surface: #eee7dc;
+  --surface-deep: #ddd0bc;
+  --ink: #3f3025;
+  --muted: #685949;
+  --line: #c8b9a4;
+  --accent: #8c5038;
+  --link: #46513b;
+  --bg: var(--paper);
+  --green: var(--ink);
+  --umber: var(--ink);
+  --terracotta: var(--accent);
+  --straw: #c9af80;
+}
+
+body { background: var(--paper); color: var(--ink); }
+a:hover { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline-color: var(--link); }
+.page-links { color: var(--link); }
+.page-links a { text-decoration-color: #8c957f; }
+.page-links a:hover { text-decoration-color: var(--accent); }
+.site-header, .site-footer { border-color: var(--line); }
+.portrait-print img {
+  border: 8px solid var(--surface);
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+}
+.enlarge { background: #3f3025d9; color: var(--surface); }
+.lightbox { background: var(--surface); color: var(--ink); }
+.lightbox::backdrop { background: #241e18eb; }
+
+/* Apply the same materials to the existing Work and Pictures layouts. */
+.eyebrow, .tags span, .paper .venue, .milestone time,
+.personal-contact .eyebrow, .personal-contact .social { color: var(--muted); }
+em, .handwritten, .brand span, .personal-contact em { color: var(--ink); }
+.work-door, .contact, .article { background: var(--surface-deep); color: var(--ink); }
+.article-image, .snapshot, .gallery-photo { background: var(--surface); }
+.snapshot, .gallery-photo { box-shadow: 0 3px 16px #3f30250d; }
+.button, .filters button.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+.button:hover { background: var(--accent); color: var(--surface); }
+.award { background: var(--surface-deep); color: var(--ink); }
+.personal-contact a:hover { color: var(--accent); }
+
+@media (max-width: 650px) {
+  .portrait-print img { border-width: 5px; }
+}

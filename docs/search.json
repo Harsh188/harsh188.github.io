@@ -56,34 +56,6 @@
     "text": "2021\n\nClassification of Recyclable Waste Generated in Indian Households\n[Paper]\n\nHarshith MohanKumar, Mohammed Zayd Jamadar, S Natarajan, H Nithin\nSpringer WorldS4 2021"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "GitHub\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n\n  \n  \n\n\nI’m a Machine Learning Engineer specializing in computer vision and computational imaging. As a Research Assistant at UC Riverside, I develop physics-inspired deep models, pushing boundaries in perception systems.\nI hold an MS from UC Riverside, where I researched thermal optical flow under the guidance of Dr. Vishwanath Saragadam and Dr. Amit Roy-Chowdhury, and a BS from PES University.\nPreviously at Intel, I developed a severity ranking system for ADAS alerts through scene understanding. I engineered a large-scale video analysis pipeline during Google Summer of Code and worked as a research fellow at IISc under Dr. Anurag Kumar.\n\n\nSeeking full-time ML/CV roles to build production-ready models for real-world applications—let’s discuss how I can contribute to your team. Lets Connect!"
-  },
-  {
-    "objectID": "index.html#hi-there",
-    "href": "index.html#hi-there",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "Harshith is a Machine Learning Engineer specializing in computer vision, deep learning and\nI’m Harshith, welcome to my personal site!\nI’m currently a Graduate Student Researcher at UC Riverside, where I’m passionately pursuing my Masters in Computer Science. My research interests encompass a diverse range of topics in the field of computer vision, computational photography and deep learning.\nWith the privilege of interning at Intel, contributing to Google Summer of Code, and being a research fellow at the Indian Institute of Science, I bring a rich tapestry of experiences.\nMy journey has been punctuated by multiple acceptances at top conferences, showcasing my commitment to excellence. Feel free to explore my research publications here."
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "MSCS | Sept 2023 - Present\n\n\n\n\nB.Tech CS | Aug 2019 - June 2023"
-  },
-  {
-    "objectID": "index.html#recent-news",
-    "href": "index.html#recent-news",
-    "title": "Harshith Mohan Kumar",
-    "section": "Recent News",
-    "text": "Recent News\n\n2025\n\n[04/19/25] - Defended my MS Thesis on Thermal Optical Flow\n\n\n\n2024\n\n[06/01/24] - Working as Graduate Student Researcher\n[02/06/24] - Featured on podcast episode\n[01/01/24] - Joined the Computational Optics Lab, advised by Prof. Vishwanath Saragadam\n\n\n\n2023\n\n[08/07/23] - Extended abstract accepted at ICCV’23 BRAVO Workshop\n[07/20/23] - OCTraN now on ArXiv\n[05/29/23] - OCTraN paper accepted at CVPR’23 T4V Workshop\n[01/02/23] - Working at at Intel\n\n\n\n2022\n\n[09/23/22] - Won Best Student Paper Award at ECML-PKDD’22 MLG workshop"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -103,13 +75,6 @@
     "title": "About",
     "section": "",
     "text": "About this site"
-  },
-  {
-    "objectID": "index.html#hi-im-harsh",
-    "href": "index.html#hi-im-harsh",
-    "title": "Harshith Mohan Kumar",
-    "section": "",
-    "text": "I’m a Machine Learning Engineer specializing in computer vision and computational imaging. As a Research Assistant at UC Riverside, I develop physics-inspired deep models, pushing boundaries in perception systems.\nI hold an MS from UC Riverside, where I researched thermal optical flow under the guidance of Dr. Vishwanath Saragadam and Dr. Amit Roy-Chowdhury, and a BS from PES University.\nPreviously at Intel, I developed a severity ranking system for ADAS alerts through scene understanding. I engineered a large-scale video analysis pipeline during Google Summer of Code and worked as a research fellow at IISc under Dr. Anurag Kumar.\n\n\nSeeking full-time ML/CV roles to build production-ready models for real-world applications—let’s discuss how I can contribute to your team. Lets Connect!"
   },
   {
     "objectID": "blog/2025-04-19/index.html",
@@ -257,5 +222,26 @@
     "title": "Visual guide to Optical Flow 🌊",
     "section": "Mathematical Intuition",
     "text": "Mathematical Intuition\nThe foundational equation of optical flow is based on the brightness constancy assumption, which states that the intensity of a pixel does not change between consecutive frames. This assumption leads to the well-known optical flow constraint equation:\n\\[\nI_x u + I_y v + I_t = 0\n\\]\nWhere:\n\n\\(I_x\\) and \\(I_y\\) are the partial derivatives\n\\(I_t\\) is the partial derivative of the image intensity with respect to time (\\(t\\)).\n\\(u\\) and \\(v\\) are the components of the optical flow vector (horizontal, vertical).\n\nThe equation above implies that for each pixel, the rate of change of intensity over time can be attributed to the motion of the pixel in the image plane. This is the optical flow constraint.\n\n\nHorn and Schunck’s Optical Flow Model\n(Horn and Schunck 1981) introduced a regularized version of the optical flow problem to address the ill-posed optical flow equation. Their model adds a smoothness assumption, which assumes that neighboring pixels have similar motion.\nThe formulation they proposed can be written as:\n\\[\n\\min_{u,v} \\int \\left[ (I_x u + I_y v + I_t)^2 + \\alpha^2 (I_x^2 + I_y^2)(u_x^2 + u_y^2 + v_x^2 + v_y^2) \\right] dx dy\n\\]\nWhere:\n\nThe first term is the data term, which enforces the optical flow constraint.\nThe second term is the smoothness term, which enforces spatial smoothness of the flow field. It penalizes large variations in the flow between neighboring pixels.\n\\(\\alpha\\) is a regularization parameter that controls the trade-off between the data term and the smoothness term.\n\nHere, \\(u_x\\) and \\(u_y\\) represent the spatial derivatives of \\(u\\) (horizontal), and \\(v_x\\) and \\(v_y\\) represent the spatial derivatives of \\(v\\) (vertical). The smoothness term ensures that the flow field does not have sharp discontinuities, which helps in obtaining a physically plausible solution.\n\nKey Assumptions of the Horn-Schunck Method:\n\nBrightness Constancy: The pixel intensity does not change over time for any given object in the scene.\nSmoothness: The flow is smooth across the image, meaning that neighboring pixels move in similar ways.\nGlobal Regularization: The optical flow is computed globally across the entire image, meaning that all pixels are influenced by the flow of neighboring pixels through the regularization term.\n\nThis model led to a well-known global method for optical flow computation, which involves solving the system of equations derived from the above functional using iterative techniques, such as gradient descent or other optimization algorithms."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome wandering eye. — Harshith Mohan Kumar",
+    "section": "",
+    "text": "Welcome wandering eye . A curious person known for good pictures, questions and computer vision. See my pictures ↗ Explore my work ↗ Harshith Mohan Kumar ↗ 01 / Reflections ↗ 02 / Last light A FEW MORE FRAMES Things worth a closer look. From glass reflections to small flowers. A few photographs from my Sony album, and the details that make me look twice. See all pictures ↗ ↗ 03 / By the water Water, stones, and a split second. ↗ 04 / Small details A little blue in all that green. A LITTLE ABOUT ME More than one way to see the world. I’m Harshith Mohan Kumar. My work is in computer vision and computational imaging; my photographs are another way of exploring the visual world. This is a home for both—the pictures I want to keep, the ideas I’m exploring, and a little of the person behind them. The things I make ↗ KEEP THE CONVERSATION GOING Say hello . A favorite frame, a shared idea, or just a hello. hiharshith18@gmail.com ↗"
+  },
+  {
+    "objectID": "pictures.html",
+    "href": "pictures.html",
+    "title": "Pictures — Harshith Mohan Kumar",
+    "section": "",
+    "text": "Through my lens . A few frames I wanted to keep. ↗ 01 / Reflections ↗ 02 / Last light ↗ 03 / Small details ↗ 04 / By the water ↗ 05 / Golden Gate Bridge"
+  },
+  {
+    "objectID": "work.html",
+    "href": "work.html",
+    "title": "My work — Harshith Mohan Kumar",
+    "section": "",
+    "text": "Harshith Mohan Kumar Machine learning · Computer vision · Computational imaging My work spans visual perception and applied machine learning, from thermal optical flow to scene understanding and large-scale video analysis. Resume ↗ Google Scholar ↗ GitHub ↗ LinkedIn ↗ Email ↗ Publications Background Writing Updates Research & publications Google Scholar ↗ All research Vision & perception Learning & applications Please enable JavaScript to browse the publication list, or view the full list on Google Scholar . Background Education & research I hold an MS from UC Riverside , where I researched thermal optical flow under Vishwanath Saragadam and Amit Roy-Chowdhury . I hold a BS from PES University . I also worked as a research fellow at IISc under Anurag Kumar . Applied machine learning At Intel , I worked on scene understanding and a severity ranking system for ADAS alerts. Through Google Summer of Code , I engineered a large-scale video analysis pipeline. Writing All posts ↗ Computer vision · April 19, 2025 A visual guide to optical flow ↗ Motion between frames, the mathematics behind it, and modern approaches including RAFT and FlowFormer++. Updates Apr 2025 Defended my MS thesis on thermal optical flow. Jun 2024 Started as a Graduate Student Researcher at UC Riverside. Feb 2024 Featured on a podcast episode . Jan 2024 Joined the Computational Optics Lab, advised by Vishwanath Saragadam . Aug 2023 Extended abstract accepted at the ICCV BRAVO Workshop . Jul 2023 OCTraN released on arXiv. May 2023 OCTraN accepted at the CVPR T4V Workshop . Jan 2023 Started working at Intel. Sep 2022 Received the Best Student Paper Award at the ECML-PKDD MLG Workshop ."
   }
 ]
