@@ -53,10 +53,24 @@ h2 { margin-bottom: 22px; font-size: 26px; line-height: 1.3; font-weight: 400; l
 .paper .venue { color: var(--ink); font-size: 13px; }
 .paper-arrow { font-size: 21px; line-height: 1.4; text-align: right; }
 .award { display: block; color: var(--ink); font-size: 12px; font-weight: 600; margin-top: 5px; }
-.background-columns { display: grid; grid-template-columns: 1.15fr 1fr; gap: 52px; }
-.background-columns h3 { font-size: 16px; font-weight: 500; line-height: 1.4; margin-bottom: 13px; }
-.background-columns p { font-size: 14px; line-height: 1.8; margin-bottom: 13px; }
-.background-columns p:last-child { margin-bottom: 0; }
+.education-summary { max-width: 790px; }
+.education-summary h3 { font-size: 16px; font-weight: 500; line-height: 1.4; margin-bottom: 13px; }
+.education-summary p { font-size: 14px; line-height: 1.8; margin-bottom: 13px; }
+.education-summary p:last-child { margin-bottom: 0; }
+.badge-showcase { margin-top: 30px; }
+.badge-group + .badge-group { margin-top: 26px; }
+.badge-group h3 { margin: 0 0 12px; color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.badge-grid { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.experience-badges { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.conference-badges { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.career-badge { display: flex; flex-direction: column; align-items: center; height: 100%; padding: 20px 12px 16px; border: 1px solid #e4e5e3; border-radius: 6px; color: var(--ink); text-align: center; transition: border-color .18s ease, box-shadow .18s ease; }
+.career-badge:hover { color: var(--ink); text-decoration: none; border-color: #a8bacb; box-shadow: 0 3px 12px #24374b08; }
+.badge-logo { display: flex; align-items: center; justify-content: center; width: 100%; height: 64px; margin-bottom: 15px; }
+.badge-logo img { display: block; width: auto; height: auto; max-width: min(155px, 90%); max-height: 64px; object-fit: contain; }
+.badge-logo .glass-logo { filter: invert(1); }
+.badge-name { font-size: 14px; font-weight: 500; line-height: 1.4; }
+.badge-detail { margin-top: 4px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.badge-honor { margin-top: 9px; padding: 2px 8px; border-radius: 3px; background: #f3f0e7; color: #665536; font-size: 10px; font-weight: 500; }
 .writing-entry { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 26px; align-items: center; }
 .writing-entry img { display: block; width: 180px; height: 130px; object-fit: contain; background: var(--subtle); padding: 10px; }
 .writing-entry .entry-meta { margin-bottom: 7px; color: var(--muted); font-size: 12px; }
@@ -82,7 +96,7 @@ h2 { margin-bottom: 22px; font-size: 26px; line-height: 1.3; font-weight: 400; l
   .site-header nav { gap: 18px; font-size: 13px; }
   .profile { padding-top: 38px; }
   .specialization { font-size: 16px; }
-  .background-columns { gap: 30px; }
+  .experience-badges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .paper { grid-template-columns: 44px minmax(0, 1fr) 20px; gap: 12px; }
   .paper h3 { font-size: 17px; }
   .writing-entry { grid-template-columns: 140px minmax(0, 1fr); gap: 20px; }
@@ -114,7 +128,10 @@ h2 { margin-bottom: 22px; font-size: 26px; line-height: 1.3; font-weight: 400; l
   .paper-arrow { grid-column: 2; grid-row: 2; }
   .paper h3 { font-size: 16px; }
   .paper p, .paper .venue { font-size: 12px; }
-  .background-columns { grid-template-columns: 1fr; gap: 26px; }
+  .badge-grid { gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .career-badge { padding: 16px 10px 14px; }
+  .badge-name { font-size: 13px; }
+  .badge-detail { font-size: 11px; }
   .writing-entry { grid-template-columns: 1fr; gap: 18px; }
   .writing-entry img { width: 180px; height: 130px; }
   .writing-entry h3 { font-size: 18px; }
@@ -123,7 +140,7 @@ h2 { margin-bottom: 22px; font-size: 26px; line-height: 1.3; font-weight: 400; l
   .update-list p { font-size: 13px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 9px; padding-block: 22px 28px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .career-badge { transition: none; } }
 @media print {
   .site-header, .section-nav, .filters, .paper-arrow, .site-footer, .skip { display: none; }
   main { width: 100%; }

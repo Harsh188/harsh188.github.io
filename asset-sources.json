@@ -1,0 +1,24 @@
+{
+  "portfolio/assets/logos/glass-imaging.svg": {
+    "page": "https://www.glass-imaging.com/",
+    "source": "https://cdn.prod.website-files.com/648f463c981e8ad8652dbefd/648f4719ead0ed4bde56525c_GlassImaging%20-%20logo.svg",
+    "note": "Official white wordmark, unchanged; displayed in black using CSS invert."
+  },
+  "portfolio/assets/logos/intel.png": {"source": "images/intel.png", "note": "Existing portfolio asset."},
+  "portfolio/assets/logos/google-summer-of-code.png": {"source": "images/gsoc.png", "note": "Existing portfolio asset."},
+  "portfolio/assets/logos/iisc.jpg": {"source": "images/iisc.jpg", "note": "Existing portfolio asset."},
+  "portfolio/assets/logos/iccv-2023.svg": {
+    "page": "https://iccv2023.thecvf.com/",
+    "source": "https://iccv2023.thecvf.com/img/LogoICCV23V04.svg"
+  },
+  "portfolio/assets/logos/cvpr-2023.png": {
+    "page": "https://cvpr.thecvf.com/Conferences/2023/PosterPrintingInformation",
+    "source": "https://media.icml.cc/Conferences/CVPR2023/CVPR_Logos.zip",
+    "archiveEntry": "CVPR Logos/CVRP Logo_2023 Vancouvar_Color.png"
+  },
+  "portfolio/assets/logos/ecml-pkdd.svg": {
+    "page": "https://ecmlpkdd.org/",
+    "source": "https://ecmlpkdd.org/_next/static/media/ecml-pkdd.93f4d432.svg",
+    "note": "General conference wordmark; badge caption identifies the 2022 MLG workshop."
+  }
+}
