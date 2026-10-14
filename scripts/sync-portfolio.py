@@ -6,6 +6,8 @@ import os
 from html.parser import HTMLParser
 from pathlib import Path
 from shutil import copy2
+from urllib.parse import quote
+from xml.etree import ElementTree as ET
 
 
 class PageText(HTMLParser):
@@ -73,6 +75,21 @@ def main():
             "text": " ".join(" ".join(parser.text).split()),
         })
     search_path.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n")
+
+    namespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
+    ET.register_namespace("", namespace)
+    sitemap = ET.Element(f"{{{namespace}}}urlset")
+    for page in sorted(output.rglob("*.html")):
+        relative = page.relative_to(output)
+        if "site_libs" in relative.parts:
+            continue
+        path = relative.as_posix()
+        if page.name == "index.html":
+            path = path[:-len("index.html")]
+        url = ET.SubElement(sitemap, f"{{{namespace}}}url")
+        ET.SubElement(url, f"{{{namespace}}}loc").text = "https://harsh188.github.io/" + quote(path)
+    ET.indent(sitemap, space="  ")
+    ET.ElementTree(sitemap).write(output / "sitemap.xml", encoding="utf-8", xml_declaration=True)
     print(f"Synced {len(files)} portfolio files to {output}; existing blog files retained.")
 
 

@@ -5,7 +5,7 @@ toc: false
 about:
   template: trestles
   id: hero-heading
-  image: "images/profile.jpg"
+  image: "portfolio/assets/portrait-folio-stone.png"
   image-shape: rounded
   image-width: 25em
   links:
