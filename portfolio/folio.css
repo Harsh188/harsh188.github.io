@@ -54,8 +54,10 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; letter-spac
 .site-footer a { text-decoration: none; padding-block: 8px; }
 .lightbox { padding: 52px 24px 16px; border: 0; width: min(1248px, 94vw); max-width: 94vw; max-height: 94dvh; background: var(--paper); color: var(--ink); }
 .lightbox::backdrop { background: #101517e8; }
-.lightbox img { display: block; width: 100%; height: min(72dvh, calc(94dvh - 170px)); object-fit: contain; touch-action: pan-y pinch-zoom; user-select: none; }
+.lightbox img { display: block; width: 100%; height: min(70dvh, calc(94dvh - 196px)); object-fit: contain; touch-action: pan-y pinch-zoom; user-select: none; }
 .lightbox p { text-align: center; font-size: 14px; margin: 8px 0 0; }
+.lightbox .photo-date { display: block; text-align: center; font-size: 12px; margin-top: 4px; color: var(--muted); }
+.lightbox .photo-date[hidden] { display: none; }
 .close-photo { position: absolute; right: 10px; top: 4px; width: 44px; height: 44px; border: 0; background: transparent; font-size: 30px; line-height: 1; color: inherit; cursor: pointer; }
 .photo-navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-top: 12px; }
 .photo-navigation[hidden] { display: none; }

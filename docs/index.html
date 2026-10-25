@@ -40,7 +40,7 @@
   </script>
   <meta name="theme-color" content="#e7dfd2">
   <title>Welcome wandering eye. — Harshith Mohan Kumar</title>
-  <link rel="stylesheet" href="folio.css?v=20261025-carousel">
+  <link rel="stylesheet" href="folio.css?v=20261025-dates">
   <link rel="stylesheet" href="earth-theme.css">
 </head>
 <body>
@@ -70,14 +70,14 @@
       </figure>
       <div class="photo-stack" aria-label="A few of my favorite photographs">
         <figure class="photo-print reflections">
-          <button type="button" data-photo="assets/sony-reflections.jpeg" data-caption="Reflections · From my Sony album" aria-label="Enlarge Reflections photograph">
+          <button type="button" data-photo="assets/sony-reflections.jpeg" data-taken="2026-05-29" data-taken-label="May 29, 2026" data-caption="Reflections · From my Sony album" aria-label="Enlarge Reflections photograph">
             <img src="assets/sony-reflections.jpeg" alt="Blue sky and brick buildings reflected in a glass facade" width="3072" height="3072">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
           <figcaption><span class="frame-number">01 /</span> Reflections</figcaption>
         </figure>
         <figure class="photo-print last-light">
-          <button type="button" data-photo="assets/sony-last-light.jpeg" data-caption="Last light · From my Sony album" aria-label="Enlarge Last light photograph">
+          <button type="button" data-photo="assets/sony-last-light.jpeg" data-taken="2026-07-13" data-taken-label="July 13, 2026" data-caption="Last light · From my Sony album" aria-label="Enlarge Last light photograph">
             <img src="assets/sony-last-light.jpeg" alt="A tree silhouetted against red and orange clouds at sunset" width="2121" height="2333">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
@@ -98,14 +98,14 @@
       </div>
       <div class="frames-grid">
         <figure class="photo-print water-print">
-          <button type="button" data-photo="assets/sony-by-the-water.jpeg" data-caption="By the water · From my Sony album" aria-label="Enlarge By the water photograph">
+          <button type="button" data-photo="assets/sony-by-the-water.jpeg" data-taken="2026-09-05" data-taken-label="September 5, 2026" data-caption="By the water · From my Sony album" aria-label="Enlarge By the water photograph">
             <img src="assets/sony-by-the-water.jpeg" alt="A wave breaking over pebbles, with blue water and mountains beyond" width="1440" height="1080" loading="lazy">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
           <figcaption><span><span class="frame-number">03 /</span> By the water</span><span class="frame-note">Water, stones, and a split second.</span></figcaption>
         </figure>
         <figure class="photo-print flower-print">
-          <button type="button" data-photo="assets/sony-small-details.jpeg" data-caption="Small details · From my Sony album" aria-label="Enlarge Small details photograph">
+          <button type="button" data-photo="assets/sony-small-details.jpeg" data-taken="2026-05-21" data-taken-label="May 21, 2026" data-caption="Small details · From my Sony album" aria-label="Enlarge Small details photograph">
             <img src="assets/sony-small-details.jpeg" alt="Tiny blue flowers among softly blurred green leaves" width="3072" height="3072" loading="lazy">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
@@ -140,12 +140,13 @@
         <button type="button" class="next-photo" aria-label="Next photograph">Next <span aria-hidden="true">→</span></button>
       </div>
       <p id="photo-caption"></p>
+      <time class="photo-date" hidden></time>
     </dialog>
   </main>
   <footer class="site-footer">
     <p>A little corner of the internet.</p>
     <div><a href="https://github.com/Harsh188">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/harsh188/">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a></div>
   </footer>
-  <script src="gallery.js?v=20261025-carousel-2"></script>
+  <script src="gallery.js?v=20261025-dates"></script>
 </body>
 </html>

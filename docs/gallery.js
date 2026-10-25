@@ -6,6 +6,7 @@
 
   const image = dialog.querySelector('img');
   const caption = dialog.querySelector('p');
+  const takenDate = dialog.querySelector('.photo-date');
   const closeButton = dialog.querySelector('.close-photo');
   const navigation = dialog.querySelector('.photo-navigation');
   const previousButton = dialog.querySelector('.previous-photo');
@@ -27,6 +28,8 @@
       source: trigger.dataset.photo || thumbnail?.currentSrc || thumbnail?.src,
       alt: thumbnail?.alt || '',
       caption: trigger.dataset.caption,
+      date: trigger.dataset.taken,
+      dateLabel: trigger.dataset.takenLabel,
     };
   }).filter((photo) => photo.source);
 
@@ -57,6 +60,11 @@
         (image.src === originalSource ? originalCaption : photo.alt);
     }
     if (position) position.textContent = `${currentIndex + 1} / ${photos.length}`;
+    if (takenDate) {
+      takenDate.hidden = !photo.date;
+      takenDate.dateTime = photo.date || '';
+      takenDate.textContent = photo.dateLabel || '';
+    }
     swipeStart = null;
 
     neighborPreloads.length = 0;
