@@ -8,9 +8,18 @@
     "source": "https://cdn.prod.website-files.com/648f463c981e8ad8652dbefd/648f4719ead0ed4bde56525c_GlassImaging%20-%20logo.svg",
     "note": "Official white wordmark, unchanged; displayed in black using CSS invert."
   },
-  "portfolio/assets/logos/intel.png": {"source": "images/intel.png", "note": "Existing portfolio asset."},
-  "portfolio/assets/logos/google-summer-of-code.png": {"source": "images/gsoc.png", "note": "Existing portfolio asset."},
-  "portfolio/assets/logos/iisc.jpg": {"source": "images/iisc.jpg", "note": "Existing portfolio asset."},
+  "portfolio/assets/logos/intel.png": {
+    "source": "images/intel.png",
+    "note": "Existing portfolio asset."
+  },
+  "portfolio/assets/logos/google-summer-of-code.png": {
+    "source": "images/gsoc.png",
+    "note": "Existing portfolio asset."
+  },
+  "portfolio/assets/logos/iisc.jpg": {
+    "source": "images/iisc.jpg",
+    "note": "Existing portfolio asset."
+  },
   "portfolio/assets/logos/iccv-2023.svg": {
     "page": "https://iccv2023.thecvf.com/",
     "source": "https://iccv2023.thecvf.com/img/LogoICCV23V04.svg"
@@ -24,5 +33,70 @@
     "page": "https://ecmlpkdd.org/",
     "source": "https://ecmlpkdd.org/_next/static/media/ecml-pkdd.93f4d432.svg",
     "note": "General conference wordmark; badge caption identifies the 2022 MLG workshop."
+  },
+  "portfolio/assets/amber.jpg": {
+    "source": "DSC00130.jpg",
+    "title": "Amber",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/cherry-starburst.jpg": {
+    "source": "DSC00131.jpg",
+    "title": "Cherry starburst",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/blush.jpg": {
+    "source": "DSC00213.jpg",
+    "title": "Blush",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/salesforce-framed.jpg": {
+    "source": "DSC00272.jpg",
+    "title": "Salesforce, framed",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/peaking.jpg": {
+    "source": "DSC00299.jpg",
+    "title": "Peaking",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/19th.jpg": {
+    "source": "DSC00322.jpg",
+    "title": "19th",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/pastel-clouds.jpg": {
+    "source": "DSC00327.jpg",
+    "title": "Pastel clouds",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/amelie-after-dark.jpg": {
+    "source": "DSC00360.jpg",
+    "title": "Amelie, after dark",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/glowing-lanterns.jpg": {
+    "source": "DSC00361.jpg",
+    "title": "Glowing lanterns",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/what-if.jpg": {
+    "source": "DSC00380.jpg",
+    "title": "What If",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/curious-eevee.jpg": {
+    "source": "DSC00406.jpg",
+    "title": "Curious Eevee",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/sunrise-webs.jpg": {
+    "source": "DSC00503.jpg",
+    "title": "Sunrise webs",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
+  },
+  "portfolio/assets/home.jpg": {
+    "source": "DSC00507.jpg",
+    "title": "Home",
+    "note": "User-approved five-star Lightroom export, October 25, 2026. Original JPEG pixels, framing and sRGB profile retained; embedded personal/editing metadata removed. Gallery preview limited to 960 px."
   }
 }
