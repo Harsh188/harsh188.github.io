@@ -52,11 +52,18 @@ figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; letter-spac
 .site-footer p { margin: 0; }
 .site-footer > div { display: flex; flex-wrap: wrap; gap: 24px; }
 .site-footer a { text-decoration: none; padding-block: 8px; }
-.lightbox { padding: 52px 24px 16px; border: 0; max-width: 94vw; max-height: 94dvh; background: var(--paper); color: var(--ink); }
+.lightbox { padding: 52px 24px 16px; border: 0; width: min(1248px, 94vw); max-width: 94vw; max-height: 94dvh; background: var(--paper); color: var(--ink); }
 .lightbox::backdrop { background: #101517e8; }
-.lightbox img { display: block; max-width: min(1120px, 86vw); max-height: 75dvh; width: auto; height: auto; object-fit: contain; }
-.lightbox p { text-align: center; font-size: 14px; margin: 16px 0 0; }
+.lightbox img { display: block; width: 100%; height: min(72dvh, calc(94dvh - 170px)); object-fit: contain; touch-action: pan-y pinch-zoom; user-select: none; }
+.lightbox p { text-align: center; font-size: 14px; margin: 8px 0 0; }
 .close-photo { position: absolute; right: 10px; top: 4px; width: 44px; height: 44px; border: 0; background: transparent; font-size: 30px; line-height: 1; color: inherit; cursor: pointer; }
+.photo-navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-top: 12px; }
+.photo-navigation[hidden] { display: none; }
+.photo-navigation button { min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: transparent; color: inherit; cursor: pointer; font-size: 14px; }
+.photo-navigation button:hover { border-color: var(--accent); color: var(--accent); }
+.previous-photo { justify-self: start; }
+.next-photo { justify-self: end; }
+.photo-position { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 .collected-frames { border-top: 1px solid var(--line); padding: 46px 0 56px; }
 .section-heading, .personal-note { display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; }

@@ -40,7 +40,7 @@
   </script>
   <meta name="theme-color" content="#e7dfd2">
   <title>Welcome wandering eye. — Harshith Mohan Kumar</title>
-  <link rel="stylesheet" href="folio.css">
+  <link rel="stylesheet" href="folio.css?v=20261025-carousel">
   <link rel="stylesheet" href="earth-theme.css">
 </head>
 <body>
@@ -134,6 +134,11 @@
     <dialog class="lightbox" aria-label="Photograph enlarged" aria-describedby="photo-caption">
       <button type="button" class="close-photo" aria-label="Close photograph" autofocus>×</button>
       <img src="assets/sony-reflections.jpeg" alt="">
+      <div class="photo-navigation" role="group" aria-label="Photograph navigation">
+        <button type="button" class="previous-photo" aria-label="Previous photograph"><span aria-hidden="true">←</span> Previous</button>
+        <span class="photo-position" role="status" aria-live="polite" aria-atomic="true"></span>
+        <button type="button" class="next-photo" aria-label="Next photograph">Next <span aria-hidden="true">→</span></button>
+      </div>
       <p id="photo-caption"></p>
     </dialog>
   </main>
@@ -141,6 +146,6 @@
     <p>A little corner of the internet.</p>
     <div><a href="https://github.com/Harsh188">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/harsh188/">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a></div>
   </footer>
-  <script src="gallery.js"></script>
+  <script src="gallery.js?v=20261025-carousel"></script>
 </body>
 </html>
