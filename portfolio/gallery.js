@@ -33,8 +33,6 @@
   if (!photos.length) return;
 
   const hasMultiplePhotos = photos.length > 1;
-  const navigation = dialog.querySelector('.photo-navigation');
-  if (navigation) navigation.hidden = !hasMultiplePhotos;
   if (navigation) navigation.hidden = !hasMultiplePhotos;
   [previousButton, nextButton].forEach((button) => {
     if (button) {
