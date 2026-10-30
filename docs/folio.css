@@ -39,7 +39,7 @@ figure { margin: 0; min-width: 0; }
 .portrait-print img { display: block; width: 100%; height: auto; }
 /* Frame Above it all around the head and torso, preserving the gallery original. */
 .portrait-crop { position: relative; overflow: hidden; aspect-ratio: 4 / 5; }
-.portrait-crop img { position: absolute; width: 183%; max-width: none; height: auto; left: -47.6%; top: -70.5%; }
+.portrait-crop img { position: absolute; width: 183%; max-width: none; height: auto; left: -47.6%; top: -59%; }
 figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; letter-spacing: .01em; line-height: 1.6; }
 .portrait-print figcaption { font-family: var(--serif); font-size: 22px; line-height: 1.35; }
 .photo-stack { display: grid; gap: 29px; }
