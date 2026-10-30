@@ -22,11 +22,12 @@ a:focus-visible, button:focus-visible { outline-color: var(--link); }
 .page-links a { text-decoration-color: #8c957f; }
 .page-links a:hover { text-decoration-color: var(--accent); }
 .site-header, .site-footer { border-color: var(--line); }
-.portrait-print img {
+.portrait-print img, .portrait-crop {
   border: 8px solid var(--surface);
   outline: 1px solid var(--line);
   outline-offset: -1px;
 }
+.portrait-crop img { border: 0; outline: 0; }
 .enlarge { background: #3f3025d9; color: var(--surface); }
 .lightbox { background: var(--surface); color: var(--ink); }
 .lightbox::backdrop { background: #241e18eb; }
@@ -48,5 +49,6 @@ em, .handwritten, .brand span, .personal-contact em { color: var(--ink); }
 .personal-contact a:hover { color: var(--accent); }
 
 @media (max-width: 650px) {
-  .portrait-print img { border-width: 5px; }
+  .portrait-print img, .portrait-crop { border-width: 5px; }
+  .portrait-crop img { border-width: 0; }
 }
