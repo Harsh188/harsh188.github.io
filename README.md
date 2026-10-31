@@ -54,3 +54,13 @@ The output directory is `docs/`, as configured in `_quarto.yml`. Its post-render
 4. Commit both the source changes and `docs/`, then push to `master`.
 
 GitHub Pages publishes this repository's `master` branch from the `/docs` folder. The public address remains [harsh188.github.io](https://harsh188.github.io/); no redirect to another host is needed.
+
+## Offline gallery and photo viewer
+
+On the Pictures page, **Save gallery offline** downloads the published photographs, previews, homepage, gallery, fonts, and viewer to that browser. Wait for **31 photos ready offline** (the count follows the current gallery) before leaving the connection. Keep the page open during the download. A saved gallery refreshes when the site is revisited online; failed updates retain the previous complete copy. **Remove offline copy** clears the saved collection from that device. Browser storage can be cleared or evicted, so check the ready status before relying on offline access.
+
+The viewer supports pinch/trackpad zoom, double-tap/double-click zoom, dragging to pan, a 90° rotation button, reset, and hiding controls. Swipe changes photos at fit size; dragging pans when zoomed. Keyboard: arrows navigate, `+`/`−` zoom, `0` fits, `r` rotates, and Escape closes. Rotating is temporary and never edits the photograph.
+
+`scripts/sync-portfolio.py` generates `docs/gallery-manifest.json` from the visible gallery and local dependencies, including content hashes and byte counts. Originals and retired/unreferenced pictures are not added to this download. The service worker verifies downloaded bytes before activating a new saved collection. No backend or third-party CDN is required. Viewer.js 1.15.2 and the existing Google Fonts are vendored with their licenses.
+
+After changes, run `python3 scripts/sync-portfolio.py` and `node scripts/test-gallery-offline.mjs`. For browser verification, save locally, stop the preview server, reopen the gallery and homepage, and inspect photos that were not previously opened. Check rotation, zoom, keyboard focus, and a narrow phone viewport before publishing.

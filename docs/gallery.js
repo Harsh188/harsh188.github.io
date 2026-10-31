@@ -1,4 +1,5 @@
 (() => {
+  if (window.Viewer) return;
   const dialog = document.querySelector('.lightbox');
   const triggers = document.querySelectorAll('button[data-photo], button.gallery-photo');
 

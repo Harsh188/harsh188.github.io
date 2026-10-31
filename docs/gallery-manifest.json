@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "revision": "c81580c194e9c3bcbef8",
+  "photoCount": 31,
+  "totalBytes": 24240300,
+  "photos": [
+    {
+      "source": "assets/the-long-way-down-v2.jpg",
+      "preview": "assets/the-long-way-down-preview-v2.jpg"
+    },
+    {
+      "source": "assets/above-it-all-v2.jpg",
+      "preview": "assets/above-it-all-preview-v2.jpg"
+    },
+    {
+      "source": "assets/moon-over-the-city.jpg",
+      "preview": "assets/moon-over-the-city-preview.jpg"
+    },
+    {
+      "source": "assets/a-shared-view-v2.jpg",
+      "preview": "assets/a-shared-view-preview-v2.jpg"
+    },
+    {
+      "source": "assets/setting-sutro.jpg",
+      "preview": "assets/setting-sutro-preview.jpg"
+    },
+    {
+      "source": "assets/sunset-overlook-v2.jpg",
+      "preview": "assets/sunset-overlook-preview-v2.jpg"
+    },
+    {
+      "source": "assets/violet-bloom.jpg",
+      "preview": "assets/violet-bloom.jpg"
+    },
+    {
+      "source": "assets/chris-moon.jpg",
+      "preview": "assets/chris-moon-preview.jpg"
+    },
+    {
+      "source": "assets/golden-gate-1.jpg",
+      "preview": "assets/golden-gate-1-preview.jpg"
+    },
+    {
+      "source": "assets/golden-gate-2.jpg",
+      "preview": "assets/golden-gate-2-preview.jpg"
+    },
+    {
+      "source": "assets/puffy-morning.jpg",
+      "preview": "assets/puffy-morning-preview.jpg"
+    },
+    {
+      "source": "assets/hardly-strictly-bluegrass.jpg",
+      "preview": "assets/hardly-strictly-bluegrass-preview.jpg"
+    },
+    {
+      "source": "assets/performative.jpg",
+      "preview": "assets/performative-preview.jpg"
+    },
+    {
+      "source": "assets/after-midnight.jpg",
+      "preview": "assets/after-midnight-preview.jpg"
+    },
+    {
+      "source": "assets/sony-by-the-water.jpeg",
+      "preview": "assets/sony-by-the-water.jpeg"
+    },
+    {
+      "source": "assets/sony-last-light.jpeg",
+      "preview": "assets/sony-last-light.jpeg"
+    },
+    {
+      "source": "assets/sony-reflections.jpeg",
+      "preview": "assets/sony-reflections.jpeg"
+    },
+    {
+      "source": "assets/sony-small-details.jpeg",
+      "preview": "assets/sony-small-details.jpeg"
+    },
+    {
+      "source": "assets/home.jpg",
+      "preview": "assets/home-preview.jpg"
+    },
+    {
+      "source": "assets/sunrise-webs.jpg",
+      "preview": "assets/sunrise-webs-preview.jpg"
+    },
+    {
+      "source": "assets/curious-eevee.jpg",
+      "preview": "assets/curious-eevee-preview.jpg"
+    },
+    {
+      "source": "assets/what-if.jpg",
+      "preview": "assets/what-if-preview.jpg"
+    },
+    {
+      "source": "assets/glowing-lanterns.jpg",
+      "preview": "assets/glowing-lanterns-preview.jpg"
+    },
+    {
+      "source": "assets/amelie-after-dark.jpg",
+      "preview": "assets/amelie-after-dark-preview.jpg"
+    },
+    {
+      "source": "assets/pastel-clouds.jpg",
+      "preview": "assets/pastel-clouds-preview.jpg"
+    },
+    {
+      "source": "assets/19th.jpg",
+      "preview": "assets/19th-preview.jpg"
+    },
+    {
+      "source": "assets/peaking.jpg",
+      "preview": "assets/peaking-preview.jpg"
+    },
+    {
+      "source": "assets/salesforce-framed.jpg",
+      "preview": "assets/salesforce-framed-preview.jpg"
+    },
+    {
+      "source": "assets/blush.jpg",
+      "preview": "assets/blush-preview.jpg"
+    },
+    {
+      "source": "assets/cherry-starburst.jpg",
+      "preview": "assets/cherry-starburst-preview.jpg"
+    },
+    {
+      "source": "assets/amber.jpg",
+      "preview": "assets/amber-preview.jpg"
+    }
+  ],
+  "resources": [
+    {
+      "url": "assets/19th-preview.jpg",
+      "bytes": 140977,
+      "sha256": "1886c07288f6604288e0117ac5c3c022c7a2f4c154924d038044e15073e5f3c5"
+    },
+    {
+      "url": "assets/19th.jpg",
+      "bytes": 873964,
+      "sha256": "4ee751e5c2c33667c877b699bf4b6877dbd2c42ceebfeb3277b23dc8ed0882b1"
+    },
+    {
+      "url": "assets/a-shared-view-preview-v2.jpg",
+      "bytes": 120414,
+      "sha256": "2060e377c7631fbd5c255a4fcc1c995a139c303a4286e139ff62da7cd8a3ba2a"
+    },
+    {
+      "url": "assets/a-shared-view-v2.jpg",
+      "bytes": 377280,
+      "sha256": "7e479afaefdacb5e2386b23e6f85dfee1ba25475288b49ff320e75e48402aa63"
+    },
+    {
+      "url": "assets/above-it-all-preview-v2.jpg",
+      "bytes": 171132,
+      "sha256": "552002cf6a7a74a7d42ac4c5b529bebd1c131b3e186cfa9eb61499a2b12896d2"
+    },
+    {
+      "url": "assets/above-it-all-v2.jpg",
+      "bytes": 552673,
+      "sha256": "bc29a37aca014385c48539e0cfd4a1b3d1781720dd41573a3143658e97538788"
+    },
+    {
+      "url": "assets/after-midnight-preview.jpg",
+      "bytes": 340517,
+      "sha256": "f09241db4d8c73dee74684e70c684bd0454e758235d93261edaec6ced4f0ea25"
+    },
+    {
+      "url": "assets/after-midnight.jpg",
+      "bytes": 1370295,
+      "sha256": "ab1918fcef3fe5fcf20556a07d0dd16494706fccdfe009354f5b4b7432e501a2"
+    },
+    {
+      "url": "assets/amber-preview.jpg",
+      "bytes": 73202,
+      "sha256": "461b6971201198ef44a4137bdfad01d82567a8b12d9d01106ab97aed8df8e9bf"
+    },
+    {
+      "url": "assets/amber.jpg",
+      "bytes": 648432,
+      "sha256": "b2a9e046b772081eeaf4b37a3af426e2c47afb1780ae491dce5a75bf97166e9e"
+    },
+    {
+      "url": "assets/amelie-after-dark-preview.jpg",
+      "bytes": 112602,
+      "sha256": "23412c2f66a749e131c3542da39de830cefdea30baf9f4d1fa80a047da0b985d"
+    },
+    {
+      "url": "assets/amelie-after-dark.jpg",
+      "bytes": 876045,
+      "sha256": "d90492914b8820ea5502f989d66f9ea4617c833c756e0fbe6a6657d15bb940e4"
+    },
+    {
+      "url": "assets/blush-preview.jpg",
+      "bytes": 146161,
+      "sha256": "f5e42f7ba0f9be28e2c632b670d6904ae49284069d68750ea91d4e5cbe0d73fd"
+    },
+    {
+      "url": "assets/blush.jpg",
+      "bytes": 784582,
+      "sha256": "02b7cac75fc714f1ebbc75c81acf16ba3e82807268b2fafde5c128e5d6016d2c"
+    },
+    {
+      "url": "assets/cherry-starburst-preview.jpg",
+      "bytes": 41999,
+      "sha256": "12f1a77f3b38edfd129cedb4a4e1c4ff266d697473686a86d5cfc95bda53f0df"
+    },
+    {
+      "url": "assets/cherry-starburst.jpg",
+      "bytes": 497948,
+      "sha256": "baba58bfc94f7df862d505d9bad526ce2013f90c0b4617cbe1cfced058a0e1a5"
+    },
+    {
+      "url": "assets/chris-moon-preview.jpg",
+      "bytes": 124699,
+      "sha256": "24a3e7079eb3fd4874fe8bab9058cdc584e6122bf0dc753225a1247a44837285"
+    },
+    {
+      "url": "assets/chris-moon.jpg",
+      "bytes": 508873,
+      "sha256": "351267270e035539571207f90493156fbc52a5fcba1fad291752d37b17cc905f"
+    },
+    {
+      "url": "assets/curious-eevee-preview.jpg",
+      "bytes": 99111,
+      "sha256": "b0d5d43df580fb2efe90f0aaddc6d17e7e286465cb6533411cc4ddfefded519b"
+    },
+    {
+      "url": "assets/curious-eevee.jpg",
+      "bytes": 713157,
+      "sha256": "360ca7b58a9b93f5c77ce1fa8fa42136af503b73dfb833b2191b483022ee9b4d"
+    },
+    {
+      "url": "assets/glowing-lanterns-preview.jpg",
+      "bytes": 155024,
+      "sha256": "440dda056a480ea8703c82cd7ef7c4310d6a6b9fb3c353d67f623b60f9ee39d1"
+    },
+    {
+      "url": "assets/glowing-lanterns.jpg",
+      "bytes": 1222601,
+      "sha256": "3556df303acbf72e927ef25834f04064a1b6832ad8588f1681cb85609b4df4b5"
+    },
+    {
+      "url": "assets/golden-gate-1-preview.jpg",
+      "bytes": 108336,
+      "sha256": "2cb1ee95134e32ce86784b9509db7dd8de79f4b895944ae11cd0a489f893fcf9"
+    },
+    {
+      "url": "assets/golden-gate-1.jpg",
+      "bytes": 389230,
+      "sha256": "6c0b48fb8766b19523d26fb89c4b00fc97113c3b0a22c9e4c659b7caf6ea7ed5"
+    },
+    {
+      "url": "assets/golden-gate-2-preview.jpg",
+      "bytes": 109498,
+      "sha256": "91e9a0a2bc5fdeca1b6a17e4f31aa83b89f8d64a615b821b2df8c0c0538e873c"
+    },
+    {
+      "url": "assets/golden-gate-2.jpg",
+      "bytes": 408590,
+      "sha256": "c351f9491727e343f3b55427b65f459d9468354ca6038444f3843fdb1ce85269"
+    },
+    {
+      "url": "assets/hardly-strictly-bluegrass-preview.jpg",
+      "bytes": 323203,
+      "sha256": "21580acc3da391add6b1a4b2e7d42fedec3a9178cdcb3c33648f6f94436d1ec8"
+    },
+    {
+      "url": "assets/hardly-strictly-bluegrass.jpg",
+      "bytes": 919422,
+      "sha256": "5d235ea9df5e619f05c37cb2a4122f8a1319db7a6073bae7b0f5a8bd075944b8"
+    },
+    {
+      "url": "assets/home-preview.jpg",
+      "bytes": 75874,
+      "sha256": "c9b91ee9086c585e2a369870d941f80a78e113bb8b86624d5765984681987e9b"
+    },
+    {
+      "url": "assets/home.jpg",
+      "bytes": 502872,
+      "sha256": "11b7ff0885898821425cc8cd5c8ef76203b26408d8dc14df36e9f0648f79d813"
+    },
+    {
+      "url": "assets/moon-over-the-city-preview.jpg",
+      "bytes": 125370,
+      "sha256": "7eda22a2ea5b2557b5c1f159a9d357547d426a78e7b1792a38234342cf028cf1"
+    },
+    {
+      "url": "assets/moon-over-the-city.jpg",
+      "bytes": 425722,
+      "sha256": "e1b60bbf06e2431e0f099793d768d4a436a4ccd2e7a89bfcb9c19ab7a49336c6"
+    },
+    {
+      "url": "assets/pastel-clouds-preview.jpg",
+      "bytes": 47970,
+      "sha256": "3d993b22418c615a4c82a1305597fd1d0b21c6e41c256e0586b9add0bb643d7b"
+    },
+    {
+      "url": "assets/pastel-clouds.jpg",
+      "bytes": 376778,
+      "sha256": "fb14d136f61880eff2e0a9a4682396eeb9b8e05e61d7701b6c6e665a6d7c7212"
+    },
+    {
+      "url": "assets/peaking-preview.jpg",
+      "bytes": 52613,
+      "sha256": "78c4716e26f679a87aa7c6f9a584128ae06885686901442cb80f5a2a65457bb0"
+    },
+    {
+      "url": "assets/peaking.jpg",
+      "bytes": 479587,
+      "sha256": "130d3eb9acbcf7497bb4b5bb86cde8e7cdaed3ec2d06f3324f56028b1d6ad7e5"
+    },
+    {
+      "url": "assets/performative-preview.jpg",
+      "bytes": 211741,
+      "sha256": "e9fc3fe55d51415a1f42157b98ec9c120aefd3f714c40a454903efeceea238a6"
+    },
+    {
+      "url": "assets/performative.jpg",
+      "bytes": 732105,
+      "sha256": "eab700d9a8dab16aebf22d94510bc619002dbbdfc638133516ace4648c0b633a"
+    },
+    {
+      "url": "assets/puffy-morning-preview.jpg",
+      "bytes": 160402,
+      "sha256": "a7fef64cf8db8755edd87ea59de7a3d198dca11e61b6d6702f90cdb111ff2d26"
+    },
+    {
+      "url": "assets/puffy-morning.jpg",
+      "bytes": 507107,
+      "sha256": "df4ff3966f2562a67c44ad46e571ac2d5e5b62057dac85b49c2a01320ebb37ef"
+    },
+    {
+      "url": "assets/salesforce-framed-preview.jpg",
+      "bytes": 146100,
+      "sha256": "7a014f953619b2d980a397a012abb8e9c48dab91dc2cce7858125f2fb93ee2d3"
+    },
+    {
+      "url": "assets/salesforce-framed.jpg",
+      "bytes": 787845,
+      "sha256": "e764ba27ca5b7b1282c0916585e4e2b379cee837eab817ca2b2538e3b96a4730"
+    },
+    {
+      "url": "assets/setting-sutro-preview.jpg",
+      "bytes": 107035,
+      "sha256": "08ed930782d01adb50a4c0dbd5dfdfe3611559cb18bd0893f83e3c10675d6f3c"
+    },
+    {
+      "url": "assets/setting-sutro.jpg",
+      "bytes": 326009,
+      "sha256": "6458ae5e2899e4eb24f803862b24d5070d1af2cd5e75fdfaa0f6d5c62530feec"
+    },
+    {
+      "url": "assets/sony-by-the-water.jpeg",
+      "bytes": 469940,
+      "sha256": "0594d04e9e774e1e02293fd11ce5ba3c72887ce969eef620be43a204612e6428"
+    },
+    {
+      "url": "assets/sony-last-light.jpeg",
+      "bytes": 896638,
+      "sha256": "31f10afbdf74cfa9b4ace72a07f18741635f04cd0cbe420369459e9a4f762e41"
+    },
+    {
+      "url": "assets/sony-reflections.jpeg",
+      "bytes": 1572789,
+      "sha256": "a3e959e86becae9a2c010d3ebde739920a4103bb13280e878e76e49ba7b4526b"
+    },
+    {
+      "url": "assets/sony-small-details.jpeg",
+      "bytes": 686207,
+      "sha256": "19c9dd522eb53f620e4c2aba6999f71c3c665b271ae64b71132c735a3376a76c"
+    },
+    {
+      "url": "assets/sunrise-webs-preview.jpg",
+      "bytes": 82533,
+      "sha256": "36ef0cfd0d2aa91386414a337104be0c862debb4d36933b82787a76a530f42b6"
+    },
+    {
+      "url": "assets/sunrise-webs.jpg",
+      "bytes": 699817,
+      "sha256": "8349dc72c17d5bf985dadf71dab35a168fbe2e75601cb214f40f93022c7a11f0"
+    },
+    {
+      "url": "assets/sunset-overlook-preview-v2.jpg",
+      "bytes": 94857,
+      "sha256": "70fc77939d187a1fb80307b2df66bab4caf32d7a41fec3d8e08c09f04fb267a1"
+    },
+    {
+      "url": "assets/sunset-overlook-v2.jpg",
+      "bytes": 274549,
+      "sha256": "581e315eeeaaf11ecbd906db00a42c772868ff12b6a7592c900ce9d159ce6881"
+    },
+    {
+      "url": "assets/the-long-way-down-preview-v2.jpg",
+      "bytes": 111928,
+      "sha256": "32f820987ccb1eea312db093ce4b10fdd7c1937d77197bb95186c59737da9dd0"
+    },
+    {
+      "url": "assets/the-long-way-down-v2.jpg",
+      "bytes": 361410,
+      "sha256": "e48f851e395c7b6e79950ddb40fa32bcdd31e1f98d48a567766fdac1d6044c17"
+    },
+    {
+      "url": "assets/violet-bloom.jpg",
+      "bytes": 460920,
+      "sha256": "77dc05ee1f72baf21e783fae5f161ab3cc5c48bc276ae2d7be4e7989208c705f"
+    },
+    {
+      "url": "assets/what-if-preview.jpg",
+      "bytes": 170723,
+      "sha256": "580e7e089d4735a08d95a1633d32060014fe41fca4ea41b8fc126e9304cc3d4a"
+    },
+    {
+      "url": "assets/what-if.jpg",
+      "bytes": 890654,
+      "sha256": "517308fac55d1604bdcd0bd0d3b5e07fa09fb7979240e7101d80b79aac9ea070"
+    },
+    {
+      "url": "earth-theme.css?v=20261029-portrait",
+      "bytes": 2015,
+      "sha256": "60090c3fcde3f1df95a3a9686d169afad7487e046726dbe1c0c5709fccb9fbc5"
+    },
+    {
+      "url": "folio.css?v=20261031-offline",
+      "bytes": 10344,
+      "sha256": "d9143d131e0c7aadd45234e3bbceb561ab5e28deb83f0bc5d4cbfe83c6a60bc4"
+    },
+    {
+      "url": "fonts/dm-sans-latin.woff2",
+      "bytes": 36980,
+      "sha256": "468d56b6b25b05b70190b6c233d773f6f1770e8579827ce022a57f03fa8002fb"
+    },
+    {
+      "url": "fonts/libre-caslon-display-latin.woff2",
+      "bytes": 16124,
+      "sha256": "d7157ad1851673258b7bf8b9d16654e90ca5f2d687aa0c71506d83266e0a20a2"
+    },
+    {
+      "url": "gallery-offline.js?v=20261031",
+      "bytes": 4345,
+      "sha256": "722bf1ac4d62198b0e6a3f019da871fbf9e3000949dc4cfee3d7178ee94a11cb"
+    },
+    {
+      "url": "gallery-viewer.css?v=20261031",
+      "bytes": 3547,
+      "sha256": "da8398a9b37f8411b18a448b2f652f2725697fcd5e2fb31a44010cc666b5b1db"
+    },
+    {
+      "url": "gallery.js?v=20261031",
+      "bytes": 5631,
+      "sha256": "7be90be6158188fef20335e9f0b8af22610548915d0e8dbfe0c5efd194333d77"
+    },
+    {
+      "url": "images/favicon-h-v1.png",
+      "bytes": 1315,
+      "sha256": "fc30c035ee8841aa013ce8d246f3d77142e5e56620f44edcfb36af3dca093a80"
+    },
+    {
+      "url": "index.html",
+      "bytes": 9472,
+      "sha256": "5db945d3de60c77843ba8bb2c8d09055cdac2f2507e532e13e3eb3f1417bfdf1"
+    },
+    {
+      "url": "photo-viewer.js?v=20261031",
+      "bytes": 10763,
+      "sha256": "a2c8727818adfba89feebc3b36865af5a5c4b19bcf17c414dc92558555256e24"
+    },
+    {
+      "url": "pictures-folio.css?v=20261031-offline",
+      "bytes": 2093,
+      "sha256": "151076f2e268d5f39944eea93faad668d74e101e87785fb104e29d8d38105751"
+    },
+    {
+      "url": "pictures.html",
+      "bytes": 25705,
+      "sha256": "ccd880c305741a429bb446a3a0aae8bb316a7c6f12b642a40220f51fbb0d2b80"
+    },
+    {
+      "url": "vendor/viewerjs/viewer.min.css",
+      "bytes": 14737,
+      "sha256": "24a43eb0b188c824bb5b32e4d95c08b6162ec01eaa709ca8f0823d9512d0913d"
+    },
+    {
+      "url": "vendor/viewerjs/viewer.min.js",
+      "bytes": 49167,
+      "sha256": "490580be4988dff2e05cd9c81c4161b82ce0c3715d268fadf8f7193853f40031"
+    }
+  ]
+}
