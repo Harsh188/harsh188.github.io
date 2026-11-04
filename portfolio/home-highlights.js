@@ -123,7 +123,11 @@
         if (ranked[index]) populate(slot, photos.get(ranked[index].photoId), ranked[index], index);
         else {
           const original = fallback.shift();
-          if (original) resetSlot(slot, original);
+          if (original) {
+            resetSlot(slot, original);
+            // Curated fillers are not part of the visitor ranking.
+            slot.querySelectorAll('figcaption .frame-number').forEach((number) => number.remove());
+          }
         }
       });
       if (label) label.textContent = 'THROUGH YOUR EYES';
