@@ -15,16 +15,16 @@
   <meta property="og:image:alt" content="A violet flower surrounded by layered dark green leaves">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://harsh188.github.io/assets/violet-bloom.jpg">
-  <meta name="theme-color" content="#e7dfd2">
+  <meta name="theme-color" content="#f0f0ec">
   <title>Pictures — Harshith Mohan Kumar</title>
   <link rel="stylesheet" href="folio.css?v=20261031-offline">
-  <link rel="stylesheet" href="pictures-folio.css?v=20261103-collections">
+  <link rel="stylesheet" href="pictures-folio.css?v=20261104-editorial">
   <link rel="stylesheet" href="earth-theme.css?v=20261029-portrait">
   <link rel="stylesheet" href="vendor/viewerjs/viewer.min.css">
   <link rel="stylesheet" href="gallery-viewer.css?v=20261031">
   <link rel="stylesheet" href="ratings.css?v=20261103">
 </head>
-<body>
+<body class="pictures-page" data-gallery-view="all">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="index.html" aria-label="Harshith, home">Harshith<span>.</span></a>
@@ -40,57 +40,46 @@
       <h1 id="pictures-title">Through my lens<span class="period">.</span></h1>
       <p>A few frames I wanted to keep.</p>
     </section>
-    <div class="gallery-offline" hidden aria-label="Offline gallery">
-      <button type="button" class="offline-save" disabled>Save gallery offline</button>
-      <progress max="1" value="0" hidden aria-label="Offline download progress"></progress>
-      <span class="offline-status" role="status" aria-live="polite"></span>
-      <button type="button" class="offline-remove" hidden>Remove offline copy</button>
-    </div>
-    <div class="gallery-browsing">
-      <p>Outings, little collections, and single frames.</p>
-      <div class="collection-controls" role="group" aria-label="Open or close all photograph collections" hidden>
-        <button type="button" data-collections-action="expand">Expand collections</button>
-        <button type="button" data-collections-action="collapse">Collapse collections</button>
-      </div>
-      <span class="collection-status" role="status" aria-live="polite"></span>
-    </div>
-    <section class="pictures-grid" aria-label="Photography gallery">
+    <nav class="gallery-views" aria-label="Browse photographs" hidden>
+      <button type="button" data-gallery-view="selected" aria-pressed="false">Selected</button>
+      <button type="button" data-gallery-view="collections" aria-pressed="false">Collections</button>
+      <button type="button" data-gallery-view="all" aria-pressed="true">All photographs</button>
+      <p class="gallery-view-note" aria-live="polite">In the order they were taken.</p>
+    </nav>
+    <section class="pictures-grid gallery-archive" aria-label="Photography gallery">
       <details class="gallery-collection" id="museum-afternoon" data-collection="museum-afternoon" open>
         <summary>
-          <span class="collection-cover" aria-hidden="true">
-            <span style="background-image: url('assets/easy-smile-preview.jpg')"></span>
-            <span style="background-image: url('assets/rooted-preview.jpg')"></span>
-          </span>
+          <span class="collection-cover" aria-hidden="true"><img src="assets/rooted-preview.jpg" alt="" width="1200" height="694" loading="lazy" decoding="async"></span>
           <span class="collection-heading">
-            <span class="collection-kicker">Collection</span>
+            <span class="collection-kicker">01 / OCT 2026</span>
             <span class="collection-title">An afternoon at the museum</span>
             <span class="collection-meta"><time datetime="2026-10-31">October 31, 2026</time><span>4 photographs</span></span>
           </span>
-          <span class="collection-action" aria-hidden="true"><span class="collection-open-label">View collection</span><span class="collection-close-label">Close collection</span><span class="collection-chevron">⌄</span></span>
+          <span class="collection-action" aria-hidden="true"><span class="collection-symbol"></span></span>
         </summary>
         <div class="collection-frames pictures-grid">
-          <figure class="photo-print gallery-addition" id="easy-smile">
+          <figure class="photo-print gallery-addition" id="easy-smile" data-orientation="portrait">
             <button type="button" data-photo="assets/easy-smile.jpg" data-photo-id="easy-smile" data-taken="2026-10-31" data-taken-label="October 31, 2026" data-caption="Easy smile" aria-label="Enlarge Easy smile photograph">
-              <img src="assets/easy-smile-preview.jpg" alt="A smiling person in a brown shirt, with blue overhead light and a softly blurred interior." width="901" height="1200" fetchpriority="high" decoding="async">
+              <img loading="lazy" src="assets/easy-smile-preview.jpg" alt="A smiling person in a brown shirt, with blue overhead light and a softly blurred interior." width="901" height="1200" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">01 /</span> Easy smile<time datetime="2026-10-31">October 31, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="kodak-carousel">
+          <figure class="photo-print gallery-addition" id="kodak-carousel" data-orientation="square">
             <button type="button" data-photo="assets/kodak-carousel.jpg" data-photo-id="kodak-carousel" data-taken="2026-10-31" data-taken-label="October 31, 2026" data-caption="Kodak Carousel" aria-label="Enlarge Kodak Carousel photograph">
               <img src="assets/kodak-carousel-preview.jpg" alt="A softly focused slide projector below a projected image of a person on a wet city street." width="1140" height="1200" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">02 /</span> Kodak Carousel<time datetime="2026-10-31">October 31, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="rooted">
+          <figure class="photo-print gallery-addition" id="rooted" data-orientation="landscape">
             <button type="button" data-photo="assets/rooted.jpg" data-photo-id="rooted" data-taken="2026-10-31" data-taken-label="October 31, 2026" data-caption="Rooted" aria-label="Enlarge Rooted photograph">
               <img src="assets/rooted-preview.jpg" alt="Branchlike forms and twisted wire stretching across a gallery floor, with warm walls and pink artwork behind." width="1200" height="694" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">03 /</span> Rooted<time datetime="2026-10-31">October 31, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="wire">
+          <figure class="photo-print gallery-addition" id="wire" data-orientation="square">
             <button type="button" data-photo="assets/wire.jpg" data-photo-id="wire" data-taken="2026-10-31" data-taken-label="October 31, 2026" data-caption="Wire" aria-label="Enlarge Wire photograph">
               <img src="assets/wire-preview.jpg" alt="A close view of tangled metal strands against a textured, softly focused background." width="1151" height="1200" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
@@ -99,56 +88,53 @@
           </figure>
         </div>
       </details>
-      <details class="gallery-collection" id="city-at-sunset" data-collection="city-at-sunset">
+      <details class="gallery-collection" id="city-at-sunset" data-collection="city-at-sunset" open>
         <summary>
-          <span class="collection-cover" aria-hidden="true">
-            <span style="background-image: url('assets/the-long-way-down-preview-v2.jpg')"></span>
-            <span style="background-image: url('assets/above-it-all-preview-v2.jpg')"></span>
-          </span>
+          <span class="collection-cover" aria-hidden="true"><img src="assets/moon-over-the-city-preview.jpg" alt="" width="1200" height="613" loading="lazy" decoding="async"></span>
           <span class="collection-heading">
-            <span class="collection-kicker">Collection</span>
+            <span class="collection-kicker">02 / OCT 2026</span>
             <span class="collection-title">City at sunset</span>
             <span class="collection-meta"><time datetime="2026-10-25">October 25, 2026</time><span>6 photographs</span></span>
           </span>
-          <span class="collection-action" aria-hidden="true"><span class="collection-open-label">View collection</span><span class="collection-close-label">Close collection</span><span class="collection-chevron">⌄</span></span>
+          <span class="collection-action" aria-hidden="true"><span class="collection-symbol"></span></span>
         </summary>
         <div class="collection-frames pictures-grid">
-          <figure class="photo-print gallery-addition" id="the-long-way-down">
+          <figure class="photo-print gallery-addition" id="the-long-way-down" data-orientation="landscape" data-selected="1">
             <button type="button" data-photo="assets/the-long-way-down-v2.jpg" data-photo-id="the-long-way-down" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="The long way down" aria-label="Enlarge The long way down photograph">
-              <img src="assets/the-long-way-down-preview-v2.jpg" alt="A winding path crosses a dark hillside beneath orange and pink clouds." width="1200" height="901" loading="lazy" decoding="async">
+              <img fetchpriority="high" src="assets/the-long-way-down-preview-v2.jpg" alt="A winding path crosses a dark hillside beneath orange and pink clouds." width="1200" height="901" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">05 /</span> The long way down<time datetime="2026-10-25">October 25, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="above-it-all">
+          <figure class="photo-print gallery-addition" id="above-it-all" data-orientation="portrait" data-selected="2">
             <button type="button" data-photo="assets/above-it-all-v2.jpg" data-photo-id="above-it-all" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="Above it all" aria-label="Enlarge Above it all photograph">
-              <img src="assets/above-it-all-preview-v2.jpg" alt="A smiling person with hands in jacket pockets stands above the city." width="881" height="1200" loading="lazy" decoding="async">
+              <img fetchpriority="high" src="assets/above-it-all-preview-v2.jpg" alt="A smiling person with hands in jacket pockets stands above the city." width="881" height="1200" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">06 /</span> Above it all<time datetime="2026-10-25">October 25, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="moon-over-the-city">
+          <figure class="photo-print gallery-addition" id="moon-over-the-city" data-orientation="landscape" data-selected="3">
             <button type="button" data-photo="assets/moon-over-the-city.jpg" data-photo-id="moon-over-the-city" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="Moon over the city" aria-label="Enlarge Moon over the city photograph">
-              <img src="assets/moon-over-the-city-preview.jpg" alt="A pale moon hangs above a city panorama and bands of pink clouds." width="1200" height="613" loading="lazy" decoding="async">
+              <img src="assets/moon-over-the-city-preview.jpg" alt="A pale moon hangs above a city panorama and bands of pink clouds." width="1200" height="613" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">07 /</span> Moon over the city<time datetime="2026-10-25">October 25, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="a-shared-view">
+          <figure class="photo-print gallery-addition" id="a-shared-view" data-orientation="landscape">
             <button type="button" data-photo="assets/a-shared-view-v2.jpg" data-photo-id="a-shared-view" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="A shared view" aria-label="Enlarge A shared view photograph">
               <img src="assets/a-shared-view-preview-v2.jpg" alt="Two people seen from behind look out over the city under pink clouds." width="1200" height="901" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">08 /</span> A shared view<time datetime="2026-10-25">October 25, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="setting-sutro">
+          <figure class="photo-print gallery-addition" id="setting-sutro" data-orientation="landscape">
             <button type="button" data-photo="assets/setting-sutro.jpg" data-photo-id="setting-sutro" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="Setting Sutro" aria-label="Enlarge Setting Sutro photograph">
               <img src="assets/setting-sutro-preview.jpg" alt="Golden sunlight and clouds above a dark horizon, with part of a tower at the right." width="1200" height="901" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">09 /</span> Setting Sutro<time datetime="2026-10-25">October 25, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="sunset-overlook">
+          <figure class="photo-print gallery-addition" id="sunset-overlook" data-orientation="landscape">
             <button type="button" data-photo="assets/sunset-overlook-v2.jpg" data-photo-id="sunset-overlook" data-taken="2026-10-25" data-taken-label="October 25, 2026" data-caption="" aria-label="Enlarge sunset overlook photograph">
               <img src="assets/sunset-overlook-preview-v2.jpg" alt="A person viewed from behind faces the low sun over the city." width="1200" height="816" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
@@ -157,43 +143,40 @@
           </figure>
         </div>
       </details>
-      <figure class="photo-print gallery-violet-bloom" id="violet-bloom">
+      <figure class="photo-print gallery-violet-bloom" id="violet-bloom" data-orientation="portrait">
         <button type="button" data-photo="assets/violet-bloom.jpg" data-photo-id="violet-bloom" data-taken="2026-10-18" data-taken-label="October 18, 2026" data-caption="Violet bloom" aria-label="Enlarge Violet bloom photograph">
           <img src="assets/violet-bloom.jpg" alt="A violet flower surrounded by layered dark green leaves" width="1624" height="2000" loading="lazy">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">11 /</span> Violet bloom<time datetime="2026-10-18">October 18, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="chris-moon">
+      <figure class="photo-print gallery-addition" id="chris-moon" data-orientation="landscape">
         <button type="button" data-photo="assets/chris-moon.jpg" data-photo-id="chris-moon" data-taken="2026-10-10" data-taken-label="October 10, 2026" data-caption="Chris Moon" aria-label="Enlarge Chris Moon photograph">
           <img src="assets/chris-moon-preview.jpg" alt="A person smiling in soft window light, wearing a dark shirt." width="1200" height="901" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">12 /</span> Chris Moon<time datetime="2026-10-10">October 10, 2026</time></figcaption>
       </figure>
-      <details class="gallery-collection" id="golden-gate-collection" data-collection="golden-gate-collection">
+      <details class="gallery-collection" id="golden-gate-collection" data-collection="golden-gate-collection" open>
         <summary>
-          <span class="collection-cover" aria-hidden="true">
-            <span style="background-image: url('assets/golden-gate-1-preview.jpg')"></span>
-            <span style="background-image: url('assets/golden-gate-2-preview.jpg')"></span>
-          </span>
+          <span class="collection-cover" aria-hidden="true"><img src="assets/golden-gate-2-preview.jpg" alt="" width="1200" height="700" loading="lazy" decoding="async"></span>
           <span class="collection-heading">
-            <span class="collection-kicker">Collection</span>
+            <span class="collection-kicker">03 / OCT 2026</span>
             <span class="collection-title">Golden Gate, in two frames</span>
             <span class="collection-meta"><time datetime="2026-10-10">October 10, 2026</time><span>2 photographs</span></span>
           </span>
-          <span class="collection-action" aria-hidden="true"><span class="collection-open-label">View collection</span><span class="collection-close-label">Close collection</span><span class="collection-chevron">⌄</span></span>
+          <span class="collection-action" aria-hidden="true"><span class="collection-symbol"></span></span>
         </summary>
         <div class="collection-frames pictures-grid">
           <div class="photo-pair" role="group" aria-label="Golden Gate Bridge, two frames in sequence" id="golden-gate-sequence">
-            <figure class="photo-print gallery-addition" id="golden-gate-1">
+            <figure class="photo-print gallery-addition" id="golden-gate-1" data-orientation="landscape">
               <button type="button" data-photo="assets/golden-gate-1.jpg" data-photo-id="golden-gate-1" data-taken="2026-10-10" data-taken-label="October 10, 2026" data-caption="Golden Gate Bridge — I" aria-label="Enlarge Golden Gate Bridge — I photograph">
                 <img src="assets/golden-gate-1-preview.jpg" alt="Jets to the left of the Golden Gate Bridge tower." width="1200" height="778" loading="lazy" decoding="async">
                 <span class="enlarge" aria-hidden="true">↗</span>
               </button>
               <figcaption><span class="frame-number">13 /</span> Golden Gate Bridge — I<time datetime="2026-10-10">October 10, 2026</time></figcaption>
             </figure>
-            <figure class="photo-print gallery-addition" id="golden-gate-2">
+            <figure class="photo-print gallery-addition" id="golden-gate-2" data-orientation="landscape">
               <button type="button" data-photo="assets/golden-gate-2.jpg" data-photo-id="golden-gate-2" data-taken="2026-10-10" data-taken-label="October 10, 2026" data-caption="Golden Gate Bridge — II" aria-label="Enlarge Golden Gate Bridge — II photograph">
                 <img src="assets/golden-gate-2-preview.jpg" alt="Jets beyond the Golden Gate Bridge tower with smoke trails crossing it." width="1200" height="700" loading="lazy" decoding="async">
                 <span class="enlarge" aria-hidden="true">↗</span>
@@ -203,140 +186,137 @@
           </div>
         </div>
       </details>
-      <figure class="photo-print gallery-addition" id="puffy-morning">
+      <figure class="photo-print gallery-addition" id="puffy-morning" data-orientation="landscape">
         <button type="button" data-photo="assets/puffy-morning.jpg" data-photo-id="puffy-morning" data-taken="2026-10-05" data-taken-label="October 5, 2026" data-caption="Puffy morning" aria-label="Enlarge Puffy morning photograph">
           <img src="assets/puffy-morning-preview.jpg" alt="Low golden sunlight illuminates clouds above a neighborhood of houses." width="1200" height="737" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">15 /</span> Puffy morning<time datetime="2026-10-05">October 5, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="hardly-strictly-bluegrass">
+      <figure class="photo-print gallery-addition" id="hardly-strictly-bluegrass" data-orientation="landscape">
         <button type="button" data-photo="assets/hardly-strictly-bluegrass.jpg" data-photo-id="hardly-strictly-bluegrass" data-taken="2026-10-04" data-taken-label="October 4, 2026" data-caption="Hardly Strictly Bluegrass" aria-label="Enlarge Hardly Strictly Bluegrass photograph">
           <img src="assets/hardly-strictly-bluegrass-preview.jpg" alt="Three musicians perform on a wooden outdoor stage surrounded by trees." width="1200" height="824" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">16 /</span> Hardly Strictly Bluegrass<time datetime="2026-10-04">October 4, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="performative">
+      <figure class="photo-print gallery-addition" id="performative" data-orientation="portrait">
         <button type="button" data-photo="assets/performative.jpg" data-photo-id="performative" data-taken="2026-09-07" data-taken-label="September 7, 2026" data-caption="Performative" aria-label="Enlarge Performative photograph">
           <img src="assets/performative-preview.jpg" alt="A person runs toward a blue lake beneath a broad sky and distant mountains." width="901" height="1200" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">17 /</span> Performative<time datetime="2026-09-07">September 7, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="after-midnight">
+      <figure class="photo-print gallery-addition" id="after-midnight" data-orientation="landscape">
         <button type="button" data-photo="assets/after-midnight.jpg" data-photo-id="after-midnight" data-taken="2026-09-07" data-taken-label="September 7, 2026" data-caption="After midnight" aria-label="Enlarge After midnight photograph">
           <img src="assets/after-midnight-preview.jpg" alt="A dense field of stars and a small elongated glow against a dark sky." width="1200" height="901" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">18 /</span> After midnight<time datetime="2026-09-07">September 7, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-by-the-water" id="sony-by-the-water">
+      <figure class="photo-print gallery-by-the-water" id="sony-by-the-water" data-orientation="landscape">
         <button type="button" data-photo="assets/sony-by-the-water.jpeg" data-photo-id="sony-by-the-water" data-taken="2026-09-05" data-taken-label="September 5, 2026" data-caption="By the water" aria-label="Enlarge By the water photograph">
           <img src="assets/sony-by-the-water.jpeg" alt="A wave breaking over a pebbled shore with blue mountains in the distance" width="1440" height="1080" loading="lazy">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">19 /</span> By the water<time datetime="2026-09-05">September 5, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-last-light" id="sony-last-light">
+      <figure class="photo-print gallery-last-light" id="sony-last-light" data-orientation="square">
         <button type="button" data-photo="assets/sony-last-light.jpeg" data-photo-id="sony-last-light" data-taken="2026-07-13" data-taken-label="July 13, 2026" data-caption="Last light" aria-label="Enlarge Last light photograph">
           <img src="assets/sony-last-light.jpeg" alt="A tree silhouetted against red and orange clouds at sunset" width="2121" height="2333" loading="lazy">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">20 /</span> Last light<time datetime="2026-07-13">July 13, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-reflections" id="sony-reflections">
+      <figure class="photo-print gallery-reflections" id="sony-reflections" data-orientation="square">
         <button type="button" data-photo="assets/sony-reflections.jpeg" data-photo-id="sony-reflections" data-taken="2026-05-29" data-taken-label="May 29, 2026" data-caption="Reflections" aria-label="Enlarge Reflections photograph">
-          <img src="assets/sony-reflections.jpeg" alt="Blue sky and brick buildings reflected in a glass facade" width="3072" height="3072">
+          <img loading="lazy" src="assets/sony-reflections.jpeg" alt="Blue sky and brick buildings reflected in a glass facade" width="3072" height="3072">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">21 /</span> Reflections<time datetime="2026-05-29">May 29, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-small-details" id="sony-small-details">
+      <figure class="photo-print gallery-small-details" id="sony-small-details" data-orientation="square">
         <button type="button" data-photo="assets/sony-small-details.jpeg" data-photo-id="sony-small-details" data-taken="2026-05-21" data-taken-label="May 21, 2026" data-caption="Small details" aria-label="Enlarge Small details photograph">
           <img src="assets/sony-small-details.jpeg" alt="Delicate blue flowers against a dark green background" width="3072" height="3072" loading="lazy">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">22 /</span> Small details<time datetime="2026-05-21">May 21, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="home">
+      <figure class="photo-print gallery-addition" id="home" data-orientation="landscape">
         <button type="button" data-photo="assets/home.jpg" data-photo-id="home" data-taken="2026-05-20" data-taken-label="May 20, 2026" data-caption="Home" aria-label="Enlarge Home photograph">
           <img src="assets/home-preview.jpg" alt="A distant suspension bridge and city buildings sit beneath golden clouds, with a dark tree at the right" width="2048" height="1467" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">23 /</span> Home<time datetime="2026-05-20">May 20, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="sunrise-webs">
+      <figure class="photo-print gallery-addition" id="sunrise-webs" data-orientation="square">
         <button type="button" data-photo="assets/sunrise-webs.jpg" data-photo-id="sunrise-webs" data-taken="2026-05-20" data-taken-label="May 20, 2026" data-caption="Sunrise webs" aria-label="Enlarge Sunrise webs photograph">
           <img src="assets/sunrise-webs-preview.jpg" alt="A delicate spiderweb silhouetted against the glowing low sun" width="2048" height="1977" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">24 /</span> Sunrise webs<time datetime="2026-05-20">May 20, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="curious-eevee">
+      <figure class="photo-print gallery-addition" id="curious-eevee" data-orientation="square">
         <button type="button" data-photo="assets/curious-eevee.jpg" data-photo-id="curious-eevee" data-taken="2026-05-17" data-taken-label="May 17, 2026" data-caption="Curious Eevee" aria-label="Enlarge Curious Eevee photograph">
           <img src="assets/curious-eevee-preview.jpg" alt="A white cat with gray and brown patches looks toward the camera against a softly blurred warm interior" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">25 /</span> Curious Eevee<time datetime="2026-05-17">May 17, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="what-if">
+      <figure class="photo-print gallery-addition" id="what-if" data-orientation="square">
         <button type="button" data-photo="assets/what-if.jpg" data-photo-id="what-if" data-taken="2026-05-16" data-taken-label="May 16, 2026" data-caption="What If" aria-label="Enlarge What If photograph">
           <img src="assets/what-if-preview.jpg" alt="A person stands behind an outdoor market table with a WHAT IF? banner in a sunny park" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">26 /</span> What If<time datetime="2026-05-16">May 16, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="glowing-lanterns">
+      <figure class="photo-print gallery-addition" id="glowing-lanterns" data-orientation="square">
         <button type="button" data-photo="assets/glowing-lanterns.jpg" data-photo-id="glowing-lanterns" data-taken="2026-05-15" data-taken-label="May 15, 2026" data-caption="Glowing lanterns" aria-label="Enlarge Glowing lanterns photograph">
           <img src="assets/glowing-lanterns-preview.jpg" alt="Red paper lanterns glow among dark curved wooden forms in a warmly lit interior" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">27 /</span> Glowing lanterns<time datetime="2026-05-15">May 15, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="amelie-after-dark">
+      <figure class="photo-print gallery-addition" id="amelie-after-dark" data-orientation="square">
         <button type="button" data-photo="assets/amelie-after-dark.jpg" data-photo-id="amelie-after-dark" data-taken="2026-05-15" data-taken-label="May 15, 2026" data-caption="Amelie, after dark" aria-label="Enlarge Amelie, after dark photograph">
           <img src="assets/amelie-after-dark-preview.jpg" alt="Shelves of bottles glow in deep red light at Amelie wine bar" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">28 /</span> Amelie, after dark<time datetime="2026-05-15">May 15, 2026</time></figcaption>
       </figure>
-      <details class="gallery-collection" id="city-wanderings" data-collection="city-wanderings">
+      <details class="gallery-collection" id="city-wanderings" data-collection="city-wanderings" open>
         <summary>
-          <span class="collection-cover" aria-hidden="true">
-            <span style="background-image: url('assets/pastel-clouds-preview.jpg')"></span>
-            <span style="background-image: url('assets/19th-preview.jpg')"></span>
-          </span>
+          <span class="collection-cover" aria-hidden="true"><img src="assets/19th-preview.jpg" alt="" width="2048" height="2048" loading="lazy" decoding="async"></span>
           <span class="collection-heading">
-            <span class="collection-kicker">Collection</span>
+            <span class="collection-kicker">04 / MAY 2026</span>
             <span class="collection-title">City wanderings</span>
             <span class="collection-meta"><time datetime="2026-05-12">May 12, 2026</time><span>4 photographs</span></span>
           </span>
-          <span class="collection-action" aria-hidden="true"><span class="collection-open-label">View collection</span><span class="collection-close-label">Close collection</span><span class="collection-chevron">⌄</span></span>
+          <span class="collection-action" aria-hidden="true"><span class="collection-symbol"></span></span>
         </summary>
         <div class="collection-frames pictures-grid">
-          <figure class="photo-print gallery-addition" id="pastel-clouds">
+          <figure class="photo-print gallery-addition" id="pastel-clouds" data-orientation="square">
             <button type="button" data-photo="assets/pastel-clouds.jpg" data-photo-id="pastel-clouds" data-taken="2026-05-12" data-taken-label="May 12, 2026" data-caption="Pastel clouds" aria-label="Enlarge Pastel clouds photograph">
               <img src="assets/pastel-clouds-preview.jpg" alt="Soft pink clouds drift across a blue and lavender sky" width="2048" height="2048" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">29 /</span> Pastel clouds<time datetime="2026-05-12">May 12, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="19th">
+          <figure class="photo-print gallery-addition" id="19th" data-orientation="square">
             <button type="button" data-photo="assets/19th.jpg" data-photo-id="19th" data-taken="2026-05-12" data-taken-label="May 12, 2026" data-caption="19th" aria-label="Enlarge 19th photograph">
               <img src="assets/19th-preview.jpg" alt="A 19th Street sign overlooks a descending street, houses, and a distant city skyline" width="2048" height="2048" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">30 /</span> 19th<time datetime="2026-05-12">May 12, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="peaking">
+          <figure class="photo-print gallery-addition" id="peaking" data-orientation="landscape">
             <button type="button" data-photo="assets/peaking.jpg" data-photo-id="peaking" data-taken="2026-05-12" data-taken-label="May 12, 2026" data-caption="Peaking" aria-label="Enlarge Peaking photograph">
               <img src="assets/peaking-preview.jpg" alt="Low clouds stretch over distant hills beneath a blue and softly golden sky, with foliage in the foreground" width="2048" height="1246" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
             </button>
             <figcaption><span class="frame-number">31 /</span> Peaking<time datetime="2026-05-12">May 12, 2026</time></figcaption>
           </figure>
-          <figure class="photo-print gallery-addition" id="salesforce-framed">
+          <figure class="photo-print gallery-addition" id="salesforce-framed" data-orientation="square">
             <button type="button" data-photo="assets/salesforce-framed.jpg" data-photo-id="salesforce-framed" data-taken="2026-05-12" data-taken-label="May 12, 2026" data-caption="Salesforce, framed" aria-label="Enlarge Salesforce, framed photograph">
               <img src="assets/salesforce-framed-preview.jpg" alt="Salesforce Tower seen through dark branches and a railing, beside a sunlit house" width="1895" height="2048" loading="lazy" decoding="async">
               <span class="enlarge" aria-hidden="true">↗</span>
@@ -345,21 +325,21 @@
           </figure>
         </div>
       </details>
-      <figure class="photo-print gallery-addition" id="blush">
+      <figure class="photo-print gallery-addition" id="blush" data-orientation="square" data-selected="4">
         <button type="button" data-photo="assets/blush.jpg" data-photo-id="blush" data-taken="2026-05-10" data-taken-label="May 10, 2026" data-caption="Blush" aria-label="Enlarge Blush photograph">
-          <img src="assets/blush-preview.jpg" alt="A sharply focused pink flower cluster stands in front of softly blurred pink blossoms" width="2048" height="2048" loading="lazy" decoding="async">
+          <img src="assets/blush-preview.jpg" alt="A sharply focused pink flower cluster stands in front of softly blurred pink blossoms" width="2048" height="2048" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">33 /</span> Blush<time datetime="2026-05-10">May 10, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="cherry-starburst">
+      <figure class="photo-print gallery-addition" id="cherry-starburst" data-orientation="square">
         <button type="button" data-photo="assets/cherry-starburst.jpg" data-photo-id="cherry-starburst" data-taken="2026-05-09" data-taken-label="May 9, 2026" data-caption="Cherry starburst" aria-label="Enlarge Cherry starburst photograph">
           <img src="assets/cherry-starburst-preview.jpg" alt="A vivid red light forms a starburst above small warm lights in a dark interior" width="2048" height="1676" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
         </button>
         <figcaption><span class="frame-number">34 /</span> Cherry starburst<time datetime="2026-05-09">May 9, 2026</time></figcaption>
       </figure>
-      <figure class="photo-print gallery-addition" id="amber">
+      <figure class="photo-print gallery-addition" id="amber" data-orientation="square">
         <button type="button" data-photo="assets/amber.jpg" data-photo-id="amber" data-taken="2026-05-08" data-taken-label="May 8, 2026" data-caption="Amber" aria-label="Enlarge Amber photograph">
           <img src="assets/amber-preview.jpg" alt="A red-lit framed artwork above soft red reflections in a dark interior" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="enlarge" aria-hidden="true">↗</span>
@@ -367,6 +347,18 @@
         <figcaption><span class="frame-number">35 /</span> Amber<time datetime="2026-05-08">May 8, 2026</time></figcaption>
       </figure>
     </section>
+    <div class="gallery-endnote">
+      <p>Stay a little. Open a photograph to look closer, or leave it a star.</p>
+      <details class="offline-disclosure">
+        <summary>Take the gallery offline <span aria-hidden="true">+</span></summary>
+        <div class="gallery-offline" hidden aria-label="Offline gallery">
+      <button type="button" class="offline-save" disabled>Save gallery offline</button>
+      <progress max="1" value="0" hidden aria-label="Offline download progress"></progress>
+      <span class="offline-status" role="status" aria-live="polite"></span>
+      <button type="button" class="offline-remove" hidden>Remove offline copy</button>
+    </div>
+      </details>
+    </div>
     <dialog class="lightbox" aria-label="Photograph enlarged" aria-describedby="photo-caption">
       <button type="button" class="close-photo" aria-label="Close photograph" autofocus>×</button>
       <img src="assets/sony-reflections.jpeg" alt="">
@@ -383,7 +375,7 @@
     <p>A little corner of the internet.</p>
     <div><a href="https://github.com/Harsh188">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/harsh188/">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a></div>
   </footer>
-  <script src="gallery-collections.js?v=20261103"></script>
+  <script src="gallery-collections.js?v=20261104-editorial"></script>
   <script src="vendor/viewerjs/viewer.min.js"></script>
   <script src="gallery.js?v=20261103-highlights"></script>
   <script src="photo-viewer.js?v=20261103-highlights"></script>
