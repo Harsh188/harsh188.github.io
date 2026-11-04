@@ -9,6 +9,7 @@ function element(rect = {}) {
   const node = {
     dataset: {}, style: { setProperty() {} }, hidden: false, tabIndex: 0,
     classList: { contains: (name) => classes.has(name), toggle(name, on) { on ? classes.add(name) : classes.delete(name); }, remove: (name) => classes.delete(name) },
+    getAttribute(key) { return this[key] ?? null; },
     setAttribute(key, value) { this[key] = value; }, removeAttribute(key) { delete this[key]; },
     addEventListener(name, listener) { if (!events.has(name)) events.set(name, []); events.get(name).push(listener); },
     emit(name, event) { events.get(name)?.forEach((listener) => listener(event)); },
@@ -97,6 +98,13 @@ assert.equal(instance.turns, 0, 'rating keys must not navigate the photographs')
 key('ArrowRight', element(), { defaultPrevented: true });
 assert.equal(instance.turns, 0);
 key('ArrowRight'); assert.equal(instance.turns, 1);
+const firstTool = element(), selectedStar = element(), ratingDisclosure = element();
+root.querySelectorAll = (selector) => selector.includes('summary') ? [firstTool, selectedStar, ratingDisclosure] : [firstTool, selectedStar];
+document.activeElement = selectedStar;
+assert.ok(!key('Tab', selectedStar).defaultPrevented, 'Tab can reach the native ratings disclosure after the selected star');
+document.activeElement = ratingDisclosure;
+assert.ok(key('Tab', ratingDisclosure).defaultPrevented);
+assert.equal(document.activeElement, firstTool, 'Tab wraps only after the final disclosure control');
 key('Escape', ratingButton);
 assert.equal(instance.isShown, false, 'Escape closes even while a rating has focus');
 assert.equal(dispatched.findLast((event) => event.type === 'gallery:viewer-hidden').type, 'gallery:viewer-hidden');

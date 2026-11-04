@@ -264,7 +264,7 @@
     if (event.key === 'Escape') { event.preventDefault(); viewer.hide(); return; }
     if (event.defaultPrevented) return;
     if (event.key === 'Tab') {
-      const focusable = Array.from(controls.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+      const focusable = Array.from(controls.querySelectorAll('button, a[href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])'))
         .filter((element) => !element.disabled && element.tabIndex >= 0 && element.getAttribute('aria-hidden') !== 'true' && element.getClientRects().length);
       const first = focusable[0], last = focusable[focusable.length - 1];
       if (event.shiftKey && (document.activeElement === first || document.activeElement === controls)) { event.preventDefault(); last?.focus(); }
