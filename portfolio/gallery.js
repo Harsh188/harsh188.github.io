@@ -157,6 +157,7 @@
 
   // Native Escape handling also emits close, so every dismissal restores focus.
   dialog.addEventListener('close', () => {
+    document.dispatchEvent(new CustomEvent('gallery:viewer-hidden'));
     if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
     returnFocus = null;
     swipeStart = null;

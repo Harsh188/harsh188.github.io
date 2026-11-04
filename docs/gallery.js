@@ -22,6 +22,12 @@
 
   if (!image) return;
 
+  // The native dialog shares the same rating client as the enhanced viewer.
+  const ratingHost = document.createElement('div');
+  ratingHost.className = 'viewer-rating';
+  ratingHost.setAttribute('data-viewer-rating', '');
+  (takenDate || caption || image).after(ratingHost);
+
   const readPhotos = () => Array.from(triggers, (trigger) => {
     const thumbnail = trigger.querySelector('img');
     return {
@@ -73,6 +79,12 @@
       takenDate.dateTime = photo.date || '';
       takenDate.textContent = photo.dateLabel || '';
     }
+    const photoId = photo.trigger.dataset.photoId ||
+      photo.source.split('/').pop().split('?')[0].replace(/\.[^.]+$/, '').replace(/-v\d+$/, '');
+    dialog.dataset.photoId = photoId;
+    document.dispatchEvent(new CustomEvent('gallery:viewer-photo', {
+      detail: { photoId, title: photo.caption || photo.alt, trigger: photo.trigger, host: ratingHost },
+    }));
     swipeStart = null;
 
     neighborPreloads.length = 0;
@@ -110,7 +122,7 @@
   document.addEventListener('keydown', (event) => {
     if (!dialog.open || !hasMultiplePhotos || event.defaultPrevented ||
         event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-    if (event.target?.isContentEditable || event.target?.closest?.('input, textarea, select')) return;
+    if (event.target?.isContentEditable || event.target?.closest?.('input, textarea, select, [data-viewer-rating]')) return;
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
 
     event.preventDefault();
@@ -145,6 +157,7 @@
 
   // Native Escape handling also emits close, so every dismissal restores focus.
   dialog.addEventListener('close', () => {
+    document.dispatchEvent(new CustomEvent('gallery:viewer-hidden'));
     if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
     returnFocus = null;
     swipeStart = null;

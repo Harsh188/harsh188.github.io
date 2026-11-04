@@ -2,7 +2,9 @@
   'use strict';
   const STORAGE_KEY = 'folio-photo-ratings-v1';
   const summaries = new Map();
-  const widgets = new Map();
+  const widgets = new Set();
+  const voteStates = new Map();
+  const hosts = new WeakMap();
   const listeners = new Set();
   let stored = readStorage();
   let aggregateState = 'idle';
@@ -173,102 +175,136 @@
     return `${summary.average.toFixed(1)} / 5 · ${summary.count} ${summary.count === 1 ? 'rating' : 'ratings'}`;
   }
 
+  function voteState(id) {
+    if (!voteStates.has(id)) voteStates.set(id, { pending: 0, saving: false, failed: false, message: '', retryUntil: 0 });
+    return voteStates.get(id);
+  }
+
   function render(widget) {
+    if (!widget.id) return;
+    const state = voteState(widget.id);
     const own = stored.votes[widget.id];
-    const selected = widget.pending || own || 0;
+    const selected = state.pending || own || 0;
     widget.buttons.forEach((button, index) => {
       button.setAttribute('aria-checked', String(index + 1 === selected));
       button.classList.toggle('is-filled', index < selected);
       button.tabIndex = index + 1 === (selected || 1) ? 0 : -1;
-      button.disabled = widget.saving || Date.now() < (widget.retryUntil || 0) || !apiBase || !navigator.onLine;
+      button.disabled = state.saving || Date.now() < state.retryUntil || !apiBase || !navigator.onLine;
     });
-    widget.group.setAttribute('aria-busy', String(widget.saving));
+    widget.group.setAttribute('aria-busy', String(state.saving));
     widget.summary.textContent = summaries.has(widget.id) ? averageLabel(summaries.get(widget.id)) + (!navigator.onLine ? ' · last loaded' : '') :
       aggregateState === 'loading' ? 'Loading ratings…' : aggregateState === 'ready' ? 'No ratings yet' :
-        !apiBase ? 'Shared ratings are not available yet' : !navigator.onLine ? 'Ratings unavailable offline' : 'Ratings unavailable';
-    widget.status.textContent = widget.message || (own ? `Your rating: ${own} / 5 · you can change it` : 'Choose 1–5 stars');
-    widget.retry.hidden = !widget.failed || widget.saving || !navigator.onLine || !apiBase;
-    widget.retry.disabled = Date.now() < (widget.retryUntil || 0);
-    widget.fieldset.dataset.state = widget.failed ? 'error' : widget.saving ? 'saving' : 'ready';
+        !apiBase ? 'Shared ratings unavailable' : !navigator.onLine ? 'Ratings unavailable offline' : 'Ratings temporarily unavailable';
+    widget.status.textContent = !navigator.onLine ? 'Connect to save a rating.' :
+      !apiBase ? 'Ratings are not available right now.' : state.message || (own ? `Your rating: ${own} / 5 · change it anytime` : 'Choose 1–5 stars');
+    widget.retry.hidden = !state.failed || state.saving || !navigator.onLine || !apiBase;
+    widget.retry.disabled = Date.now() < state.retryUntil;
+    widget.fieldset.dataset.state = state.failed ? 'error' : state.saving ? 'saving' : !navigator.onLine ? 'offline' : 'ready';
   }
 
-  async function save(widget, rating) {
-    if (widget.saving || Date.now() < (widget.retryUntil || 0)) return;
-    clearTimeout(widget.keyboardTimer);
-    widget.pending = rating; widget.message = 'Saving your rating…'; widget.saving = true; widget.failed = false; render(widget);
+  async function save(id, rating) {
+    const state = voteState(id);
+    if (state.saving || Date.now() < state.retryUntil) return;
+    // Capture the photo ID and its state before awaiting. The viewer may advance
+    // to another photograph while this request is still running.
+    state.pending = rating; state.message = 'Saving your rating…'; state.saving = true; state.failed = false; notify();
     try {
-      await vote(widget.id, rating);
-      widget.pending = 0; widget.message = `Saved · your rating: ${rating} / 5. You can change it.`;
+      await vote(id, rating);
+      state.pending = 0; state.message = stored.votes[id] === rating ? `Saved · your rating: ${rating} / 5` : '';
     } catch (error) {
-      widget.failed = true; widget.message = error.message;
+      state.failed = true; state.message = error.message;
       if (error.status === 429 && error.retrySeconds) {
         const delay = Math.min(error.retrySeconds, 3600) * 1000;
-        widget.retryUntil = Date.now() + delay;
-        setTimeout(() => { widget.message = 'You can try saving your rating again.'; render(widget); }, delay + 20);
+        state.retryUntil = Date.now() + delay;
+        setTimeout(() => { state.message = 'You can try saving your rating again.'; notify(); }, delay + 20);
       }
     }
-    finally { widget.saving = false; render(widget); }
+    finally { state.saving = false; notify(); }
   }
 
-  function addWidget(trigger) {
-    const figure = trigger.closest('.photo-print');
-    const id = photoId(trigger);
-    if (!figure || !id || figure.querySelector('.photo-rating')) return;
-    const title = trigger.dataset.caption || 'Untitled photograph';
-    const fieldset = document.createElement('fieldset');
-    fieldset.className = 'photo-rating';
-    const legend = document.createElement('legend'); legend.textContent = 'Your eye, your vote';
+  function cancelKeyboardChoice(widget) {
+    if (!widget.keyboardTimer) return;
+    clearTimeout(widget.keyboardTimer); widget.keyboardTimer = null;
+    const state = voteState(widget.id);
+    if (!state.saving && !state.failed) state.pending = 0;
+  }
+
+  function createWidget(host) {
+    const fieldset = document.createElement('div'); fieldset.className = 'photo-rating';
+    const legend = document.createElement('span'); legend.className = 'rating-label'; legend.textContent = 'Your rating';
     const group = document.createElement('div'); group.className = 'rating-stars'; group.setAttribute('role', 'radiogroup');
-    group.setAttribute('aria-label', `Rate ${title}`);
     const summary = document.createElement('p'); summary.className = 'rating-summary';
     const status = document.createElement('p'); status.className = 'rating-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     const retry = document.createElement('button'); retry.type = 'button'; retry.className = 'rating-retry'; retry.textContent = 'Try again'; retry.hidden = true;
+    const info = document.createElement('details'); info.className = 'rating-info';
+    const infoLabel = document.createElement('summary'); infoLabel.textContent = 'About ratings';
+    const disclosure = document.createElement('p');
+    disclosure.textContent = 'Your favorites help choose the photographs on my Me page. No sign-in: a random browser ID remembers your votes, and a temporary IP hash limits rapid voting. An internet connection is needed to save.';
+    info.append(infoLabel, disclosure);
     const buttons = Array.from({ length: 5 }, (_, index) => {
       const button = document.createElement('button'); button.type = 'button'; button.textContent = '☆'; button.setAttribute('role', 'radio');
       button.setAttribute('aria-label', `${index + 1} ${index ? 'stars' : 'star'}`);
       group.append(button); return button;
     });
-    fieldset.append(legend, group, summary, status, retry); figure.append(fieldset);
-    const widget = { id, fieldset, group, buttons, summary, status, retry, saving: false, pending: 0, failed: false, message: '' };
-    widgets.set(id, widget);
+    fieldset.append(legend, group, status, summary, retry, info); host.replaceChildren(fieldset);
+    const widget = { host, id: '', fieldset, group, buttons, summary, status, retry, info, keyboardTimer: null };
+    widgets.add(widget); hosts.set(host, widget);
     buttons.forEach((button, index) => {
-      button.addEventListener('click', () => save(widget, index + 1));
+      button.addEventListener('click', () => { cancelKeyboardChoice(widget); save(widget.id, index + 1); });
       button.addEventListener('keydown', (event) => {
         const steps = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
         if (!(event.key in steps) && event.key !== 'Home' && event.key !== 'End') return;
-        event.preventDefault();
+        event.preventDefault(); event.stopPropagation();
+        if (button.disabled) return;
         const next = event.key === 'Home' ? 0 : event.key === 'End' ? 4 : (index + steps[event.key] + 5) % 5;
-        widget.pending = next + 1; widget.message = ''; widget.failed = false; render(widget); buttons[next].focus();
-        clearTimeout(widget.keyboardTimer); widget.keyboardTimer = setTimeout(() => save(widget, next + 1), 400);
+        const id = widget.id;
+        const state = voteState(id);
+        state.pending = next + 1; state.message = ''; state.failed = false; render(widget); buttons[next].focus();
+        clearTimeout(widget.keyboardTimer);
+        widget.keyboardTimer = setTimeout(() => { widget.keyboardTimer = null; save(id, next + 1); }, 400);
       });
     });
-    retry.addEventListener('click', () => save(widget, widget.pending || stored.votes[id] || 5));
-    render(widget);
+    retry.addEventListener('click', () => {
+      const state = voteState(widget.id);
+      if (state.failed && state.pending) save(widget.id, state.pending);
+    });
+    return widget;
   }
 
-  function initializeGallery() {
-    const galleries = document.querySelectorAll('.pictures-grid');
-    if (!galleries.length) return;
-    if (!document.querySelector('.ratings-intro')) {
-      const note = document.createElement('aside'); note.className = 'ratings-intro';
-      note.innerHTML = '<p><strong>Which frames stay with you?</strong> Rate a photograph to help choose the favorites on my Me page. No sign-in; you can change your vote.</p><p class="ratings-privacy">Voting saves a random ID in this browser. A temporary hash of your IP address helps limit rapid voting. Ratings need an internet connection.</p>';
-      const firstGallery = galleries[0];
-      const collection = firstGallery.closest('details');
-      (collection?.parentElement?.closest('section') || collection || firstGallery).before(note);
+  function mountViewer(host, detail = {}) {
+    if (!host) return null;
+    const id = detail.photoId || (detail.trigger && photoId(detail.trigger)) || host.closest('[data-photo-id]')?.dataset.photoId;
+    if (!/^[a-z0-9][a-z0-9-]{0,99}$/.test(id || '')) return null;
+    const widget = hosts.get(host) || createWidget(host);
+    if (widget.id !== id) {
+      cancelKeyboardChoice(widget);
+      widget.info.open = false;
+      widget.id = id;
     }
-    document.querySelectorAll('.pictures-grid button[data-photo]').forEach(addWidget);
-    if (apiBase) getSummaries().catch(() => {});
+    host.dataset.photoId = id;
+    widget.group.setAttribute('aria-label', `Rate ${detail.title || detail.trigger?.dataset.caption || 'this photograph'}`);
+    render(widget);
+    if (apiBase && aggregateState === 'idle') getSummaries().catch(() => {});
+    return widget.fieldset;
+  }
+
+  function discoverViewer() {
+    document.querySelectorAll('[data-viewer-rating]').forEach((host) => mountViewer(host));
   }
 
   window.PhotoRatings = Object.freeze({ getSummaries, getTop, vote, photoId, averageLabel,
+    mountViewer, getOwnRating: (id) => stored.votes[id] || 0,
     configured: Boolean(apiBase), subscribe: (listener) => { listeners.add(listener); return () => listeners.delete(listener); } });
-  initializeGallery();
-  document.addEventListener('gallery:photos-updated', initializeGallery);
+  discoverViewer();
+  document.addEventListener('gallery:viewer-photo', (event) => mountViewer(event.detail?.host, event.detail));
+  document.addEventListener('gallery:viewer-ready', discoverViewer);
+  document.addEventListener('gallery:viewer-hidden', () => widgets.forEach(cancelKeyboardChoice));
   window.addEventListener('storage', (event) => {
     if (event.key !== STORAGE_KEY && event.key !== null) return;
     refreshStorage();
-    widgets.forEach((widget) => {
-      if (!widget.saving) { widget.pending = 0; widget.message = ''; }
+    widgets.forEach(cancelKeyboardChoice);
+    voteStates.forEach((state) => {
+      if (!state.saving) { state.pending = 0; state.message = ''; state.failed = false; }
     });
     notify();
   });

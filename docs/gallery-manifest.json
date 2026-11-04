@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "revision": "ad07102bf891dce59b9e",
+  "revision": "1cb754efa8272e470984",
   "photoCount": 35,
-  "totalBytes": 28468967,
+  "totalBytes": 28488226,
   "photos": [
     {
       "source": "assets/easy-smile.jpg",
@@ -492,9 +492,9 @@
       "sha256": "d7157ad1851673258b7bf8b9d16654e90ca5f2d687aa0c71506d83266e0a20a2"
     },
     {
-      "url": "gallery-collections.js?v=20261103",
-      "bytes": 1804,
-      "sha256": "3e74dff3b50751ba02f6518a0df944045448a82ce1c556f4f86c8f09c7190d53"
+      "url": "gallery-collections.js?v=20261103-art-folio",
+      "bytes": 2740,
+      "sha256": "11e8f00f341e3b3359a8b8ebd0906326841a225d6cc0bdf0031df94bedfd9cb4"
     },
     {
       "url": "gallery-offline.js?v=20261031",
@@ -502,19 +502,19 @@
       "sha256": "722bf1ac4d62198b0e6a3f019da871fbf9e3000949dc4cfee3d7178ee94a11cb"
     },
     {
-      "url": "gallery-ratings.js?v=20261103",
-      "bytes": 14905,
-      "sha256": "346f077e17665e5e275110a93c1ce90a563a97cb079fc16f7cab778d1126b76f"
+      "url": "gallery-ratings.js?v=20261103-art-folio",
+      "bytes": 16452,
+      "sha256": "281ad97cd5af8fbeb7c52979e3d785a6e31bf5d89c0cc38a4245aba44827aa75"
     },
     {
-      "url": "gallery-viewer.css?v=20261031",
-      "bytes": 3547,
-      "sha256": "da8398a9b37f8411b18a448b2f652f2725697fcd5e2fb31a44010cc666b5b1db"
+      "url": "gallery-viewer.css?v=20261103-art-folio",
+      "bytes": 6140,
+      "sha256": "cd41c2828f6103e38d7114d195a72579ddcbbabd27f6c027dff4a933853978e8"
     },
     {
-      "url": "gallery.js?v=20261103-highlights",
-      "bytes": 5880,
-      "sha256": "67f52845a9f50118b9286170445e75e2d41ec03aa67f22cc9d97e11dabd73a80"
+      "url": "gallery.js?v=20261103-art-folio",
+      "bytes": 6620,
+      "sha256": "e124281d9cfd4c52da9271e6ba2766819d52c0e2c9f773e08fee586253bb1791"
     },
     {
       "url": "home-highlights.js?v=20261103",
@@ -528,23 +528,23 @@
     },
     {
       "url": "index.html",
-      "bytes": 9932,
-      "sha256": "6677e13053c3145720bf57b7b507fc7146fecef27cdc48e96d587c49fcc2d9a5"
+      "bytes": 9960,
+      "sha256": "ec8e55fab022da1d7856cde0a8908e745576af29a57e3a5120347ca4004a988e"
     },
     {
-      "url": "photo-viewer.js?v=20261103-highlights",
-      "bytes": 11142,
-      "sha256": "0040f314754d479eda8e433d6d830ba1f81514fbd95df74443eaf1d59b41a3ad"
+      "url": "photo-viewer.js?v=20261103-art-folio",
+      "bytes": 16923,
+      "sha256": "5229f38af262622001054b2d3b548b5605f9bdff7ecce629efedb65d0474893f"
     },
     {
-      "url": "pictures-folio.css?v=20261103-collections",
-      "bytes": 5455,
-      "sha256": "967e2b26f88b0b576afb198f4fbcda82c33f8fd62040066a68eef8bf41d1693e"
+      "url": "pictures-folio.css?v=20261103-art-folio",
+      "bytes": 11165,
+      "sha256": "5ee5f0ec1948327f281fa031797e13563b733c08d6e389d0b4661401fb43df74"
     },
     {
       "url": "pictures.html",
-      "bytes": 34981,
-      "sha256": "d2fe8ee715def94313732b33358ecc50255e3d879ee67b8735fc704dd5e4d7df"
+      "bytes": 35543,
+      "sha256": "4b44b1707e653a6b8e6948502cbe6950c8a7603270903802702a74655cbeee33"
     },
     {
       "url": "ratings-config.js?v=20261103",
@@ -552,9 +552,9 @@
       "sha256": "65217e78238ed55ce566b9538c3f49070cbd7234cc7ffa736f62e8e3bdd9506f"
     },
     {
-      "url": "ratings.css?v=20261103",
-      "bytes": 2790,
-      "sha256": "9c99d2d5181a726780906ea8ec3fd700c634967385dd7b2a69e727d74d21a1f9"
+      "url": "ratings.css?v=20261103-art-folio",
+      "bytes": 4152,
+      "sha256": "366e215df6038bc4e6dcae2a28eac15cdef8fc89f8b67ce63d96710a57234b2e"
     },
     {
       "url": "vendor/viewerjs/viewer.min.css",

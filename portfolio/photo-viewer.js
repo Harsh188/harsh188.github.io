@@ -28,6 +28,10 @@
   function measureStage() {
     if (!controls || !viewer.isShown) return;
     const area = viewingArea();
+    const canvas = viewer.canvas.getBoundingClientRect();
+    // Zoom/pan keep the full-canvas coordinate system, but the photograph must
+    // never paint underneath the caption, rating tray or toolbar.
+    viewer.canvas.style.clipPath = `inset(${area.top}px ${Math.max(0, canvas.width - area.left - area.width)}px ${Math.max(0, canvas.height - area.top - area.height)}px ${area.left}px)`;
     controls.style.setProperty('--viewer-stage-center', `${area.top + area.height / 2}px`);
     Object.assign(preview.style, { left: `${area.left}px`, top: `${area.top}px`, width: `${area.width}px`, height: `${area.height}px` });
   }

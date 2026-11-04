@@ -1,139 +1,142 @@
-.pictures-intro {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 64px 0 58px;
+/* The photographs set the palette. Keep the surrounding folio quiet. */
+body.pictures-page {
+  --paper: #f0f0ec;
+  --surface: #f6f6f2;
+  --surface-deep: #e5e6df;
+  --ink: #292b28;
+  --muted: #65685f;
+  --line: #d1d3cb;
+  --accent: #777f58;
+  --link: #414b35;
+  background: var(--paper);
+  color: var(--ink);
 }
-
-.pictures-intro h1 {
-  font-size: clamp(52px, 6.2vw, 88px);
-  line-height: 1.08;
-  letter-spacing: -2px;
-}
-
+.pictures-page .site-header,
+.pictures-page main,
+.pictures-page .site-footer { width: min(1320px, calc(100% - 112px)); }
+.pictures-page .site-header { min-height: 78px; border: 0; }
+.pictures-page .wordmark { font-size: 34px; }
+.pictures-page .wordmark span,
+.pictures-page .period { color: var(--ink); }
+.pictures-page .site-header nav { font-size: 14px; }
+.pictures-page .site-header nav a[aria-current] { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.pictures-intro { padding: 24px 0 20px; }
+.pictures-intro h1 { font-size: clamp(43px, 4.5vw, 64px); line-height: 1.06; letter-spacing: -1.3px; }
 .pictures-intro h1 > span { display: inline; }
-.pictures-intro p { margin: 0; font-size: 17px; color: var(--muted); }
-
-.pictures-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(48px, 6vw, 88px) clamp(20px, 2.8vw, 40px);
-  align-items: start;
-  padding-bottom: 90px;
-}
-
-.pictures-grid .photo-print img { height: auto; aspect-ratio: auto; }
-.pictures-grid .photo-print { grid-column: 1 / 7; scroll-margin-top: 24px; }
-.pictures-grid > .photo-print:nth-of-type(even) { grid-column: 8 / 13; margin-top: 74px; }
-.pictures-grid figcaption time { display: block; margin-top: 3px; font-size: 12px; letter-spacing: 0; }
-
-.gallery-browsing {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 24px;
-  padding-bottom: 24px;
-  color: var(--muted);
-  font-size: 13px;
-}
-.gallery-browsing > p { margin: 0 auto 0 0; }
-.collection-controls { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.collection-controls[hidden] { display: none; }
-.collection-controls button {
-  min-height: 44px;
-  padding: 8px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  color: var(--link);
-  cursor: pointer;
-  font-size: inherit;
-}
-.collection-controls button:hover { border-color: var(--link); }
-.collection-controls button:disabled { opacity: .5; cursor: default; }
-.collection-status { font-size: 12px; font-variant-numeric: tabular-nums; }
-.gallery-collection {
-  grid-column: 1 / -1;
-  min-width: 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  scroll-margin-top: 24px;
-}
-.gallery-collection > summary {
-  display: flex;
-  align-items: center;
-  gap: clamp(18px, 3vw, 40px);
-  padding: 24px 0;
-  list-style: none;
-  cursor: pointer;
-}
+.pictures-intro p { margin: 5px 0 0; color: var(--muted); font-size: 16px; }
+.gallery-views { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 28px; margin: 0 0 20px; }
+.gallery-views[hidden] { display: none; }
+.gallery-views button { position: relative; min-height: 42px; padding: 7px 0; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 13px; }
+.gallery-views button:hover { color: var(--ink); }
+.gallery-views button[aria-pressed="true"] { color: var(--ink); }
+.gallery-views button[aria-pressed="true"]::after { position: absolute; bottom: 3px; left: 0; right: 0; height: 2px; background: var(--accent); content: ''; }
+.gallery-view-note { margin: 0 0 0 auto; color: var(--muted); font: italic 17px/1.5 var(--serif); }
+.gallery-archive { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 54px 28px; padding: 0 0 76px; }
+.gallery-archive .photo-print { min-width: 0; scroll-margin-top: 24px; }
+.gallery-archive .photo-print button { background: transparent; }
+.gallery-archive .photo-print img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+.gallery-archive figcaption { margin-top: 9px; color: var(--ink); font: 400 clamp(20px, 2vw, 27px)/1.15 var(--serif); letter-spacing: -.2px; }
+.gallery-archive figcaption time { display: block; margin-top: 5px; color: var(--muted); font: 400 11px/1.5 'DM Sans', Arial, sans-serif; letter-spacing: 0; }
+.gallery-archive .frame-number { display: none; }
+.pictures-page .enlarge { width: 30px; height: 30px; background: #292b28bf; color: #f6f6f2; font-size: 18px; }
+/* Flatten collection wrappers in the edit and the archive, without cloning any photograph. */
+.pictures-page:not([data-gallery-view="collections"]) .gallery-collection,
+.pictures-page:not([data-gallery-view="collections"]) .gallery-collection::details-content,
+.pictures-page:not([data-gallery-view="collections"]) .collection-frames,
+.pictures-page:not([data-gallery-view="collections"]) .photo-pair { display: contents; }
+.pictures-page:not([data-gallery-view="collections"]) .gallery-collection > summary { display: none; }
+/* The opening four frames use their original proportions in a deliberate 1.82:1 rhythm. */
+.pictures-page[data-gallery-view="selected"] .gallery-archive { grid-template-columns: minmax(0, 1.82fr) minmax(0, 1fr); gap: 30px 24px; }
+.pictures-page[data-gallery-view="selected"] .gallery-archive .photo-print:not([data-selected]),
+.pictures-page[data-gallery-view="selected"] .gallery-archive .photo-pair { display: none; }
+.pictures-page[data-gallery-view="selected"] .photo-print[data-selected="1"] { order: 1; }
+.pictures-page[data-gallery-view="selected"] .photo-print[data-selected="2"] { order: 2; }
+.pictures-page[data-gallery-view="selected"] .photo-print[data-selected="3"] { order: 3; }
+.pictures-page[data-gallery-view="selected"] .photo-print[data-selected="4"] { order: 4; }
+/* The full archive reads in capture-date order, with occasional breathing room for portrait frames. */
+.pictures-page[data-gallery-view="all"] .gallery-archive .photo-print[data-orientation="portrait"] { width: 80%; justify-self: center; }
+.pictures-page[data-gallery-view="all"] #rooted,
+.pictures-page[data-gallery-view="all"] #moon-over-the-city,
+.pictures-page[data-gallery-view="all"] #sony-by-the-water { grid-column: 1 / -1; width: 100%; }
+/* Collections are photographic chapters, not cards or an accordion dashboard. */
+.pictures-page[data-gallery-view="collections"] .gallery-archive { display: flex; flex-direction: column; gap: 0; padding-bottom: 60px; }
+.pictures-page[data-gallery-view="collections"] .gallery-archive > .photo-print { display: none; }
+.gallery-collection { width: 100%; min-width: 0; border-top: 1px solid var(--line); padding: 24px 0; scroll-margin-top: 24px; }
+.gallery-collection > summary { position: relative; display: grid; grid-template-columns: minmax(140px, .8fr) minmax(0, 3.1fr); gap: 28px; align-items: start; list-style: none; cursor: pointer; }
 .gallery-collection > summary::-webkit-details-marker { display: none; }
 .gallery-collection > summary::marker { content: ''; }
 .gallery-collection > summary:focus-visible { outline: 2px solid var(--link); outline-offset: 6px; }
-.collection-cover {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  width: clamp(110px, 18vw, 232px);
-  height: clamp(90px, 11vw, 140px);
-  flex: 0 0 auto;
+.collection-cover { display: block; grid-column: 2; grid-row: 1; min-width: 0; overflow: hidden; }
+.collection-cover img { display: block; width: 100%; height: auto; max-height: 410px; object-fit: cover; }
+.collection-heading { grid-column: 1; grid-row: 1; display: block; min-width: 0; padding-top: 4px; padding-bottom: 50px; }
+.collection-kicker { display: block; color: var(--muted); font-size: 9px; font-weight: 500; letter-spacing: 1.7px; }
+.collection-title { display: block; margin-top: 12px; font: 400 clamp(25px, 2.8vw, 39px)/1.08 var(--serif); letter-spacing: -.6px; }
+.collection-meta { display: flex; flex-direction: column; gap: 5px; margin-top: 15px; color: var(--muted); font-size: 11px; }
+.collection-action { grid-column: 1; grid-row: 1; align-self: end; margin-top: 0; color: var(--ink); font-size: 25px; line-height: 1; }
+.collection-symbol::before { content: '+'; }
+.gallery-collection[open] > summary .collection-symbol::before { content: '−'; }
+.collection-frames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 22px; align-items: start; margin-left: calc((100% - 28px) * .8 / 3.9 + 28px); padding-top: 26px; }
+.collection-frames .photo-pair { display: contents; }
+.pictures-page[data-gallery-view="collections"] .collection-frames #rooted,
+.pictures-page[data-gallery-view="collections"] .collection-frames #moon-over-the-city { grid-column: 1 / -1; }
+.pictures-page[data-gallery-view="collections"] .collection-frames .photo-print[data-orientation="portrait"] { width: 88%; justify-self: center; }
+.gallery-endnote { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; padding: 0 0 32px; color: var(--muted); font-size: 12px; }
+.gallery-endnote > p { margin: 0; }
+.offline-disclosure { max-width: 470px; }
+.offline-disclosure > summary { cursor: pointer; list-style: none; text-decoration: underline; text-underline-offset: 4px; }
+.offline-disclosure > summary::-webkit-details-marker { display: none; }
+.offline-disclosure > summary span { display: inline-block; margin-left: 8px; }
+.offline-disclosure[open] > summary span { transform: rotate(45deg); }
+.offline-disclosure .gallery-offline { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 14px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+.offline-disclosure .gallery-offline[hidden] { display: none; }
+.offline-disclosure button { padding: 5px 0; border: 0; background: none; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; font-size: 12px; }
+.offline-disclosure button:disabled { cursor: default; color: var(--muted); }
+.offline-disclosure progress { width: 100%; }
+.offline-disclosure .offline-status { width: 100%; }
+@media (min-width: 1600px) { .pictures-intro { padding-top: 36px; } }
+@media (max-width: 1100px) {
+  .pictures-page .site-header, .pictures-page main, .pictures-page .site-footer { width: calc(100% - 64px); }
+  .gallery-view-note { font-size: 16px; }
+  .collection-title { font-size: 29px; }
 }
-.collection-cover > span {
-  display: block;
-  min-width: 0;
-  background-position: center;
-  background-size: cover;
-  background-color: var(--surface-deep);
-}
-.collection-heading { display: block; min-width: 0; }
-.collection-kicker { display: block; margin-bottom: 8px; font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
-.collection-title { display: block; font: 400 clamp(27px, 3.2vw, 43px)/1.12 var(--serif); letter-spacing: -.6px; }
-.collection-meta { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 12px; font-size: 12px; color: var(--muted); }
-.collection-meta > span { white-space: nowrap; }
-.collection-action { display: flex; align-items: center; gap: 16px; margin-left: auto; color: var(--link); font-size: 12px; white-space: nowrap; }
-.collection-chevron { font-size: 25px; line-height: 1; }
-.collection-close-label { display: none; }
-.gallery-collection[open] > summary .collection-open-label { display: none; }
-.gallery-collection[open] > summary .collection-close-label { display: inline; }
-.gallery-collection[open] > summary .collection-chevron { transform: rotate(180deg); }
-.gallery-collection .collection-frames { padding-top: 16px; padding-bottom: 36px; }
-
-@media (max-width: 850px) {
-  .pictures-intro { align-items: flex-start; flex-direction: column; gap: 20px; padding: 44px 0; }
-  .pictures-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; padding-bottom: 64px; }
-  .pictures-grid .photo-print { grid-column: 1; }
-  .pictures-grid > .photo-print:nth-of-type(even) { grid-column: 2; margin-top: 72px; }
-}
-
-@media (max-width: 550px) {
-  .pictures-intro { padding: 35px 0; gap: 15px; }
-  .pictures-intro h1 { font-size: clamp(45px, 10vw, 55px); letter-spacing: -1.4px; }
-  .pictures-intro p { font-size: 16px; }
-  .pictures-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 48px; }
-  .pictures-grid .photo-print:nth-child(n) { grid-column: 1; width: 100%; margin: 0; }
-  .gallery-browsing { gap: 8px 18px; }
-  .gallery-browsing > p { width: 100%; }
-  .collection-status { width: 100%; }
-  .gallery-collection > summary { position: relative; gap: 16px; padding: 20px 25px 20px 0; }
-  .collection-cover { width: 88px; height: 98px; gap: 3px; }
+@media (max-width: 750px) {
+  .gallery-views { gap: 8px 23px; }
+  .gallery-view-note { display: none; }
+  .collection-frames { margin-left: 0; }
+  .gallery-collection > summary { grid-template-columns: minmax(130px, .9fr) minmax(0, 2fr); gap: 20px; }
   .collection-title { font-size: 28px; }
-  .collection-meta { gap: 2px 12px; margin-top: 8px; font-size: 11px; }
-  .collection-kicker { margin-bottom: 5px; }
-  .collection-action { position: absolute; right: 0; }
-  .collection-action > span:not(.collection-chevron) { display: none; }
-  .gallery-collection .collection-frames { padding-top: 12px; padding-bottom: 28px; }
 }
-
-/* Keep the two Golden Gate frames together in the chronological gallery. */
-.pictures-grid .photo-pair {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 2.8vw, 40px);
-  align-items: start;
-}
-.pictures-grid .photo-pair .photo-print:nth-child(n) { grid-column: auto; margin: 0; }
 @media (max-width: 550px) {
-  .pictures-grid .photo-pair { grid-template-columns: 1fr; gap: 36px; }
+  .pictures-page .site-header, .pictures-page main, .pictures-page .site-footer { width: calc(100% - 36px); }
+  .pictures-page .site-header { min-height: 108px; padding-block: 19px 12px; gap: 11px; }
+  .pictures-page .wordmark { font-size: 31px; }
+  .pictures-page .site-header nav { font-size: 12px; }
+  .pictures-intro { padding: 20px 0 14px; }
+  .pictures-intro h1 { font-size: 43px; letter-spacing: -1.1px; }
+  .pictures-intro p { margin-top: 5px; font-size: 14px; }
+  .gallery-views { margin-bottom: 16px; gap: 6px 24px; }
+  .gallery-views button { font-size: 12px; min-height: 40px; }
+  .gallery-archive,
+  .pictures-page[data-gallery-view="selected"] .gallery-archive { grid-template-columns: 1fr; gap: 30px; padding-bottom: 44px; }
+  .pictures-page[data-gallery-view="selected"] .photo-print[data-selected="2"],
+  .pictures-page[data-gallery-view="selected"] .photo-print[data-selected="4"] { width: 80%; justify-self: end; }
+  .gallery-archive figcaption { font-size: 22px; }
+  .gallery-archive figcaption time { font-size: 10px; }
+  .pictures-page[data-gallery-view="all"] .gallery-archive .photo-print[data-orientation="portrait"] { width: 86%; justify-self: end; }
+  .pictures-page[data-gallery-view="all"] #rooted,
+  .pictures-page[data-gallery-view="all"] #moon-over-the-city,
+  .pictures-page[data-gallery-view="all"] #sony-by-the-water { grid-column: auto; }
+  .gallery-collection { padding: 20px 0; }
+  .gallery-collection > summary { grid-template-columns: 1fr auto; gap: 14px; }
+  .collection-heading { grid-column: 1; grid-row: 1; padding: 0; }
+  .collection-kicker { font-size: 8px; letter-spacing: 1.2px; }
+  .collection-title { margin-top: 6px; font-size: 29px; }
+  .collection-meta { flex-direction: row; flex-wrap: wrap; gap: 4px 14px; margin-top: 7px; font-size: 10px; }
+  .collection-action { grid-column: 2; grid-row: 1; align-self: center; padding: 0 3px; }
+  .collection-cover { grid-column: 1 / -1; grid-row: 2; }
+  .collection-cover img { max-height: 270px; }
+  .collection-frames { grid-template-columns: 1fr; gap: 28px; padding-top: 24px; }
+  .pictures-page[data-gallery-view="collections"] .collection-frames #rooted, .pictures-page[data-gallery-view="collections"] .collection-frames #moon-over-the-city { grid-column: auto; }
+  .pictures-page[data-gallery-view="collections"] .collection-frames .photo-print[data-orientation="portrait"] { width: 85%; justify-self: end; }
+  .gallery-endnote { align-items: flex-start; flex-direction: column; gap: 12px; padding-bottom: 26px; font-size: 11px; }
 }
