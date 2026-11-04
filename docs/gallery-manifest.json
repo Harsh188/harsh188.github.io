@@ -1,9 +1,25 @@
 {
   "version": 1,
-  "revision": "c81580c194e9c3bcbef8",
-  "photoCount": 31,
-  "totalBytes": 24240300,
+  "revision": "bb53a174a4332281653f",
+  "photoCount": 35,
+  "totalBytes": 28430371,
   "photos": [
+    {
+      "source": "assets/easy-smile.jpg",
+      "preview": "assets/easy-smile-preview.jpg"
+    },
+    {
+      "source": "assets/kodak-carousel.jpg",
+      "preview": "assets/kodak-carousel-preview.jpg"
+    },
+    {
+      "source": "assets/rooted.jpg",
+      "preview": "assets/rooted-preview.jpg"
+    },
+    {
+      "source": "assets/wire.jpg",
+      "preview": "assets/wire-preview.jpg"
+    },
     {
       "source": "assets/the-long-way-down-v2.jpg",
       "preview": "assets/the-long-way-down-preview-v2.jpg"
@@ -231,6 +247,16 @@
       "sha256": "360ca7b58a9b93f5c77ce1fa8fa42136af503b73dfb833b2191b483022ee9b4d"
     },
     {
+      "url": "assets/easy-smile-preview.jpg",
+      "bytes": 196614,
+      "sha256": "c012d7012c25254675a0d2566ead719110da99de1cc1baf00da7c63214a2ec73"
+    },
+    {
+      "url": "assets/easy-smile.jpg",
+      "bytes": 948153,
+      "sha256": "ba5549b6d73e41d6f87f74d53f22e44bcada9a492f1fd9790c83c43b7165c78a"
+    },
+    {
       "url": "assets/glowing-lanterns-preview.jpg",
       "bytes": 155024,
       "sha256": "440dda056a480ea8703c82cd7ef7c4310d6a6b9fb3c353d67f623b60f9ee39d1"
@@ -281,6 +307,16 @@
       "sha256": "11b7ff0885898821425cc8cd5c8ef76203b26408d8dc14df36e9f0648f79d813"
     },
     {
+      "url": "assets/kodak-carousel-preview.jpg",
+      "bytes": 84151,
+      "sha256": "ee06fad1eade371cabde754af1ae15c7250e9ed4c8a5d3ba8706142a961e8260"
+    },
+    {
+      "url": "assets/kodak-carousel.jpg",
+      "bytes": 328489,
+      "sha256": "673f53f1ff8e3aac99a751ef4166134ff7f673431bcc0fb48871d783632c5891"
+    },
+    {
       "url": "assets/moon-over-the-city-preview.jpg",
       "bytes": 125370,
       "sha256": "7eda22a2ea5b2557b5c1f159a9d357547d426a78e7b1792a38234342cf028cf1"
@@ -329,6 +365,16 @@
       "url": "assets/puffy-morning.jpg",
       "bytes": 507107,
       "sha256": "df4ff3966f2562a67c44ad46e571ac2d5e5b62057dac85b49c2a01320ebb37ef"
+    },
+    {
+      "url": "assets/rooted-preview.jpg",
+      "bytes": 184935,
+      "sha256": "d477c18603785270fd5f9bc50ef11c1206b10ee3472ff35d5763c8cd897af086"
+    },
+    {
+      "url": "assets/rooted.jpg",
+      "bytes": 544431,
+      "sha256": "74ec8b05b8923d87b0a25616c2c32a9bfdeee410f5b5a19c121cc08a628abae4"
     },
     {
       "url": "assets/salesforce-framed-preview.jpg",
@@ -416,6 +462,16 @@
       "sha256": "517308fac55d1604bdcd0bd0d3b5e07fa09fb7979240e7101d80b79aac9ea070"
     },
     {
+      "url": "assets/wire-preview.jpg",
+      "bytes": 430607,
+      "sha256": "b949b7e181dc974e39ab1acd7091163138fef54fd2b9d14de61c471157521e08"
+    },
+    {
+      "url": "assets/wire.jpg",
+      "bytes": 1469912,
+      "sha256": "fc140d5e850527b731cd2166b603a9d819c9d3e71a4a5ea3b42eff6050104b1c"
+    },
+    {
       "url": "earth-theme.css?v=20261029-portrait",
       "bytes": 2015,
       "sha256": "60090c3fcde3f1df95a3a9686d169afad7487e046726dbe1c0c5709fccb9fbc5"
@@ -472,8 +528,8 @@
     },
     {
       "url": "pictures.html",
-      "bytes": 25705,
-      "sha256": "ccd880c305741a429bb446a3a0aae8bb316a7c6f12b642a40220f51fbb0d2b80"
+      "bytes": 28484,
+      "sha256": "490deb0c3e238ad0ca22512ced7dcdacbdf11e5e73b65b838ab8e3018c3da03d"
     },
     {
       "url": "vendor/viewerjs/viewer.min.css",
