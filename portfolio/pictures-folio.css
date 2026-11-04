@@ -28,6 +28,77 @@
 .pictures-grid > .photo-print:nth-of-type(even) { grid-column: 8 / 13; margin-top: 74px; }
 .pictures-grid figcaption time { display: block; margin-top: 3px; font-size: 12px; letter-spacing: 0; }
 
+.gallery-browsing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding-bottom: 24px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.gallery-browsing > p { margin: 0 auto 0 0; }
+.collection-controls { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.collection-controls[hidden] { display: none; }
+.collection-controls button {
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--link);
+  cursor: pointer;
+  font-size: inherit;
+}
+.collection-controls button:hover { border-color: var(--link); }
+.collection-controls button:disabled { opacity: .5; cursor: default; }
+.collection-status { font-size: 12px; font-variant-numeric: tabular-nums; }
+.gallery-collection {
+  grid-column: 1 / -1;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 24px;
+}
+.gallery-collection > summary {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 40px);
+  padding: 24px 0;
+  list-style: none;
+  cursor: pointer;
+}
+.gallery-collection > summary::-webkit-details-marker { display: none; }
+.gallery-collection > summary::marker { content: ''; }
+.gallery-collection > summary:focus-visible { outline: 2px solid var(--link); outline-offset: 6px; }
+.collection-cover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  width: clamp(110px, 18vw, 232px);
+  height: clamp(90px, 11vw, 140px);
+  flex: 0 0 auto;
+}
+.collection-cover > span {
+  display: block;
+  min-width: 0;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--surface-deep);
+}
+.collection-heading { display: block; min-width: 0; }
+.collection-kicker { display: block; margin-bottom: 8px; font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+.collection-title { display: block; font: 400 clamp(27px, 3.2vw, 43px)/1.12 var(--serif); letter-spacing: -.6px; }
+.collection-meta { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 12px; font-size: 12px; color: var(--muted); }
+.collection-meta > span { white-space: nowrap; }
+.collection-action { display: flex; align-items: center; gap: 16px; margin-left: auto; color: var(--link); font-size: 12px; white-space: nowrap; }
+.collection-chevron { font-size: 25px; line-height: 1; }
+.collection-close-label { display: none; }
+.gallery-collection[open] > summary .collection-open-label { display: none; }
+.gallery-collection[open] > summary .collection-close-label { display: inline; }
+.gallery-collection[open] > summary .collection-chevron { transform: rotate(180deg); }
+.gallery-collection .collection-frames { padding-top: 16px; padding-bottom: 36px; }
+
 @media (max-width: 850px) {
   .pictures-intro { align-items: flex-start; flex-direction: column; gap: 20px; padding: 44px 0; }
   .pictures-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; padding-bottom: 64px; }
@@ -41,6 +112,17 @@
   .pictures-intro p { font-size: 16px; }
   .pictures-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 48px; }
   .pictures-grid .photo-print:nth-child(n) { grid-column: 1; width: 100%; margin: 0; }
+  .gallery-browsing { gap: 8px 18px; }
+  .gallery-browsing > p { width: 100%; }
+  .collection-status { width: 100%; }
+  .gallery-collection > summary { position: relative; gap: 16px; padding: 20px 25px 20px 0; }
+  .collection-cover { width: 88px; height: 98px; gap: 3px; }
+  .collection-title { font-size: 28px; }
+  .collection-meta { gap: 2px 12px; margin-top: 8px; font-size: 11px; }
+  .collection-kicker { margin-bottom: 5px; }
+  .collection-action { position: absolute; right: 0; }
+  .collection-action > span:not(.collection-chevron) { display: none; }
+  .gallery-collection .collection-frames { padding-top: 12px; padding-bottom: 28px; }
 }
 
 /* Keep the two Golden Gate frames together in the chronological gallery. */
