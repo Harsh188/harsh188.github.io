@@ -203,7 +203,7 @@
     if (!galleries.length) return;
     if (!document.querySelector('.ratings-intro')) {
       const note = document.createElement('aside'); note.className = 'ratings-intro';
-      note.innerHTML = '<p><strong>Which frames stay with you?</strong> Rate a photograph to help choose the favorites on my Me page. No sign-in; you can change your vote.</p><p class="ratings-privacy">Voting saves an anonymous ID in this browser. The ratings service uses a protected network identifier to limit repeat voting. Ratings need an internet connection.</p>';
+      note.innerHTML = '<p><strong>Which frames stay with you?</strong> Rate a photograph to help choose the favorites on my Me page. No sign-in; you can change your vote.</p><p class="ratings-privacy">Voting saves a random ID in this browser. A temporary hash of your IP address helps limit rapid voting. Ratings need an internet connection.</p>';
       const firstGallery = galleries[0];
       const collection = firstGallery.closest('details');
       (collection?.parentElement?.closest('section') || collection || firstGallery).before(note);

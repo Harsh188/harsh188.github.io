@@ -22,7 +22,7 @@
 
   if (!image) return;
 
-  const photos = Array.from(triggers, (trigger) => {
+  const readPhotos = () => Array.from(triggers, (trigger) => {
     const thumbnail = trigger.querySelector('img');
     return {
       trigger,
@@ -33,6 +33,13 @@
       dateLabel: trigger.dataset.takenLabel,
     };
   }).filter((photo) => photo.source);
+  const photos = readPhotos();
+
+  function refreshPhotos() {
+    if (dialog.open) return;
+    photos.splice(0, photos.length, ...readPhotos());
+  }
+  document.addEventListener('gallery:photos-updated', refreshPhotos);
 
   if (!photos.length) return;
 
@@ -142,6 +149,7 @@
     returnFocus = null;
     swipeStart = null;
     neighborPreloads.length = 0;
+    refreshPhotos();
   });
 
   dialog.addEventListener('click', (event) => {

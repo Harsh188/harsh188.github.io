@@ -2,12 +2,14 @@
   const main = document.querySelector('main');
   const triggers = Array.from(document.querySelectorAll('button[data-photo], button.gallery-photo'));
   if (!main || !triggers.length || !window.Viewer) return;
-  const photos = triggers.map((trigger) => ({
+  const readPhotos = () => triggers.map((trigger) => ({
     trigger, thumbnail: trigger.querySelector('img'),
     source: trigger.dataset.photo || trigger.querySelector('img')?.src,
     caption: trigger.dataset.caption ?? '', date: trigger.dataset.taken || '', dateLabel: trigger.dataset.takenLabel || '',
   }));
+  const photos = readPhotos();
   let viewer, returnFocus, controls, preview;
+  let refreshPending = false;
   let fitAfterRotate = false;
   let lastTouchZoom = 0;
   let neighbors = [];
@@ -154,8 +156,16 @@
     hidden() {
       controls.classList.remove('controls-hidden'); neighbors = [];
       returnFocus?.focus({ preventScroll: true }); returnFocus = null;
+      if (refreshPending) refreshPhotos();
     },
   });
+  function refreshPhotos() {
+    if (viewer.isShown) { refreshPending = true; return; }
+    refreshPending = false;
+    photos.splice(0, photos.length, ...readPhotos());
+    viewer.update();
+  }
+  document.addEventListener('gallery:photos-updated', refreshPhotos);
   triggers.forEach((trigger, index) => trigger.addEventListener('click', (event) => {
     event.stopPropagation(); returnFocus = trigger; viewer.view(index);
   }));
