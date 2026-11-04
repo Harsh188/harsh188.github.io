@@ -1,26 +1,37 @@
-/* Quiet, optional community ratings; photo buttons keep their existing layout. */
-.ratings-intro { max-width: 760px; margin: 0 0 42px; padding-block: 17px; border-block: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.6; }
-.ratings-intro p { margin: 0; }
-.ratings-intro strong { font-weight: 500; color: var(--ink); }
-.ratings-intro .ratings-privacy { font-size: 12px; margin-top: 7px; max-width: 700px; }
-.photo-rating { margin: 14px 0 0; padding: 12px 0 0; min-width: 0; border: 0; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.5; color: var(--muted); }
-.photo-rating legend { float: left; width: 100%; padding: 0; font-size: 12px; }
-.rating-stars { clear: both; display: flex; align-items: center; gap: 2px; padding-top: 3px; width: fit-content; }
-.photo-print .photo-rating button { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; border: 1px solid transparent; border-radius: 3px; margin: 0; padding: 0 8px; font: inherit; color: var(--muted); background: transparent; cursor: pointer; }
-.photo-print .rating-stars button { font-family: Arial, sans-serif; font-size: 27px; line-height: 1; }
-.photo-print .rating-stars button.is-filled { color: var(--accent); }
-.photo-print .rating-stars button.is-filled::before { content: '★'; position: absolute; }
-.photo-print .photo-rating button:hover { border-color: var(--line); background: var(--surface); }
-.photo-print .photo-rating button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-.photo-print .photo-rating button:disabled { opacity: .45; cursor: default; }
-.photo-print .photo-rating button:disabled:hover { border-color: transparent; background: transparent; }
-.photo-rating .rating-summary { margin: 3px 0 0; color: var(--ink); font-variant-numeric: tabular-nums; }
-.photo-rating .rating-status { min-height: 18px; margin: 3px 0 0; max-width: 36em; }
-.photo-rating[data-state="error"] .rating-status { color: var(--accent); }
-.photo-print .photo-rating .rating-retry { min-height: 36px; padding: 0 7px; margin: 4px 0 0 -7px; color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
-.photo-rating .rating-retry[hidden] { display: none; }
+/* The gallery stays photographic. Voting lives alongside the enlarged frame. */
+.viewer-rating { min-width: 0; color: inherit; --rating-muted: #b9bcb3; --rating-accent: #d4bea0; }
+.viewer-rating .photo-rating { position: relative; display: grid; grid-template-columns: auto auto; column-gap: 22px; align-items: center; min-width: 0; margin: 0; padding: 0; border: 0; font-size: 12px; line-height: 1.45; }
+.viewer-rating .photo-rating .rating-label { grid-column: 1; grid-row: 1; padding: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; color: inherit; }
+.viewer-rating .rating-stars { grid-column: 2; grid-row: 1; display: flex; width: fit-content; align-items: center; gap: 2px; }
+.viewer-rating .photo-rating button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; margin: 0; padding: 0; border: 1px solid transparent; border-radius: 3px; color: inherit; background: transparent; cursor: pointer; font: inherit; }
+.viewer-rating .rating-stars button { position: relative; font-family: Arial, sans-serif; font-size: 33px; line-height: 1; }
+.viewer-rating .rating-stars button.is-filled { color: var(--rating-accent); }
+.viewer-rating .rating-stars button.is-filled::before { content: '★'; position: absolute; }
+.viewer-rating .photo-rating button:hover { color: var(--rating-accent); }
+.viewer-rating .photo-rating button:focus-visible, .viewer-rating .rating-info summary:focus-visible { outline: 2px solid #dfc69f; outline-offset: 3px; }
+.viewer-rating .photo-rating button:disabled { opacity: .45; cursor: default; }
+.viewer-rating .photo-rating button:disabled:hover { color: inherit; }
+.viewer-rating .rating-status, .viewer-rating .rating-summary { grid-column: 2; margin: 0; font-size: 12px; color: var(--rating-muted); font-variant-numeric: tabular-nums; }
+.viewer-rating .rating-status { min-height: 18px; max-width: 310px; }
+.viewer-rating .rating-summary { margin-top: 2px; }
+.viewer-rating .photo-rating[data-state="error"] .rating-status { color: #e6bb9f; }
+.viewer-rating .photo-rating .rating-retry { grid-column: 2; justify-self: start; min-height: 36px; margin-left: -7px; padding: 0 7px; color: #dfc69f; text-decoration: underline; text-underline-offset: 3px; }
+.viewer-rating .rating-retry[hidden] { display: none; }
+.viewer-rating .rating-info { grid-column: 1; grid-row: 2 / span 2; align-self: start; font-size: 11px; color: var(--rating-muted); }
+.viewer-rating .rating-info summary { padding: 5px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; list-style: none; }
+.viewer-rating .rating-info summary::-webkit-details-marker { display: none; }
+.viewer-rating .rating-info p { position: absolute; z-index: 1; right: 0; bottom: calc(100% + 12px); width: min(310px, 100%); box-sizing: border-box; margin: 0; padding: 15px 17px; background: #2c2d28; border: 1px solid #64665c; border-radius: 4px; color: #e9e6df; font-size: 12px; line-height: 1.55; box-shadow: 0 4px 24px #0004; }
 .visitor-favorites-note { color: var(--muted); font-size: 12px; margin: 8px 0 0; line-height: 1.5; }
 .visitor-favorites-note[hidden] { display: none; }
 .community-frame .frame-rating { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; letter-spacing: 0; font-variant-numeric: tabular-nums; }
 .photo-stack .community-frame img { aspect-ratio: auto; height: auto; object-fit: contain; }
-@media (max-width: 550px) { .ratings-intro { margin-bottom: 30px; font-size: 13px; } .photo-rating { margin-top: 12px; } }
+@media (max-width: 700px) {
+  .viewer-rating .photo-rating { grid-template-columns: 1fr auto; column-gap: 12px; }
+  .viewer-rating .photo-rating .rating-label { grid-column: 1; grid-row: 1; font-size: 17px; }
+  .viewer-rating .rating-stars { grid-column: 1; grid-row: 2; gap: 5px; margin-left: -4px; }
+  .viewer-rating .rating-stars button { font-size: 31px; }
+  .viewer-rating .rating-status, .viewer-rating .rating-summary { grid-column: 1 / -1; max-width: none; }
+  .viewer-rating .rating-info { grid-column: 2; grid-row: 1; align-self: center; }
+  .viewer-rating .photo-rating .rating-retry { grid-column: 1; }
+}
+@media (prefers-reduced-motion: no-preference) { .viewer-rating .rating-stars button { transition: color .15s ease; } }

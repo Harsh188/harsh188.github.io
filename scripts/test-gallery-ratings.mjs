@@ -28,6 +28,41 @@ function environment() {
   };
 }
 
+// Minimal DOM surfaces used by the real client, so the tests exercise event
+// wiring and visible state without adding a browser package to this static site.
+function fakeDocument() {
+  const listeners = new Map();
+  const doc = {
+    querySelectorAll: () => [],
+    addEventListener(type, listener) {
+      if (!listeners.has(type)) listeners.set(type, []);
+      listeners.get(type).push(listener);
+    },
+    dispatchEvent(event) { listeners.get(event.type)?.forEach((listener) => listener(event)); },
+    createElement(tag) {
+      const attributes = new Map();
+      const events = new Map();
+      const classes = new Set();
+      const node = {
+        tagName: tag.toUpperCase(), children: [], dataset: {}, textContent: '', hidden: false, disabled: false,
+        classList: { toggle(name, enabled) { if (enabled) classes.add(name); else classes.delete(name); }, contains: (name) => classes.has(name) },
+        setAttribute: (name, value) => attributes.set(name, value), getAttribute: (name) => attributes.get(name),
+        append(...children) { node.children.push(...children); },
+        replaceChildren(...children) { node.children = children; },
+        closest: () => null,
+        focus() { doc.activeElement = node; },
+        addEventListener(type, listener) {
+          if (!events.has(type)) events.set(type, []);
+          events.get(type).push(listener);
+        },
+        fire(type, detail = {}) { events.get(type)?.forEach((listener) => listener(detail)); },
+      };
+      return node;
+    },
+  };
+  return doc;
+}
+
 function tab(shared, { fetch, uuid = () => identityA, locks = true } = {}) {
   const events = new Map();
   const window = {
@@ -37,15 +72,16 @@ function tab(shared, { fetch, uuid = () => identityA, locks = true } = {}) {
       events.get(name).push(listener);
     },
   };
+  const document = fakeDocument();
+  const navigator = { onLine: true, ...(locks ? { locks: shared.locks } : {}) };
   const context = vm.createContext({
-    window, navigator: { onLine: true, ...(locks ? { locks: shared.locks } : {}) },
-    document: { querySelectorAll: () => [], addEventListener() {}, dispatchEvent() {} },
+    window, navigator, document,
     localStorage: shared.storage, crypto: { randomUUID: uuid }, fetch, URL, AbortController,
     CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options?.detail; } },
     setTimeout, clearTimeout,
   });
   vm.runInContext(source, context);
-  return { api: window.PhotoRatings, event: (name, value) => events.get(name)?.forEach((listener) => listener(value)) };
+  return { api: window.PhotoRatings, document, navigator, event: (name, value) => events.get(name)?.forEach((listener) => listener(value)) };
 }
 
 {
@@ -135,4 +171,107 @@ function tab(shared, { fetch, uuid = () => identityA, locks = true } = {}) {
   await vote;
   assert.equal(shared.storage.getItem(storageKey), null, 'a late response must not resurrect a cleared identity');
   console.log('PASS: clearing browser storage during a vote does not restore the removed identity.');
+}
+
+
+const flush = () => new Promise((resolve) => setImmediate(resolve));
+function viewerWidget(visitor, host, id, title = id) {
+  visitor.document.dispatchEvent({ type: 'gallery:viewer-photo', detail: { host, photoId: id, title } });
+  const fieldset = host.children[0];
+  const byClass = (name) => fieldset.children.find((node) => node.className === name);
+  return { fieldset, stars: byClass('rating-stars').children, status: byClass('rating-status'),
+    summary: byClass('rating-summary'), retry: byClass('rating-retry'), group: byClass('rating-stars') };
+}
+
+{
+  const shared = environment();
+  const pending = deferred();
+  const posts = [];
+  const visitor = tab(shared, { fetch: (_url, options) => {
+    if (options.method !== 'POST') return Promise.resolve(json({ ratings: [] }));
+    posts.push(JSON.parse(options.body)); return pending.promise;
+  } });
+  const host = visitor.document.createElement('div');
+  let widget = viewerWidget(visitor, host, 'rooted', 'Rooted');
+  await flush();
+  assert.equal(shared.storage.getItem(storageKey), null, 'opening a viewer must not create an anonymous identity');
+  assert.equal(widget.group.getAttribute('aria-label'), 'Rate Rooted');
+  widget.stars[3].fire('click');
+  await flush();
+  assert.equal(widget.status.textContent, 'Saving your rating…');
+  widget = viewerWidget(visitor, host, 'wire', 'Wire');
+  assert.equal(widget.group.getAttribute('aria-label'), 'Rate Wire');
+  assert.equal(widget.status.textContent, 'Choose 1–5 stars');
+  assert.equal(widget.stars.some((button) => button.disabled), false);
+  pending.resolve(json({ rating: row('rooted', 4), yourRating: 4 }));
+  await flush();
+  assert.equal(widget.status.textContent, 'Choose 1–5 stars', 'an earlier response must not overwrite the current photo status');
+  assert.equal(widget.stars.some((button) => button.getAttribute('aria-checked') === 'true'), false);
+  assert.equal(visitor.api.getOwnRating('rooted'), 4);
+  assert.equal(visitor.api.getOwnRating('wire'), 0);
+  widget = viewerWidget(visitor, host, 'rooted');
+  assert.match(widget.status.textContent, /Saved.*4 \/ 5/);
+  assert.equal(widget.stars[3].getAttribute('aria-checked'), 'true');
+  assert.equal(posts.length, 1);
+  assert.equal(posts[0].photoId, 'rooted');
+  console.log('PASS: the viewer changes target immediately while an earlier photo vote saves independently.');
+}
+
+{
+  const shared = environment();
+  const pending = deferred();
+  const posts = [];
+  const visitor = tab(shared, { fetch: (_url, options) => {
+    if (options.method !== 'POST') return Promise.resolve(json({ ratings: [] }));
+    const payload = JSON.parse(options.body); posts.push(payload);
+    return posts.length === 1 ? pending.promise : Promise.resolve(json({ rating: row(payload.photoId, payload.rating) }));
+  } });
+  const host = visitor.document.createElement('div');
+  let widget = viewerWidget(visitor, host, 'rooted');
+  await flush(); widget.stars[1].fire('click'); await flush();
+  widget = viewerWidget(visitor, host, 'wire');
+  pending.resolve(new Response('{}', { status: 503 })); await flush();
+  assert.equal(widget.retry.hidden, true);
+  assert.equal(widget.status.textContent, 'Choose 1–5 stars');
+  widget = viewerWidget(visitor, host, 'rooted');
+  assert.equal(widget.retry.hidden, false);
+  assert.match(widget.status.textContent, /not been saved/);
+  widget.retry.fire('click'); await flush();
+  assert.deepEqual(posts.map(({ photoId, rating }) => ({ photoId, rating })), [
+    { photoId: 'rooted', rating: 2 }, { photoId: 'rooted', rating: 2 },
+  ]);
+  assert.equal(widget.retry.hidden, true);
+  assert.equal(visitor.api.getOwnRating('wire'), 0);
+  console.log('PASS: failure and retry remain attached to the original photo after navigating away and back.');
+}
+
+{
+  const shared = environment();
+  const posts = [];
+  const visitor = tab(shared, { fetch: async (_url, options) => {
+    if (options.method !== 'POST') return json({ ratings: [] });
+    const payload = JSON.parse(options.body); posts.push(payload);
+    return json({ rating: row(payload.photoId, payload.rating) });
+  } });
+  const host = visitor.document.createElement('div');
+  let widget = viewerWidget(visitor, host, 'rooted'); await flush();
+  let prevented = false, stopped = false;
+  widget.stars[0].fire('keydown', { key: 'ArrowRight', preventDefault() { prevented = true; }, stopPropagation() { stopped = true; } });
+  assert.equal(prevented && stopped, true, 'rating arrows must not advance the photo');
+  assert.equal(widget.stars[1].tabIndex, 0);
+  assert.equal(visitor.document.activeElement, widget.stars[1]);
+  widget = viewerWidget(visitor, host, 'wire');
+  await new Promise((resolve) => setTimeout(resolve, 450));
+  assert.equal(posts.length, 0, 'leaving a photo cancels its unsubmitted keyboard choice');
+  widget.stars[0].fire('keydown', { key: 'End', preventDefault() {}, stopPropagation() {} });
+  await new Promise((resolve) => setTimeout(resolve, 450)); await flush();
+  assert.equal(posts.length, 1);
+  assert.equal(posts[0].photoId, 'wire'); assert.equal(posts[0].rating, 5);
+  assert.equal(widget.stars.filter((button) => button.tabIndex === 0).length, 1);
+  visitor.navigator.onLine = false; visitor.event('offline');
+  assert.equal(widget.stars.every((button) => button.disabled), true);
+  assert.match(widget.status.textContent, /Connect to save/);
+  await assert.rejects(visitor.api.vote('rooted', 3), /offline/);
+  assert.equal(posts.length, 1, 'offline attempts are not queued or submitted');
+  console.log('PASS: keyboard stars keep one tab stop, do not navigate photos, and offline voting stays unavailable.');
 }
