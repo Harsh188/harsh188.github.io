@@ -1,0 +1,5 @@
+# Copy to .dev.vars for an explicitly local Worker preview; never commit .dev.vars.
+# Replace this local-only example with an independent random secret in production.
+RATING_IP_SECRET=local-preview-only-change-this-32-character-secret
+RATING_DEV_ORIGINS=http://127.0.0.1:8767,http://localhost:8767
+RATING_LOCAL_TEST_MODE=true
