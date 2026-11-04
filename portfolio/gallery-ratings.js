@@ -7,6 +7,9 @@
   let stored = readStorage();
   let aggregateState = 'idle';
   let aggregateRequest;
+  let aggregateGeneration = 0;
+  let voteGeneration = 0;
+  const summaryGenerations = new Map();
   let apiBase = String(window.PHOTO_RATINGS_CONFIG?.API_BASE || '').replace(/\/+$/, '');
   try {
     const endpoint = new URL(apiBase);
@@ -27,6 +30,40 @@
   function writeStorage() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(stored)); return true; }
     catch { return false; }
+  }
+
+  function refreshStorage() {
+    const shared = readStorage();
+    // A different (or cleared) identity must not inherit the previous voter's votes.
+    stored = shared.voterId && shared.voterId === stored.voterId ?
+      { voterId: shared.voterId, votes: { ...stored.votes, ...shared.votes } } : shared;
+  }
+
+  function withStorageLock(callback) {
+    // Serialize the first ID creation across already-open tabs where supported.
+    return navigator.locks?.request ? navigator.locks.request(STORAGE_KEY, callback) : Promise.resolve().then(callback);
+  }
+
+  async function voterIdentity() {
+    return withStorageLock(() => {
+      refreshStorage();
+      // Create an anonymous identifier only after the visitor decides to vote.
+      if (!stored.voterId) {
+        if (typeof crypto.randomUUID !== 'function') throw new Error('This browser cannot save an anonymous rating. Please use an up-to-date browser.');
+        const voterId = crypto.randomUUID();
+        // Best-effort protection for browsers without Web Locks: another tab may
+        // have created the shared identity since our initial storage read.
+        refreshStorage();
+        if (!stored.voterId) {
+          stored.voterId = voterId;
+          if (!writeStorage()) {
+            stored.voterId = '';
+            throw new Error('Allow website storage to save an anonymous rating.');
+          }
+        }
+      }
+      return stored.voterId;
+    });
   }
 
   function photoId(trigger) {
@@ -75,18 +112,30 @@
   async function getSummaries(force = false) {
     if (aggregateRequest && !force) return aggregateRequest;
     if (aggregateState === 'ready' && !force) return [...summaries.values()];
+    const generation = ++aggregateGeneration;
+    const votesAtStart = voteGeneration;
     aggregateState = 'loading'; notify();
-    aggregateRequest = request('/api/ratings').then((data) => {
+    const pending = request('/api/ratings').then((data) => {
       const rows = Array.isArray(data) ? data : data.ratings;
       if (!Array.isArray(rows)) throw new Error('Could not read photo ratings. Please try again.');
+      if (generation !== aggregateGeneration) return [...summaries.values()];
+      const received = new Map(rows.map(cleanSummary).filter(Boolean).map((row) => [row.photoId, row]));
+      // A GET started before a successful vote can contain an older snapshot.
+      summaries.forEach((row, id) => {
+        if ((summaryGenerations.get(id) || 0) > votesAtStart) received.set(id, row);
+      });
       summaries.clear();
-      rows.map(cleanSummary).filter(Boolean).forEach((row) => summaries.set(row.photoId, row));
+      received.forEach((row, id) => summaries.set(id, row));
       aggregateState = 'ready'; notify();
       return [...summaries.values()];
     }).catch((error) => {
-      aggregateState = error.code || (navigator.onLine ? 'unavailable' : 'offline'); notify(); throw error;
-    }).finally(() => { aggregateRequest = null; });
-    return aggregateRequest;
+      if (generation === aggregateGeneration) {
+        aggregateState = error.code || (navigator.onLine ? 'unavailable' : 'offline'); notify();
+      }
+      throw error;
+    }).finally(() => { if (aggregateRequest === pending) aggregateRequest = null; });
+    aggregateRequest = pending;
+    return pending;
   }
 
   async function getTop(limit = 4) {
@@ -100,22 +149,21 @@
     if (!Number.isInteger(rating) || rating < 1 || rating > 5) throw new Error('Choose a rating from 1 to 5.');
     if (!apiBase) throw Object.assign(new Error('Photo ratings are not available yet.'), { code: 'unconfigured' });
     if (!navigator.onLine) throw Object.assign(new Error('You’re offline. Connect to save your rating.'), { code: 'offline' });
-    // Create an anonymous identifier only after the visitor decides to vote.
-    if (!stored.voterId) {
-      if (typeof crypto.randomUUID !== 'function') throw new Error('This browser cannot save an anonymous rating. Please use an up-to-date browser.');
-      stored.voterId = crypto.randomUUID();
-      if (!writeStorage()) {
-        stored.voterId = '';
-        throw new Error('Allow website storage to save an anonymous rating.');
-      }
-    }
+    const voterId = await voterIdentity();
     const data = await request('/api/ratings', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ photoId: id, rating, voterId: stored.voterId }) });
+      body: JSON.stringify({ photoId: id, rating, voterId }) });
     const row = cleanSummary(data.rating || data);
     if (!row || row.photoId !== id) throw new Error('Could not confirm your rating. Please try again.');
     summaries.set(id, row);
-    stored.votes[id] = rating;
-    writeStorage(); notify();
+    summaryGenerations.set(id, ++voteGeneration);
+    await withStorageLock(() => {
+      refreshStorage();
+      // Storage may have been cleared while the request was in flight.
+      if (stored.voterId !== voterId) return;
+      stored.votes[id] = rating;
+      writeStorage();
+    });
+    notify();
     document.dispatchEvent(new CustomEvent('gallery:rating-saved', { detail: row }));
     return row;
   }
@@ -216,6 +264,14 @@
     configured: Boolean(apiBase), subscribe: (listener) => { listeners.add(listener); return () => listeners.delete(listener); } });
   initializeGallery();
   document.addEventListener('gallery:photos-updated', initializeGallery);
+  window.addEventListener('storage', (event) => {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    refreshStorage();
+    widgets.forEach((widget) => {
+      if (!widget.saving) { widget.pending = 0; widget.message = ''; }
+    });
+    notify();
+  });
   window.addEventListener('offline', () => { aggregateState = 'offline'; notify(); });
   window.addEventListener('online', () => { notify(); if (widgets.size && apiBase) getSummaries(true).catch(() => {}); });
 })();
