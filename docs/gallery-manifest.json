@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "revision": "bb53a174a4332281653f",
+  "revision": "ad07102bf891dce59b9e",
   "photoCount": 35,
-  "totalBytes": 28430371,
+  "totalBytes": 28468967,
   "photos": [
     {
       "source": "assets/easy-smile.jpg",
@@ -492,9 +492,19 @@
       "sha256": "d7157ad1851673258b7bf8b9d16654e90ca5f2d687aa0c71506d83266e0a20a2"
     },
     {
+      "url": "gallery-collections.js?v=20261103",
+      "bytes": 1804,
+      "sha256": "3e74dff3b50751ba02f6518a0df944045448a82ce1c556f4f86c8f09c7190d53"
+    },
+    {
       "url": "gallery-offline.js?v=20261031",
       "bytes": 4345,
       "sha256": "722bf1ac4d62198b0e6a3f019da871fbf9e3000949dc4cfee3d7178ee94a11cb"
+    },
+    {
+      "url": "gallery-ratings.js?v=20261103",
+      "bytes": 14905,
+      "sha256": "346f077e17665e5e275110a93c1ce90a563a97cb079fc16f7cab778d1126b76f"
     },
     {
       "url": "gallery-viewer.css?v=20261031",
@@ -502,9 +512,14 @@
       "sha256": "da8398a9b37f8411b18a448b2f652f2725697fcd5e2fb31a44010cc666b5b1db"
     },
     {
-      "url": "gallery.js?v=20261031",
-      "bytes": 5631,
-      "sha256": "7be90be6158188fef20335e9f0b8af22610548915d0e8dbfe0c5efd194333d77"
+      "url": "gallery.js?v=20261103-highlights",
+      "bytes": 5880,
+      "sha256": "67f52845a9f50118b9286170445e75e2d41ec03aa67f22cc9d97e11dabd73a80"
+    },
+    {
+      "url": "home-highlights.js?v=20261103",
+      "bytes": 7813,
+      "sha256": "7b581b7e879987c4483f8656328accb70c4ccf529c366d084b441db1e93afda4"
     },
     {
       "url": "images/favicon-h-v1.png",
@@ -513,23 +528,33 @@
     },
     {
       "url": "index.html",
-      "bytes": 9472,
-      "sha256": "5db945d3de60c77843ba8bb2c8d09055cdac2f2507e532e13e3eb3f1417bfdf1"
+      "bytes": 9932,
+      "sha256": "6677e13053c3145720bf57b7b507fc7146fecef27cdc48e96d587c49fcc2d9a5"
     },
     {
-      "url": "photo-viewer.js?v=20261031",
-      "bytes": 10763,
-      "sha256": "a2c8727818adfba89feebc3b36865af5a5c4b19bcf17c414dc92558555256e24"
+      "url": "photo-viewer.js?v=20261103-highlights",
+      "bytes": 11142,
+      "sha256": "0040f314754d479eda8e433d6d830ba1f81514fbd95df74443eaf1d59b41a3ad"
     },
     {
-      "url": "pictures-folio.css?v=20261031-offline",
-      "bytes": 2093,
-      "sha256": "151076f2e268d5f39944eea93faad668d74e101e87785fb104e29d8d38105751"
+      "url": "pictures-folio.css?v=20261103-collections",
+      "bytes": 5455,
+      "sha256": "967e2b26f88b0b576afb198f4fbcda82c33f8fd62040066a68eef8bf41d1693e"
     },
     {
       "url": "pictures.html",
-      "bytes": 28484,
-      "sha256": "490deb0c3e238ad0ca22512ced7dcdacbdf11e5e73b65b838ab8e3018c3da03d"
+      "bytes": 34981,
+      "sha256": "d2fe8ee715def94313732b33358ecc50255e3d879ee67b8735fc704dd5e4d7df"
+    },
+    {
+      "url": "ratings-config.js?v=20261103",
+      "bytes": 337,
+      "sha256": "65217e78238ed55ce566b9538c3f49070cbd7234cc7ffa736f62e8e3bdd9506f"
+    },
+    {
+      "url": "ratings.css?v=20261103",
+      "bytes": 2790,
+      "sha256": "9c99d2d5181a726780906ea8ec3fd700c634967385dd7b2a69e727d74d21a1f9"
     },
     {
       "url": "vendor/viewerjs/viewer.min.css",

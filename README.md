@@ -57,10 +57,20 @@ GitHub Pages publishes this repository's `master` branch from the `/docs` folder
 
 ## Offline gallery and photo viewer
 
-On the Pictures page, **Save gallery offline** downloads the published photographs, previews, homepage, gallery, fonts, and viewer to that browser. Wait for **31 photos ready offline** (the count follows the current gallery) before leaving the connection. Keep the page open during the download. A saved gallery refreshes when the site is revisited online; failed updates retain the previous complete copy. **Remove offline copy** clears the saved collection from that device. Browser storage can be cleared or evicted, so check the ready status before relying on offline access.
+On the Pictures page, **Save gallery offline** downloads the published photographs, previews, homepage, gallery, fonts, and viewer to that browser. Wait for **35 photos ready offline** (the count follows the current gallery) before leaving the connection. Keep the page open during the download. A saved gallery refreshes when the site is revisited online; failed updates retain the previous complete copy. **Remove offline copy** clears the saved collection from that device. Browser storage can be cleared or evicted, so check the ready status before relying on offline access.
 
 The viewer supports pinch/trackpad zoom, double-tap/double-click zoom, dragging to pan, a 90° rotation button, reset, and hiding controls. Swipe changes photos at fit size; dragging pans when zoomed. Keyboard: arrows navigate, `+`/`−` zoom, `0` fits, `r` rotates, and Escape closes. Rotating is temporary and never edits the photograph.
 
-`scripts/sync-portfolio.py` generates `docs/gallery-manifest.json` from the visible gallery and local dependencies, including content hashes and byte counts. Originals and retired/unreferenced pictures are not added to this download. The service worker verifies downloaded bytes before activating a new saved collection. No backend or third-party CDN is required. Viewer.js 1.15.2 and the existing Google Fonts are vendored with their licenses.
+`scripts/sync-portfolio.py` generates `docs/gallery-manifest.json` from the visible gallery and local dependencies, including content hashes and byte counts. Originals and retired/unreferenced pictures are not added to this download. The service worker verifies downloaded bytes before activating a new saved collection. Offline browsing needs no backend or third-party CDN. Viewer.js 1.15.2 and the existing Google Fonts are vendored with their licenses.
 
 After changes, run `python3 scripts/sync-portfolio.py` and `node scripts/test-gallery-offline.mjs`. For browser verification, save locally, stop the preview server, reopen the gallery and homepage, and inspect photos that were not previously opened. Check rotation, zoom, keyboard focus, and a narrow phone viewport before publishing.
+
+## Collections and visitor favorites
+
+Related photographs use native collapsible collections in `portfolio/pictures.html`, with explicit membership rather than grouping every photograph from the same day. Deep links reveal the enclosing collection. The viewer and offline save include all photos, including closed collections. Keep each `data-photo-id` stable when re-exporting an image.
+
+Visitors can rate photos from 1–5 stars without signing in. One random browser ID identifies a mutable vote per photo; tabs share that ID. The separate Sites/D1 service stores votes and computes the homepage favorites using a Bayesian score that accounts for vote counts. The homepage keeps its curated selection when there are no votes or the service is unavailable. Ratings require connectivity and are never queued in the offline cache.
+
+The public endpoint is configured in `portfolio/ratings-config.js`. Backend source and maintenance instructions are in `ratings-service/README.md`; its separate Sites project is `appgprj_6aeac0be7e5081919f952eafb2b40cd5`. Publish backend changes through Sites while preserving that identity and the runtime `RATING_IP_SECRET`. The secret is stored only in Sites. Temporary HMAC hashes of IP addresses limit rapid voting; raw IP addresses are not stored by the application. Anonymous voting cannot enforce one person per vote across cleared browser storage or changing networks.
+
+Run `node scripts/test-gallery-ratings.mjs` and `node --test ratings-service/tests/ratings.test.mjs` for the cross-tab, asynchronous refresh, SQL, ranking, and abuse-limit checks. When adding or removing photos, update the service allowlist and redeploy it alongside the gallery.

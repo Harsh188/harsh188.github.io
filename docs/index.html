@@ -44,6 +44,7 @@
   <link rel="stylesheet" href="earth-theme.css?v=20261029-portrait">
   <link rel="stylesheet" href="vendor/viewerjs/viewer.min.css">
   <link rel="stylesheet" href="gallery-viewer.css?v=20261031">
+  <link rel="stylesheet" href="ratings.css?v=20261103">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -72,15 +73,15 @@
         </div>
         <figcaption>Harshith Mohan Kumar</figcaption>
       </figure>
-      <div class="photo-stack" aria-label="A few of my favorite photographs">
-        <figure class="photo-print reflections">
+      <div class="photo-stack" aria-label="Featured photographs">
+        <figure class="photo-print reflections" data-featured-slot>
           <button type="button" data-photo="assets/sony-reflections.jpeg" data-taken="2026-05-29" data-taken-label="May 29, 2026" data-caption="Reflections · From my Sony album" aria-label="Enlarge Reflections photograph">
             <img src="assets/sony-reflections.jpeg" alt="Blue sky and brick buildings reflected in a glass facade" width="3072" height="3072">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
           <figcaption><span class="frame-number">01 /</span> Reflections</figcaption>
         </figure>
-        <figure class="photo-print last-light">
+        <figure class="photo-print last-light" data-featured-slot>
           <button type="button" data-photo="assets/sony-last-light.jpeg" data-taken="2026-07-13" data-taken-label="July 13, 2026" data-caption="Last light · From my Sony album" aria-label="Enlarge Last light photograph">
             <img src="assets/sony-last-light.jpeg" alt="A tree silhouetted against red and orange clouds at sunset" width="2121" height="2333">
             <span class="enlarge" aria-hidden="true">↗</span>
@@ -92,23 +93,24 @@
     <section class="collected-frames" aria-labelledby="frames-title">
       <div class="section-heading">
         <div>
-          <p class="section-label">A FEW MORE FRAMES</p>
+          <p class="section-label" data-favorites-label>A FEW MORE FRAMES</p>
           <h2 id="frames-title">Things worth<br>a closer look.</h2>
         </div>
         <div class="section-summary">
-          <p>From glass reflections to small flowers. A few photographs from my Sony album, and the details that make me look twice.</p>
+          <p data-favorites-description>From glass reflections to small flowers. A few photographs from my Sony album, and the details that make me look twice.</p>
           <a href="pictures.html">See all pictures <span aria-hidden="true">↗</span></a>
+          <p class="visitor-favorites-note" role="status" aria-live="polite">A personal selection.</p>
         </div>
       </div>
       <div class="frames-grid">
-        <figure class="photo-print water-print">
+        <figure class="photo-print water-print" data-featured-slot>
           <button type="button" data-photo="assets/sony-by-the-water.jpeg" data-taken="2026-09-05" data-taken-label="September 5, 2026" data-caption="By the water · From my Sony album" aria-label="Enlarge By the water photograph">
             <img src="assets/sony-by-the-water.jpeg" alt="A wave breaking over pebbles, with blue water and mountains beyond" width="1440" height="1080" loading="lazy">
             <span class="enlarge" aria-hidden="true">↗</span>
           </button>
           <figcaption><span><span class="frame-number">03 /</span> By the water</span><span class="frame-note">Water, stones, and a split second.</span></figcaption>
         </figure>
-        <figure class="photo-print flower-print">
+        <figure class="photo-print flower-print" data-featured-slot>
           <button type="button" data-photo="assets/sony-small-details.jpeg" data-taken="2026-05-21" data-taken-label="May 21, 2026" data-caption="Small details · From my Sony album" aria-label="Enlarge Small details photograph">
             <img src="assets/sony-small-details.jpeg" alt="Tiny blue flowers among softly blurred green leaves" width="3072" height="3072" loading="lazy">
             <span class="enlarge" aria-hidden="true">↗</span>
@@ -152,8 +154,11 @@
     <div><a href="https://github.com/Harsh188">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/harsh188/">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:hiharshith18@gmail.com">Say hello <span aria-hidden="true">↗</span></a></div>
   </footer>
   <script src="vendor/viewerjs/viewer.min.js"></script>
-  <script src="gallery.js?v=20261031"></script>
-  <script src="photo-viewer.js?v=20261031"></script>
+  <script src="gallery.js?v=20261103-highlights"></script>
+  <script src="photo-viewer.js?v=20261103-highlights"></script>
   <script src="gallery-offline.js?v=20261031"></script>
+  <script src="ratings-config.js?v=20261103"></script>
+  <script src="gallery-ratings.js?v=20261103"></script>
+  <script src="home-highlights.js?v=20261103"></script>
 </body>
 </html>

@@ -73,6 +73,10 @@ dist/
 
 The standard Sites source packager also copies root `drizzle/` into `dist/.openai/drizzle`, so migrations survive deployment packaging. The artifact validator verifies the DB binding, journal, corresponding SQL files, schema-only migration contents, and executable ESM entrypoint.
 
+## Deployed service
+
+The API is hosted at `https://harshith-photo-ratings.harsh1888.chatgpt.site` under Site `appgprj_6aeac0be7e5081919f952eafb2b40cd5`. Its source checkout is `/Users/harshith-glass/code/harshith-photo-ratings-service`; keep that checkout’s Site identity when updating from this directory. The website’s public `portfolio/ratings-config.js` points at this origin.
+
 ## Publishing
 
 Keep the separate service Site identity and public audience. Copy this directory's source into its designated Sites source checkout while preserving that checkout's `project_id`. Use the standard Sites source workflow and these ordered commands from the service root:

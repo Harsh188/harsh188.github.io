@@ -114,7 +114,7 @@ def main():
     output = root / os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "docs")
     output.mkdir(parents=True, exist_ok=True)
 
-    files = sorted(path for path in source.rglob("*") if path.is_file())
+    files = sorted(path for path in source.rglob("*") if path.is_file() and path.name != ".DS_Store")
     if not (source / "index.html").is_file():
         raise SystemExit("Missing portfolio/index.html; nothing was copied.")
     for path in files:
