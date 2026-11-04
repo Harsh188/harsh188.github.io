@@ -1,0 +1,26 @@
+/* Quiet, optional community ratings; photo buttons keep their existing layout. */
+.ratings-intro { max-width: 760px; margin: 0 0 42px; padding-block: 17px; border-block: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.6; }
+.ratings-intro p { margin: 0; }
+.ratings-intro strong { font-weight: 500; color: var(--ink); }
+.ratings-intro .ratings-privacy { font-size: 12px; margin-top: 7px; max-width: 700px; }
+.photo-rating { margin: 14px 0 0; padding: 12px 0 0; min-width: 0; border: 0; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.5; color: var(--muted); }
+.photo-rating legend { float: left; width: 100%; padding: 0; font-size: 12px; }
+.rating-stars { clear: both; display: flex; align-items: center; gap: 2px; padding-top: 3px; width: fit-content; }
+.photo-print .photo-rating button { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; border: 1px solid transparent; border-radius: 3px; margin: 0; padding: 0 8px; font: inherit; color: var(--muted); background: transparent; cursor: pointer; }
+.photo-print .rating-stars button { font-family: Arial, sans-serif; font-size: 27px; line-height: 1; }
+.photo-print .rating-stars button.is-filled { color: var(--accent); }
+.photo-print .rating-stars button.is-filled::before { content: '★'; position: absolute; }
+.photo-print .photo-rating button:hover { border-color: var(--line); background: var(--surface); }
+.photo-print .photo-rating button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.photo-print .photo-rating button:disabled { opacity: .45; cursor: default; }
+.photo-print .photo-rating button:disabled:hover { border-color: transparent; background: transparent; }
+.photo-rating .rating-summary { margin: 3px 0 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+.photo-rating .rating-status { min-height: 18px; margin: 3px 0 0; max-width: 36em; }
+.photo-rating[data-state="error"] .rating-status { color: var(--accent); }
+.photo-print .photo-rating .rating-retry { min-height: 36px; padding: 0 7px; margin: 4px 0 0 -7px; color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.photo-rating .rating-retry[hidden] { display: none; }
+.visitor-favorites-note { color: var(--muted); font-size: 12px; margin: 8px 0 0; line-height: 1.5; }
+.visitor-favorites-note[hidden] { display: none; }
+.community-frame .frame-rating { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.photo-stack .community-frame img { aspect-ratio: auto; height: auto; object-fit: contain; }
+@media (max-width: 550px) { .ratings-intro { margin-bottom: 30px; font-size: 13px; } .photo-rating { margin-top: 12px; } }
