@@ -2,7 +2,7 @@
 
 A small, shared ratings backend for `https://harsh188.github.io`. The public gallery and homepage continue to run on GitHub Pages. This directory is a separate, dependency-free Cloudflare Worker ESM service with a Sites-managed D1 database; it neither serves nor replaces the portfolio frontend.
 
-No votes are seeded. A fresh service returns all 35 approved photos with zero votes and an empty top-photo list. A top list is populated only by real visitors' submissions. The Worker publishes aggregate counts, averages, and ranking scores, never browser identifiers or rate-limit records.
+No votes are seeded. A fresh service returns all 42 approved photos with zero votes and an empty top-photo list. A top list is populated only by real visitors' submissions. The Worker publishes aggregate counts, averages, and ranking scores, never browser identifiers or rate-limit records.
 
 ## Browser contract
 
@@ -57,7 +57,7 @@ bash scripts/build.sh
 node scripts/validate-artifact.mjs
 ```
 
-The test suite checks duplicate updates, shared-WiFi independence, invalid input and Origins, strict/bounded payloads, trusted-IP restrictions, concurrent rate limiting, expiry and bounded cleanup, Bayesian ranking, and transaction rollback/error redaction. The allowlist parity test always checks the committed 35-photo contract fixture in `tests/fixtures/published-photos.json`. It additionally reads `../portfolio/pictures.html` when this service is nested in the portfolio repository. In a standalone service checkout, set `PHOTO_GALLERY_SOURCE` to the absolute source HTML path for that cross-repository integrity check. An explicitly configured missing source is a test failure; absence of the optional sibling portfolio does not skip any standalone tests.
+The test suite checks duplicate updates, shared-WiFi independence, invalid input and Origins, strict/bounded payloads, trusted-IP restrictions, concurrent rate limiting, expiry and bounded cleanup, Bayesian ranking, and transaction rollback/error redaction. The allowlist parity test always checks the committed 42-photo contract fixture in `tests/fixtures/published-photos.json`, including the seven November 11 additions and the preserved order of the previous 35 photos. It additionally reads `../portfolio/pictures.html` when this service is nested in the portfolio repository. In a standalone service checkout, set `PHOTO_GALLERY_SOURCE` to the absolute source HTML path for that cross-repository integrity check. An explicitly configured missing source is a test failure; absence of the optional sibling portfolio does not skip any standalone tests.
 
 For schema changes, install the pinned dependencies with the Sites dependency helper, edit `db/schema.js`, run `pnpm run db:generate`, inspect the generated SQL plus journal/snapshot, and commit them together. Keep already-applied SQL and migration metadata immutable. Migrations contain schema only, with no seed votes or runtime state. Local SQLite tests apply every migration in order; the hosted database is separate.
 

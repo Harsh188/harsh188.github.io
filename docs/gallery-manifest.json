@@ -1,9 +1,37 @@
 {
   "version": 1,
-  "revision": "1cb754efa8272e470984",
-  "photoCount": 35,
-  "totalBytes": 28488226,
+  "revision": "29efd7d10d76584d7d3c",
+  "photoCount": 42,
+  "totalBytes": 36946971,
   "photos": [
+    {
+      "source": "assets/a-little-wild.jpg",
+      "preview": "assets/a-little-wild-preview.jpg"
+    },
+    {
+      "source": "assets/orange-against-blue.jpg",
+      "preview": "assets/orange-against-blue-preview.jpg"
+    },
+    {
+      "source": "assets/the-familiar-span.jpg",
+      "preview": "assets/the-familiar-span-preview.jpg"
+    },
+    {
+      "source": "assets/a-way-through.jpg",
+      "preview": "assets/a-way-through-preview.jpg"
+    },
+    {
+      "source": "assets/coastal-frame.jpg",
+      "preview": "assets/coastal-frame-preview.jpg"
+    },
+    {
+      "source": "assets/the-road-to-the-sea.jpg",
+      "preview": "assets/the-road-to-the-sea-preview.jpg"
+    },
+    {
+      "source": "assets/holding-against-the-tide.jpg",
+      "preview": "assets/holding-against-the-tide-preview.jpg"
+    },
     {
       "source": "assets/easy-smile.jpg",
       "preview": "assets/easy-smile-preview.jpg"
@@ -157,6 +185,16 @@
       "sha256": "4ee751e5c2c33667c877b699bf4b6877dbd2c42ceebfeb3277b23dc8ed0882b1"
     },
     {
+      "url": "assets/a-little-wild-preview.jpg",
+      "bytes": 369795,
+      "sha256": "8f47d2a1b6a7e227fcc7cb7fcbfcd216a83f7091a2eec84e82e4cef853526199"
+    },
+    {
+      "url": "assets/a-little-wild.jpg",
+      "bytes": 1616773,
+      "sha256": "7071a00f0920512c534dc7126c12f0e2b099cd8be72065b86a320be6f099512a"
+    },
+    {
       "url": "assets/a-shared-view-preview-v2.jpg",
       "bytes": 120414,
       "sha256": "2060e377c7631fbd5c255a4fcc1c995a139c303a4286e139ff62da7cd8a3ba2a"
@@ -165,6 +203,16 @@
       "url": "assets/a-shared-view-v2.jpg",
       "bytes": 377280,
       "sha256": "7e479afaefdacb5e2386b23e6f85dfee1ba25475288b49ff320e75e48402aa63"
+    },
+    {
+      "url": "assets/a-way-through-preview.jpg",
+      "bytes": 293213,
+      "sha256": "67a81762536f4a100093066dcb320b5b972452154e7c5ac4301f799974d041ef"
+    },
+    {
+      "url": "assets/a-way-through.jpg",
+      "bytes": 1261719,
+      "sha256": "986951a9c4d8c1ce4da9928de11cf9f43b0dc37139788f4031129428e0243918"
     },
     {
       "url": "assets/above-it-all-preview-v2.jpg",
@@ -237,6 +285,16 @@
       "sha256": "351267270e035539571207f90493156fbc52a5fcba1fad291752d37b17cc905f"
     },
     {
+      "url": "assets/coastal-frame-preview.jpg",
+      "bytes": 220113,
+      "sha256": "1b6f759cebd1c1838d1f4595699b109a6c0f5d76ce66b790797c723c567e712d"
+    },
+    {
+      "url": "assets/coastal-frame.jpg",
+      "bytes": 959287,
+      "sha256": "3631ff61dfc58d5e78b38b817a8b73aa45b6fafaa16a220bb5d0df9c69e0a108"
+    },
+    {
       "url": "assets/curious-eevee-preview.jpg",
       "bytes": 99111,
       "sha256": "b0d5d43df580fb2efe90f0aaddc6d17e7e286465cb6533411cc4ddfefded519b"
@@ -297,6 +355,16 @@
       "sha256": "5d235ea9df5e619f05c37cb2a4122f8a1319db7a6073bae7b0f5a8bd075944b8"
     },
     {
+      "url": "assets/holding-against-the-tide-preview.jpg",
+      "bytes": 200253,
+      "sha256": "dad0293dfc87e39782f35ea31c1e60538f3c943dd30644c002d51760d26acb7f"
+    },
+    {
+      "url": "assets/holding-against-the-tide.jpg",
+      "bytes": 994071,
+      "sha256": "c446f1e13d08e14baf00e4a44fe79c7a06ca6fc8e1e1b6766dc8073ed1f83207"
+    },
+    {
       "url": "assets/home-preview.jpg",
       "bytes": 75874,
       "sha256": "c9b91ee9086c585e2a369870d941f80a78e113bb8b86624d5765984681987e9b"
@@ -325,6 +393,16 @@
       "url": "assets/moon-over-the-city.jpg",
       "bytes": 425722,
       "sha256": "e1b60bbf06e2431e0f099793d768d4a436a4ccd2e7a89bfcb9c19ab7a49336c6"
+    },
+    {
+      "url": "assets/orange-against-blue-preview.jpg",
+      "bytes": 181414,
+      "sha256": "62d92321e42af7637d3ab75caaf2cb0947fe218c9b297d6f162b63f03ffb0d11"
+    },
+    {
+      "url": "assets/orange-against-blue.jpg",
+      "bytes": 778221,
+      "sha256": "fe51653baa071204720e252854410295edd94e055a4b1937ffcb081f9e9b88d8"
     },
     {
       "url": "assets/pastel-clouds-preview.jpg",
@@ -437,6 +515,16 @@
       "sha256": "581e315eeeaaf11ecbd906db00a42c772868ff12b6a7592c900ce9d159ce6881"
     },
     {
+      "url": "assets/the-familiar-span-preview.jpg",
+      "bytes": 155391,
+      "sha256": "8d9285586c2f1b51773f3a140726cd317a6e6296d5ec7ade5108cb55824d929b"
+    },
+    {
+      "url": "assets/the-familiar-span.jpg",
+      "bytes": 641381,
+      "sha256": "bad60a54c41b93cfef2c9957a718328596e64b01450082e901a18a3bb0cc9b2a"
+    },
+    {
       "url": "assets/the-long-way-down-preview-v2.jpg",
       "bytes": 111928,
       "sha256": "32f820987ccb1eea312db093ce4b10fdd7c1937d77197bb95186c59737da9dd0"
@@ -445,6 +533,16 @@
       "url": "assets/the-long-way-down-v2.jpg",
       "bytes": 361410,
       "sha256": "e48f851e395c7b6e79950ddb40fa32bcdd31e1f98d48a567766fdac1d6044c17"
+    },
+    {
+      "url": "assets/the-road-to-the-sea-preview.jpg",
+      "bytes": 125701,
+      "sha256": "17bb091c606b985929f6629a950963c4f9660f446251967e041f04d678da401d"
+    },
+    {
+      "url": "assets/the-road-to-the-sea.jpg",
+      "bytes": 654848,
+      "sha256": "26453fb6a31b27cc5b3c54c1c3fc87cdcaa7ab38cdf6f6a2b28bc152809554ea"
     },
     {
       "url": "assets/violet-bloom.jpg",
@@ -543,8 +641,8 @@
     },
     {
       "url": "pictures.html",
-      "bytes": 35543,
-      "sha256": "4b44b1707e653a6b8e6948502cbe6950c8a7603270903802702a74655cbeee33"
+      "bytes": 42108,
+      "sha256": "9f1307a2badc231ccf204d304ac73e1449ec1ccf036011d43671a3cb45c69548"
     },
     {
       "url": "ratings-config.js?v=20261103",

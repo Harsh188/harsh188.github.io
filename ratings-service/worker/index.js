@@ -1,6 +1,8 @@
 // Dependency-free Cloudflare Worker. Keep this module self-contained: the Sites
 // Worker ESM starter publishes this file as dist/server/index.js.
 export const PHOTO_IDS = Object.freeze([
+  'a-little-wild', 'orange-against-blue', 'the-familiar-span', 'a-way-through',
+  'coastal-frame', 'the-road-to-the-sea', 'holding-against-the-tide',
   'easy-smile', 'kodak-carousel', 'rooted', 'wire',
   'the-long-way-down', 'above-it-all', 'moon-over-the-city', 'a-shared-view',
   'setting-sutro', 'sunset-overlook', 'violet-bloom', 'chris-moon',

@@ -151,5 +151,89 @@
     "note": "Existing portfolio photograph.",
     "captureDate": "2026-10-10",
     "captureDateSource": "EXIF DateTimeOriginal (recorded local date)"
+  },
+  "portfolio/assets/a-little-wild.jpg": {
+    "source": "DSC07690.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "A little wild",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "faeeb94258998d5526e4379c40fa18c0fd3eb10d2272bc23e45dfee18c1ebd63",
+    "publishedSha256": "7071a00f0920512c534dc7126c12f0e2b099cd8be72065b86a320be6f099512a"
+  },
+  "portfolio/assets/orange-against-blue.jpg": {
+    "source": "DSC07688.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "Orange against blue",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "4c93a8401a5fa2cd3439fed7f155c4a59949513c1c8f820baca0fa977d10c7f1",
+    "publishedSha256": "fe51653baa071204720e252854410295edd94e055a4b1937ffcb081f9e9b88d8"
+  },
+  "portfolio/assets/the-familiar-span.jpg": {
+    "source": "DSC07686.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "The familiar span",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "7af95faa56e45bdeadb4d356d502b2323fc277dbadc71c371c31ef0c00be8e33",
+    "publishedSha256": "bad60a54c41b93cfef2c9957a718328596e64b01450082e901a18a3bb0cc9b2a"
+  },
+  "portfolio/assets/a-way-through.jpg": {
+    "source": "DSC07683.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "A way through",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "775e589860c40634f2598f3aa65b63371f94a87cba1853dd75d756a86cd40171",
+    "publishedSha256": "986951a9c4d8c1ce4da9928de11cf9f43b0dc37139788f4031129428e0243918"
+  },
+  "portfolio/assets/coastal-frame.jpg": {
+    "source": "DSC07681.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "Coastal frame",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "b0f453f2f5d4d0ec7c0bca4f38cd495be3a8611698c4ce2d18a8c0fb701d3885",
+    "publishedSha256": "3631ff61dfc58d5e78b38b817a8b73aa45b6fafaa16a220bb5d0df9c69e0a108"
+  },
+  "portfolio/assets/the-road-to-the-sea.jpg": {
+    "source": "DSC07679.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "The road to the sea",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "63b288efcb68a1074e9ce99e09e3c560d7eed053c42804253d4cc1459e851a40",
+    "publishedSha256": "26453fb6a31b27cc5b3c54c1c3fc87cdcaa7ab38cdf6f6a2b28bc152809554ea"
+  },
+  "portfolio/assets/holding-against-the-tide.jpg": {
+    "source": "DSC07677.ARW",
+    "sourceFolder": "Lightroom Local dump4",
+    "title": "Holding against the tide",
+    "reviewId": "dump4-five-stars-2026-11-11",
+    "collection": "Coastal afternoon",
+    "captureDate": "2026-11-11",
+    "captureDateSource": "Lightroom XMP exif:DateTimeOriginal (local date); confirmed by user",
+    "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
+    "exportSha256": "2cb9162b4d03a7717f9abbfd6cfb13232736fb8356acc9194758db61f4fd2b67",
+    "publishedSha256": "c446f1e13d08e14baf00e4a44fe79c7a06ca6fc8e1e1b6766dc8073ed1f83207"
   }
 }
