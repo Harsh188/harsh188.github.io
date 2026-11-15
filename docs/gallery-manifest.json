@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "revision": "29efd7d10d76584d7d3c",
-  "photoCount": 42,
-  "totalBytes": 36946971,
+  "revision": "5224f1ae44250d9911b2",
+  "photoCount": 43,
+  "totalBytes": 39853492,
   "photos": [
     {
       "source": "assets/a-little-wild.jpg",
@@ -171,6 +171,10 @@
     {
       "source": "assets/amber.jpg",
       "preview": "assets/amber-preview.jpg"
+    },
+    {
+      "source": "assets/under-the-string-lights.png",
+      "preview": "assets/under-the-string-lights-preview.jpg"
     }
   ],
   "resources": [
@@ -545,6 +549,16 @@
       "sha256": "26453fb6a31b27cc5b3c54c1c3fc87cdcaa7ab38cdf6f6a2b28bc152809554ea"
     },
     {
+      "url": "assets/under-the-string-lights-preview.jpg",
+      "bytes": 349825,
+      "sha256": "dd5583b08c5c0334cef7e3467a4ce271f9c08b2152d9fcb19c94b576c5003c61"
+    },
+    {
+      "url": "assets/under-the-string-lights.png",
+      "bytes": 2555992,
+      "sha256": "51aec0bd5509163a1d79222931203f12ccea66158a4573b4590db3309286fdba"
+    },
+    {
       "url": "assets/violet-bloom.jpg",
       "bytes": 460920,
       "sha256": "77dc05ee1f72baf21e783fae5f161ab3cc5c48bc276ae2d7be4e7989208c705f"
@@ -641,8 +655,8 @@
     },
     {
       "url": "pictures.html",
-      "bytes": 42108,
-      "sha256": "9f1307a2badc231ccf204d304ac73e1449ec1ccf036011d43671a3cb45c69548"
+      "bytes": 42812,
+      "sha256": "2ca6c44eafeda6eb478b300e394ef41901ccbd1460c16efb5518ff80c6be3f99"
     },
     {
       "url": "ratings-config.js?v=20261103",

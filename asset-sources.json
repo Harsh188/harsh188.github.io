@@ -235,5 +235,10 @@
     "note": "User-approved five-star Lightroom export, November 11, 2026. Edited JPEG pixels, framing and sRGB ICC profile preserved exactly; personal/editing metadata removed. Gallery preview limited to 1200 px.",
     "exportSha256": "2cb9162b4d03a7717f9abbfd6cfb13232736fb8356acc9194758db61f4fd2b67",
     "publishedSha256": "c446f1e13d08e14baf00e4a44fe79c7a06ca6fc8e1e1b6766dc8073ed1f83207"
+  },
+  "portfolio/assets/under-the-string-lights.png": {
+    "source": "IMG_6909-repaired.png",
+    "title": "Under the string lights",
+    "note": "Full-resolution repaired film scan. The gallery preview is 1200 px tall. The original scan has no recorded capture date."
   }
 }

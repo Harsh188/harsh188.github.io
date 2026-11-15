@@ -13,6 +13,7 @@ const NOVEMBER_ADDITIONS = [
   'a-little-wild', 'orange-against-blue', 'the-familiar-span', 'a-way-through',
   'coastal-frame', 'the-road-to-the-sea', 'holding-against-the-tide',
 ];
+const UNDER_THE_STRING_LIGHTS = 'under-the-string-lights';
 const PREVIOUS_PHOTOS = [
   'easy-smile', 'kodak-carousel', 'rooted', 'wire',
   'the-long-way-down', 'above-it-all', 'moon-over-the-city', 'a-shared-view',
@@ -55,12 +56,11 @@ function frozenClock(t, milliseconds = 1793786400000) {
   return value => { current = value; };
 }
 
-test('42-photo contract prepends the seven approved additions and preserves every previous ID and its order', () => {
+test('43-photo contract appends Under the string lights and preserves the previous catalog order', () => {
   const toId = asset => asset.split('/').at(-1).replace(/\.[^.]+$/, '').replace(/-v\d+$/, '');
   const fixture = JSON.parse(readFileSync(new URL('./fixtures/published-photos.json', import.meta.url), 'utf8'));
-  assert.equal(PHOTO_IDS.length, 42);
-  assert.deepEqual(PHOTO_IDS.slice(0, 7), NOVEMBER_ADDITIONS);
-  assert.deepEqual(PHOTO_IDS.slice(7), PREVIOUS_PHOTOS);
+  assert.equal(PHOTO_IDS.length, 43);
+  assert.deepEqual(PHOTO_IDS, [...NOVEMBER_ADDITIONS, ...PREVIOUS_PHOTOS, UNDER_THE_STRING_LIGHTS]);
   assert.deepEqual(PHOTO_IDS, fixture.photos.map(toId));
   assert.equal(new Set(PHOTO_IDS).size, PHOTO_IDS.length);
   const source = process.env.PHOTO_GALLERY_SOURCE || new URL('../../portfolio/pictures.html', import.meta.url);
@@ -82,17 +82,18 @@ test('fresh database exposes honest empty ratings and no invented top photos', a
   assert.equal(res.headers.get('vary'), 'Origin');
   assert.equal(res.headers.get('access-control-expose-headers'), 'Retry-After');
   const { ratings } = await res.json();
-  assert.equal(ratings.length, 42);
+  assert.equal(ratings.length, PHOTO_IDS.length);
   assert.deepEqual(ratings.map(row => row.photoId), PHOTO_IDS);
   assert.ok(ratings.every(row => row.count === 0 && row.average === 0 && row.score === 3.5));
   assert.deepEqual(await (await get('/api/top?limit=4')).json(), { ratings: [] });
 });
 
-test('all seven new photos accept independent votes while existing votes retain their identities', async t => {
+test('new photos accept independent votes while existing votes retain their identities', async t => {
   const { vote, DB, get } = setup(t);
   const voterId = randomUUID();
   await vote({ photoId: 'sony-last-light', voterId, rating: 4 });
-  for (const photoId of NOVEMBER_ADDITIONS) {
+  const newPhotos = [...NOVEMBER_ADDITIONS, UNDER_THE_STRING_LIGHTS];
+  for (const photoId of newPhotos) {
     const res = await vote({ photoId, voterId, rating: 5 });
     assert.equal(res.status, 200, photoId);
     assert.deepEqual(await res.json(), {
@@ -100,11 +101,11 @@ test('all seven new photos accept independent votes while existing votes retain 
     });
   }
   const { ratings } = await (await get()).json();
-  assert.equal(totalVotes(DB), 8);
+  assert.equal(totalVotes(DB), newPhotos.length + 1);
   assert.deepEqual(ratings.find(row => row.photoId === 'sony-last-light'), {
     photoId: 'sony-last-light', count: 1, average: 4, score: 3.583333,
   });
-  assert.ok(ratings.filter(row => NOVEMBER_ADDITIONS.includes(row.photoId)).every(row => row.count === 1));
+  assert.ok(ratings.filter(row => newPhotos.includes(row.photoId)).every(row => row.count === 1));
 });
 
 test('same browser updates one vote, retries do not add votes, another visitor on the same WiFi is independent', async t => {

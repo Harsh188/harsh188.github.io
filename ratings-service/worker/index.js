@@ -11,7 +11,7 @@ export const PHOTO_IDS = Object.freeze([
   'sony-reflections', 'sony-small-details', 'home', 'sunrise-webs',
   'curious-eevee', 'what-if', 'glowing-lanterns', 'amelie-after-dark',
   'pastel-clouds', '19th', 'peaking', 'salesforce-framed', 'blush',
-  'cherry-starburst', 'amber',
+  'cherry-starburst', 'amber', 'under-the-string-lights',
 ]);
 
 const ALLOWED_PHOTOS = new Set(PHOTO_IDS);
