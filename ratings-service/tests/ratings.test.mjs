@@ -14,6 +14,7 @@ const NOVEMBER_ADDITIONS = [
   'coastal-frame', 'the-road-to-the-sea', 'holding-against-the-tide',
 ];
 const UNDER_THE_STRING_LIGHTS = 'under-the-string-lights';
+const EMBER_CROWN = 'ember-crown';
 const PREVIOUS_PHOTOS = [
   'easy-smile', 'kodak-carousel', 'rooted', 'wire',
   'the-long-way-down', 'above-it-all', 'moon-over-the-city', 'a-shared-view',
@@ -56,11 +57,14 @@ function frozenClock(t, milliseconds = 1793786400000) {
   return value => { current = value; };
 }
 
-test('43-photo contract appends Under the string lights and preserves the previous catalog order', () => {
+test('44-photo contract inserts Ember Crown after Above it all and preserves the previous catalog order', () => {
   const toId = asset => asset.split('/').at(-1).replace(/\.[^.]+$/, '').replace(/-v\d+$/, '');
   const fixture = JSON.parse(readFileSync(new URL('./fixtures/published-photos.json', import.meta.url), 'utf8'));
-  assert.equal(PHOTO_IDS.length, 43);
-  assert.deepEqual(PHOTO_IDS, [...NOVEMBER_ADDITIONS, ...PREVIOUS_PHOTOS, UNDER_THE_STRING_LIGHTS]);
+  assert.equal(PHOTO_IDS.length, 44);
+  const previousCatalog = [...NOVEMBER_ADDITIONS, ...PREVIOUS_PHOTOS, UNDER_THE_STRING_LIGHTS];
+  const afterOriginal = previousCatalog.indexOf('above-it-all') + 1;
+  assert.deepEqual(PHOTO_IDS, previousCatalog.toSpliced(afterOriginal, 0, EMBER_CROWN));
+  assert.deepEqual(PHOTO_IDS.filter(id => id !== EMBER_CROWN), previousCatalog);
   assert.deepEqual(PHOTO_IDS, fixture.photos.map(toId));
   assert.equal(new Set(PHOTO_IDS).size, PHOTO_IDS.length);
   const source = process.env.PHOTO_GALLERY_SOURCE || new URL('../../portfolio/pictures.html', import.meta.url);
@@ -70,6 +74,10 @@ test('43-photo contract appends Under the string lights and preserves the previo
     assert.deepEqual(PHOTO_IDS, ids, 'Backend allowlist and live portfolio source must agree.');
     const dates = Array.from(html.matchAll(/<button\b[^>]*\bdata-photo="[^"]+"[^>]*\bdata-taken="([^"]+)"/g), match => match[1]);
     assert.deepEqual(dates.slice(0, 7), NOVEMBER_ADDITIONS.map(() => '2026-11-11'));
+    const emberButton = html.match(/<button\b[^>]*\bdata-photo="assets\/ember-crown\.jpg"[^>]*>/)?.[0];
+    assert.ok(emberButton, 'The final portrait has its own full-composition gallery entry.');
+    assert.match(emberButton, /\bdata-taken="2026-10-25"/);
+    assert.match(emberButton, /\bdata-caption="Ember Crown"/);
   }
 });
 
@@ -92,7 +100,8 @@ test('new photos accept independent votes while existing votes retain their iden
   const { vote, DB, get } = setup(t);
   const voterId = randomUUID();
   await vote({ photoId: 'sony-last-light', voterId, rating: 4 });
-  const newPhotos = [...NOVEMBER_ADDITIONS, UNDER_THE_STRING_LIGHTS];
+  await vote({ photoId: 'above-it-all', voterId, rating: 3 });
+  const newPhotos = [...NOVEMBER_ADDITIONS, UNDER_THE_STRING_LIGHTS, EMBER_CROWN];
   for (const photoId of newPhotos) {
     const res = await vote({ photoId, voterId, rating: 5 });
     assert.equal(res.status, 200, photoId);
@@ -101,11 +110,19 @@ test('new photos accept independent votes while existing votes retain their iden
     });
   }
   const { ratings } = await (await get()).json();
-  assert.equal(totalVotes(DB), newPhotos.length + 1);
+  assert.equal(totalVotes(DB), newPhotos.length + 2);
   assert.deepEqual(ratings.find(row => row.photoId === 'sony-last-light'), {
     photoId: 'sony-last-light', count: 1, average: 4, score: 3.583333,
   });
   assert.ok(ratings.filter(row => newPhotos.includes(row.photoId)).every(row => row.count === 1));
+  const update = await vote({ photoId: EMBER_CROWN, voterId, rating: 4 });
+  assert.equal(update.status, 200);
+  assert.equal((await update.json()).rating.count, 1);
+  const afterUpdate = (await (await get()).json()).ratings;
+  assert.deepEqual(afterUpdate.find(row => row.photoId === 'above-it-all'), {
+    photoId: 'above-it-all', count: 1, average: 3, score: 3.416667,
+  }, 'The original photo keeps its own existing vote when the edited portrait is rated.');
+  assert.equal(totalVotes(DB), newPhotos.length + 2);
 });
 
 test('same browser updates one vote, retries do not add votes, another visitor on the same WiFi is independent', async t => {

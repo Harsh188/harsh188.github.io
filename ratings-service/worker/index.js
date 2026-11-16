@@ -4,7 +4,7 @@ export const PHOTO_IDS = Object.freeze([
   'a-little-wild', 'orange-against-blue', 'the-familiar-span', 'a-way-through',
   'coastal-frame', 'the-road-to-the-sea', 'holding-against-the-tide',
   'easy-smile', 'kodak-carousel', 'rooted', 'wire',
-  'the-long-way-down', 'above-it-all', 'moon-over-the-city', 'a-shared-view',
+  'the-long-way-down', 'above-it-all', 'ember-crown', 'moon-over-the-city', 'a-shared-view',
   'setting-sutro', 'sunset-overlook', 'violet-bloom', 'chris-moon',
   'golden-gate-1', 'golden-gate-2', 'puffy-morning', 'hardly-strictly-bluegrass',
   'performative', 'after-midnight', 'sony-by-the-water', 'sony-last-light',

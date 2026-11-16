@@ -240,5 +240,28 @@
     "source": "IMG_6909-repaired.png",
     "title": "Under the string lights",
     "note": "Full-resolution repaired film scan. The gallery preview is 1200 px tall. The original scan has no recorded capture date."
+  },
+  "portfolio/assets/ember-crown.jpg": {
+    "source": "DSC07515 - Ember Crown.jpg",
+    "title": "Ember Crown",
+    "captureDate": "2026-10-25",
+    "captureDateSource": "Final Lightroom JPEG EXIF DateTimeOriginal: 2026:10:25 18:24:52",
+    "note": "User-provided final Lightroom edit. Full composition preserved in a 2400 px long-edge web JPEG; 1200 px gallery preview. Original ICC profile retained; no new color, texture, generative, or retouching changes. Private metadata removed.",
+    "sourceSha256": "2d6faa777ce1bfa92ea5f534ce95f1d52e72cd11d065c7e33025a293ec8d8927"
+  },
+  "portfolio/assets/ember-crown-home.jpg": {
+    "source": "DSC07515 - Ember Crown.jpg",
+    "title": "Ember Crown — homepage crop",
+    "cropBox": [
+      900,
+      1190,
+      4052,
+      5130
+    ],
+    "sourceDimensions": [
+      4672,
+      6179
+    ],
+    "note": "Deliberate4:5 crop from the final export, with headroom above curls and shoulder area retained.960px and480px responsive JPEGs; original ICC profile preserved."
   }
 }

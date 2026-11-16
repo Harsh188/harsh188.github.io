@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "revision": "5224f1ae44250d9911b2",
-  "photoCount": 43,
-  "totalBytes": 39853492,
+  "revision": "265e80fd1ce6679fb8a5",
+  "photoCount": 44,
+  "totalBytes": 41340220,
   "photos": [
     {
       "source": "assets/a-little-wild.jpg",
@@ -55,6 +55,10 @@
     {
       "source": "assets/above-it-all-v2.jpg",
       "preview": "assets/above-it-all-preview-v2.jpg"
+    },
+    {
+      "source": "assets/ember-crown.jpg",
+      "preview": "assets/ember-crown-preview.jpg"
     },
     {
       "source": "assets/moon-over-the-city.jpg",
@@ -317,6 +321,21 @@
       "url": "assets/easy-smile.jpg",
       "bytes": 948153,
       "sha256": "ba5549b6d73e41d6f87f74d53f22e44bcada9a492f1fd9790c83c43b7165c78a"
+    },
+    {
+      "url": "assets/ember-crown-home.jpg",
+      "bytes": 217693,
+      "sha256": "6b86d00f1c6bc76fdd02db3374c5d15c2bbec3d915295163efa9d3c2d619fdd0"
+    },
+    {
+      "url": "assets/ember-crown-preview.jpg",
+      "bytes": 192827,
+      "sha256": "6df2e56391819a94c5399c1c379888e09bb627035e48d289d13ba83986343cea"
+    },
+    {
+      "url": "assets/ember-crown.jpg",
+      "bytes": 1064860,
+      "sha256": "73b2963b46745f4476d809f9902ce499bd118eacf5a06d2e4743e8b96f95acac"
     },
     {
       "url": "assets/glowing-lanterns-preview.jpg",
@@ -590,8 +609,13 @@
     },
     {
       "url": "folio.css?v=20261031-offline",
-      "bytes": 10344,
-      "sha256": "d9143d131e0c7aadd45234e3bbceb561ab5e28deb83f0bc5d4cbfe83c6a60bc4"
+      "bytes": 10336,
+      "sha256": "306e63253479544226b8d935b321731278ad0e6cec88e8175d457fd3799a842f"
+    },
+    {
+      "url": "folio.css?v=20261115-ember-crown",
+      "bytes": 10336,
+      "sha256": "306e63253479544226b8d935b321731278ad0e6cec88e8175d457fd3799a842f"
     },
     {
       "url": "fonts/dm-sans-latin.woff2",
@@ -640,8 +664,8 @@
     },
     {
       "url": "index.html",
-      "bytes": 9960,
-      "sha256": "ec8e55fab022da1d7856cde0a8908e745576af29a57e3a5120347ca4004a988e"
+      "bytes": 10187,
+      "sha256": "96826ea07e164f779f66f7b457cc05c2aca3573bb1f6b5b178b5bfb287db6970"
     },
     {
       "url": "photo-viewer.js?v=20261103-art-folio",
@@ -655,8 +679,8 @@
     },
     {
       "url": "pictures.html",
-      "bytes": 42812,
-      "sha256": "2ca6c44eafeda6eb478b300e394ef41901ccbd1460c16efb5518ff80c6be3f99"
+      "bytes": 43605,
+      "sha256": "07d396d95c22fa7a2b57695332fa3351fc95980d4618a9fef89f4573b6d49cf2"
     },
     {
       "url": "ratings-config.js?v=20261103",
